@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登录页</title>
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../../static/login_style/css/font.css">
+	<link rel="stylesheet" href="../../static/login_style/css/xadmin.css">
+    <link rel="stylesheet" href="../../static/login_style/lib/bootstrap-4.6.0-dist/css/bootstrap.min.css">
+    <script src="../../static/login_style/lib/bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../../static/login_style/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../static/login_style/js/xadmin.js"></script>
+    <style>
+        .login #my_verify_code {
+            border: 1px solid #DCDEE0;
+            vertical-align: middle;
+            border-radius: 3px;
+            height: 50px;
+            padding: 0px 16px;
+            font-size: 14px;
+            color: #555555;
+            outline: none;
+            width: 45%;
+            box-sizing: border-box;
+            margin-right: 20px;
+        }
+        .message #login_font {
+            font-size: 20px
+        }
+    </style>
+</head>
+<body class="login-bg">
+    
+    <div class="login layui-anim layui-anim-up">
+        <div class="message" id="login_font">欢迎登录</div>
+        <div id="darkbannerwrap"></div>
+        
+        <form method="post" class="layui-form" >
+           {{form.account}}
+            <hr class="hr15">
+            {{form.pwd}}
+            <hr class="hr15">
+            {{form.verify_code}}
+            <!--点击图片重获验证码-->
+            <img class="verify_code" src="{{url_for('scholar.code')}}" onclick="this.src='/scholar/code?'+ Math.random()">
+
+
+            <hr class="hr15">
+
+            <div class="layui-btn-container">
+                   {{form.csrf_token}}
+            {{form.submit}}
+
+            </div>
+            {% for message in get_flashed_messages() %}
+<!--            {% for message in get_flashed_messages(with_categories=True) %}-->
+<!--            <div class="alert alert-{{ message[0] }}">-->
+<!--                <button type="button" class="close" data-dismiss="alert">&times;</button>-->
+<!--                    {{ message[1] }}-->
+<!--        </div>-->
+<!--        {% endfor %}-->
+    	<script>
+            layui.use('layer', function(){
+  var layer = layui.layer;
+  layer.msg('{{ message }}');
+});
+
+        </script>
+    {% endfor %}
+            <hr class="hr15">
+{#            之前是register和 wjmm#}
+            <p><a href="{{url_for('scholar.register')}}" class="fl">立即注册</a><a href="#" class="fr" style="float: right">忘记密码？</a></p>
+                <hr class="hr20" >
+        </form>
+    </div>
+<
+
+
+
+    <script>
+        $(function  () {
+            layui.use('layer', function(){
+                 var $ = layui.jquery, layer = layui.layer;
+                  $(document).on('click','#fl',function(){
+                     layer.open({
+                       type: 2,
+                        {#content: "{{url_for('admin.register')}}",#}
+                        content: "{{url_for('scholar.search')}}",
+                       area: ['500px', '650px'],
+                      resize:false,
+                   });
+                 });
+             });
+
+        })
+
+
+
+    </script>
+</body>
+</html>
