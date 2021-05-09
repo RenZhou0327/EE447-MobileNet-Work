@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="ace ace-card-on ace-tab-nav-on ace-main-nav-on ace-sidebar-on" data-theme-color="#c0e3e7">
 <head>
     <meta charset="utf-8">
@@ -22,8 +22,20 @@
     <link href="../../static/main_style/js/plugins/highlight/solarized-light.css" rel="stylesheet">
     <link href="../../static/main_style/style.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="../../static/login_style/css/font.css">
+	<link rel="stylesheet" href="../../static/login_style/css/xadmin.css">
+    <script type="text/javascript" src="../../static/login_style/js/jquery-3.3.1.min.js"></script>
+    <script src="../../static/login_style/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="../../static/login_style/js/xadmin.js"></script>
+
     <!-- Modernizer -->
     <script type="text/javascript" src="../../static/main_style/js/vendor/modernizr-3.3.1.min.js"></script>
+
+    <style>
+        .now {
+            background-color: #00F7DE;
+        }
+    </style>
   </head>
   <body>
      <div class="ace-wrapper">
@@ -108,7 +120,7 @@
         <div id="ace-content" class="ace-container-shift">
             <div class="ace-container">
 
-                
+
                 <div id="ace-nav-wrap" class="hidden-sm hidden-xs">
                         <div class="ace-nav-cont">
                             <div id="ace-nav-scroll">
@@ -150,32 +162,113 @@
                 <div class="ace-paper-stock">
                     <main class="ace-paper clearfix">
                         <div class="ace-paper-cont clear-mrg">
-						
+
 						<!-- START: PAGE CONTENT -->
 
-                            <div class="padd-box-sm">
-                                <header class="search-for">
+                            <div class="padd-box">
+
+                                <header class="search-after">
                                     <h1 class="search-title">search results for:
-                                    <span>Lorem ipsum</span></h1>
+                                    <span>{{kw}}</span></h1>
                                 </header>
+
                                 <div class="search-result">
-                                    <strong class="title-lg text-upper">Go Search</strong>
-                                    <form method="post" class="search-again">
-                                        <div class="form-item-wrap">
-                                            {{ form.searchInput }}
-{#                                            <input class="form-item" id="searchInput" name="searchInput" type="search" placeholder="Search" value="" size="30" maxlength="80" required="required">#}
-                                        </div>
-                                        {{form.csrf_token}}
-                                        <div class="form-submit form-item-wrap">
-                                            {{ form.submit }}
-{#                                            <input class="btn btn-primary" name="submit" type="submit" id="submit" value="Try Again">#}
-                                        </div>
-                                    </form>
+                                    <strong class="title-lg text-upper">Search Result</strong>
                                 </div>
+
+                                <section class="section clear-mrg">
+
+                                    <div class="padd-box-sm clear-mrg">
+
+                                        {% for item in search_items %}
+                                            {% set source = item["_source"] %}
+                                            <div class="ref-box brd-btm hreview">
+                                                <div class="ref-avatar">
+                                                    <img alt="" src="../../static/main_style/img/uploads/avatar/avatar-54x54-01.png" class="avatar avatar-54 photo" height="54" width="54">
+                                                </div>
+
+                                                <div class="ref-info">
+                                                    <div class="ref-author">
+                                                        <strong>{{ source["name"] }}</strong>
+
+                                                        <span>{{ source["category"] }}</span>
+                                                    </div>
+
+                                                    <blockquote class="ref-cont clear-mrg">
+                                                        <p>{{ source["paper"] }}</p>
+                                                    </blockquote>
+                                                </div>
+                                            </div><!-- .ref-box -->
+                                        {% endfor %}
+{#                                            <div class="ref-box brd-btm hreview">#}
+{#                                                <div class="ref-avatar">#}
+{#                                                    <img alt="" src="../../static/main_style/img/uploads/avatar/avatar-54x54-02.png" class="avatar avatar-54 photo" height="54" width="54">#}
+{#                                                </div>#}
+{##}
+{#                                                <div class="ref-info">#}
+{#                                                    <div class="ref-author">#}
+{#                                                        <strong>franklin may</strong>#}
+{#                                                        <span>Modern LLC,HR</span>#}
+{#                                                    </div>#}
+{##}
+{#                                                    <blockquote class="ref-cont clear-mrg">#}
+{#                                                        <p>Your brand is the core of your marketing, the central#}
+{#                                                            theme around your products and services.Your brand is not your Logo or your Company Name#}
+{#                                                        </p>#}
+{#                                                    </blockquote>#}
+{#                                                </div>#}
+{#                                            </div><!-- .ref-box -->#}
+{##}
+{#                                            <div class="ref-box brd-btm hreview">#}
+{#                                                <div class="ref-avatar">#}
+{#                                                    <img alt="" src="../../static/main_style/img/uploads/avatar/avatar-58x58-default.png" class="avatar avatar-54 photo" height="54" width="54">#}
+{#                                                </div>#}
+{##}
+{#                                                <div class="ref-info">#}
+{#                                                    <div class="ref-author">#}
+{#                                                        <strong>edwin ballard</strong>#}
+{#                                                        <span>West Alexandrine</span>#}
+{#                                                    </div>#}
+{##}
+{#                                                    <blockquote class="ref-cont clear-mrg">#}
+{#                                                        <p>Your brand is the core of your marketing, the central#}
+{#                                                            theme around your products and services.Your brand is not your Logo or your Company Name#}
+{#                                                        </p>#}
+{#                                                    </blockquote>#}
+{#                                                </div>#}
+{#                                            </div><!-- .ref-box -->#}
+
+
+                                    </div><!-- .padd-box-sm -->
+                                </section><!-- .section -->
+
+                                <div class="page">
+                                    {% if page > 1 %}
+                                    <a class="prev" href="{{ url_for("scholar.entities", keyword=kw, page=page - 1) }}">上一页</a>
+                                    {% else %}
+                                    <a class="prev" href="#">上一页</a>
+                                    {% endif %}
+
+                                        {% for cnt in range(1, page_num + 1) %}
+                                            {% if cnt != page %}
+                                                <a class="current" href="{{ url_for("scholar.entities", keyword=kw, page=cnt) }}">{{ cnt }}</a>
+                                            {%else%}
+                                                <a class="now" href="#">{{ cnt }}</a>
+                                            {% endif %}
+
+                                        {% endfor %}
+
+                                    {% if page < page_num %}
+                                    <a class="next" href="{{url_for("scholar.entities", keyword=kw, page=page + 1)}}">下一页</a>
+                                    {%else%}
+                                    <a class="next" href="#">下一页</a>
+                                    {%endif%}
+                                    <a href="{{url_for("scholar.entities", keyword=kw, page=page_num)}}">尾页</a>
+                              </div>
                             </div>
 
                         <!-- END: PAGE CONTENT -->
-						
+
                         </div><!-- .ace-paper-cont -->
                     </main><!-- .ace-paper -->
                 </div><!-- .ace-paper-stock -->

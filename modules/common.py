@@ -1,6 +1,6 @@
 from functools import wraps
 from flask import session, redirect, url_for, request, flash
-
+from elasticsearch import Elasticsearch
 
 def scholar_log_req(f):
     @wraps(f)
@@ -16,3 +16,4 @@ def scholar_log_req(f):
 
 
 graph_list = [(0, 1), (0, 2), (0, 3)]
+es = Elasticsearch()

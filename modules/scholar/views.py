@@ -1,10 +1,12 @@
+from math import ceil
+
 from flask import render_template, session, redirect, make_response, request, url_for, flash
 from io import BytesIO
 from modules.scholar import scholar_blue
 from modules.scholar.forms import SearchForm, RegisterForm
 from modules.scholar.forms import LoginForm
 from modules.scholar.utils import get_verify_code
-from modules.common import graph_list, scholar_log_req
+from modules.common import graph_list, scholar_log_req, es
 from modules.scholar.models import User
 from app import db
 
@@ -92,10 +94,44 @@ def code():
 
 
 @scholar_blue.route("/search", methods=["GET", "POST"])
+@scholar_log_req
 def search():
     form = SearchForm()
-    # print(form.validate_on_submit())
     if form.validate_on_submit():
         data = form.data
-        print(data)
+        print("searchData", data)
+        if data['searchInput'] is not None:
+            return redirect(url_for("scholar.entities", keyword=data['searchInput'], page=1))
+        # query['query']['query_string']['query'] = data['searchInput']
+        # print(query)
+        # result = es.search(index='scholar', doc_type='teacherInfo', body=query)
+        # print(result)
     return render_template("search/search.html", form=form)
+
+
+@scholar_blue.route("/entities/<string:keyword>&<int:page>", methods=["GET", "POST"])
+@scholar_log_req
+def entities(keyword, page=1):
+    page_size = 3
+    print("page", page)
+    query = {
+        "query": {
+            "query_string": {
+                "default_field": "paper",
+                "query": keyword
+            }
+        },
+        "from": page - 1,
+        "size": page_size
+    }
+    result = es.search(index='scholar', doc_type='teacherInfo', body=query)
+    total = result['hits']['total']
+    rest = total % page_size
+    print("rest", rest)
+    res_dict = result['hits']['hits']
+    page_num = ceil(total / page_size)
+    print("page_num", page_num)
+    if page == page_num:
+        res_dict = res_dict[-rest:]
+    print(res_dict)
+    return render_template("search/entities.html", kw=keyword, search_items=res_dict, page=page, page_num=page_num)

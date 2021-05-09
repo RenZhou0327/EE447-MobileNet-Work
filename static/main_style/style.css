@@ -2435,6 +2435,11 @@ img.aligncenter {
     vertical-align: middle;
 }
 
+.page-numbers.now {
+    background-color: #00F7DE;
+    /*color: #5bc0de;*/
+}
+
 .page-numbers.current {
     color: #010101;
 }
@@ -6418,6 +6423,12 @@ h1, h2, h3, h4, h5, h6 {
 .search-for {
     text-align: center;
     margin-bottom: 70px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.search-after {
+    text-align: center;
+    margin-bottom: 30px;
     border-bottom: 1px solid #e6e6e6;
 }
 
