@@ -6232,7 +6232,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .pf-grid-item,
 .pf-grid-sizer {
-    width: 100%;
+    width: 95%;
+    margin-bottom: 30px;
 }
 
 .pf-grid-sizer {
@@ -6253,7 +6254,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .project {
-    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    width: 80%;
     position: relative;
     overflow: hidden;
     cursor: pointer;

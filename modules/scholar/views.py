@@ -161,3 +161,9 @@ def entities(keyword, page=1):
         res_dict = res_dict[-rest:]
     # print(res_dict)
     return render_template("search/entities.html", kw=keyword, search_items=res_dict, page=page, page_num=page_num)
+
+
+@scholar_blue.route("/favor", methods=["GET", "POST"])
+@scholar_log_req
+def favor():
+    return render_template("search/favor.html")
