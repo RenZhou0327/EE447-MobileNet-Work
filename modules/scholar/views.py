@@ -1,6 +1,6 @@
 from math import ceil
 
-from flask import render_template, session, redirect, make_response, request, url_for, flash
+from flask import render_template, session, redirect, make_response, request, url_for, flash, jsonify
 from io import BytesIO
 from modules.scholar import scholar_blue
 from modules.scholar.forms import SearchForm, RegisterForm
@@ -167,3 +167,10 @@ def entities(keyword, page=1):
 @scholar_log_req
 def favor():
     return render_template("search/favor.html")
+
+
+@scholar_blue.route("/operateFavor", methods=["POST"])
+def oprateFavor():
+    json_data = request.get_json()
+    print(json_data["id"], json_data["op"])
+    return jsonify(res="success", id=json_data["id"], op=json_data["op"])

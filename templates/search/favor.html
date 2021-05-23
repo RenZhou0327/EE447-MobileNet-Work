@@ -24,6 +24,72 @@
 
     <!-- Modernizer -->
     <script type="text/javascript" src="../../static/main_style/js/vendor/modernizr-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+        function clickFavor(id) {
+            var img = document.getElementById(id);
+            var isFavor = img.getAttribute("alt");
+            if (isFavor === "favor") {
+                img.setAttribute("alt", "notFavor");
+                img.setAttribute("src", "../../static/main_style/img/favor-1.png");
+                var data = {};
+                data["id"] = id;
+                data["op"] = 0;
+
+                $.ajax({
+                        type: 'POST',
+                        url: '/scholar/operateFavor',
+                        dataType: 'json',
+                        contentType: 'application/json; charset=utf-8',
+                        data: JSON.stringify(data),
+                        success: window.onload=function(callback) {
+                            window.alert(callback.res + callback.id + callback.op);
+                            {#console.log(callback);#}
+                            {#window.alert(callback.first_name + " " + callback.last_name);#}
+                            // Watch out for Cross Site Scripting security issues when setting dynamic content!
+                            {#var elem = document.getElementById('hello');#}
+                            {#console.log(elem);#}
+                            {#elem.innerText = callback.first_name + ' ' + callback.last_name  + '!';#}
+                            {#elem.style.color = "red";#}
+                            {#$(this).text('Hello ' + callback.first_name + ' ' + callback.last_name  + '!');#}
+                        },
+                        error: function() {
+                            window.alert("Something get error!")
+                        }
+                    });
+            }
+            else {
+                img.setAttribute("alt", "favor");
+                img.setAttribute("src", "../../static/main_style/img/favor-2.png");
+                var data = {};
+                data["id"] = id;
+                data["op"] = 1;
+
+                $.ajax({
+                        type: 'POST',
+                        url: '/scholar/operateFavor',
+                        dataType: 'json',
+                        contentType: 'application/json; charset=utf-8',
+                        data: JSON.stringify(data),
+                        success: window.onload=function(callback) {
+                            window.alert(callback.res + callback.id + callback.op);
+                            {#console.log(callback);#}
+                            {#window.alert(callback.first_name + " " + callback.last_name);#}
+                            // Watch out for Cross Site Scripting security issues when setting dynamic content!
+                            {#var elem = document.getElementById('hello');#}
+                            {#console.log(elem);#}
+                            {#elem.innerText = callback.first_name + ' ' + callback.last_name  + '!';#}
+                            {#elem.style.color = "red";#}
+                            {#$(this).text('Hello ' + callback.first_name + ' ' + callback.last_name  + '!');#}
+                        },
+                        error: function() {
+                            window.alert("Something get error!")
+                        }
+                    });
+            }
+
+        }
+    </script>
   </head>
   <body>
      <div class="ace-wrapper">
@@ -96,7 +162,7 @@
                                 <nav id="ace-nav" class="ace-nav">
                                     <ul class="clear-list">
 										<li>
-											<a href="index.html" data-tooltip="Home"><img class="avatar avatar-42" src="img/uploads/avatar/avatar-42x42.png" alt=""></a>
+											<a href="index.html" data-tooltip="Home"><img class="avatar avatar-42" src="../../static/main_style/img/uploads/avatar/avatar-42x42.png" alt=""></a>
 										</li>
 										<li>
 											<a href="experience.html" data-tooltip="Experience"><span class="ace-icon ace-icon-experience"></span></a>
@@ -158,7 +224,14 @@
                                                     <div class="valign-cell">
                                                         <h2 class="text-upper">stu unger rise</h2>
                                                         <p>Accessories Here you can find the best computer monitor, printer, scanner, speaker, projector. hardware and more</p>
-                                                        <a href="#pf-popup-1" class="pf-btn-view btn btn-primary">View More</a>
+                                                        <div style="text-align: center">
+                                                            <div style="width: 100px; height:auto; float:left; display: inline; margin-left: 40px" >
+                                                                <a href="#pf-popup-1" class="pf-btn-view btn btn-primary">View More</a>
+                                                            </div>
+                                                            <div style="width: 100px; height:auto; float:right; display: inline; margin-right: 40px" >
+                                                                 <img id="tid_1" src="../../static/main_style/img/favor-2.png" style="padding-left: 10px; width:40%; height:40%; padding-bottom: 10px" alt="favor" onclick="clickFavor(this.id)"/>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
