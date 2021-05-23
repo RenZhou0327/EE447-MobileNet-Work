@@ -9,12 +9,38 @@ from modules.scholar.utils import get_verify_code
 from modules.common import graph_list, scholar_log_req, es
 from modules.scholar.models import User
 from app import db
+import random
 
 
-@scholar_blue.route("/index")
+@scholar_blue.route("/index", methods=["GET", "POST"])
 @scholar_log_req
 def index():
-    return render_template("search/index.html")
+    seed = random.randint(0, 300)
+    query = {
+        "query": {
+            "function_score": {
+                "functions": [
+                    {
+                        "random_score":  {
+                            "seed": seed
+                        }
+                    }
+                ],
+                "score_mode": "sum",
+            }
+        },
+        "size": 10
+    }
+    result = es.search(index='scholar', doc_type='teacherInfo', body=query)
+    res_dict = result['hits']['hits']
+
+    form = SearchForm()
+    if form.validate_on_submit():
+        data = form.data
+        print("searchData", data)
+        if data['searchInput'] is not None:
+            return redirect(url_for("scholar.entities", keyword=data['searchInput'], page=1))
+    return render_template("search/index.html", search_items=res_dict, form=form)
 
 
 @scholar_blue.route("/", methods=["GET", "POST"])
@@ -23,8 +49,8 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         data = form.data
-        print(list(session.items()))
-        print("I am here", form.data)
+        # print(list(session.items()))
+        # print("I am here", form.data)
         # {'account': 'root', 'pwd': 'root', 'verify_code': 'utas', 'submit': True,
         # 'csrf_token': 'IjBhZGE4Zjc1YmE2MWJlNmI4ZDliOTY3NTRmMGQ2ODQ3MmEzNGQ3ZmYi.YJC1HQ.TNuDjDz-cGqt1f1BUVdCOn-ixCI'}
         usr_count = User.query.filter_by(username=data['account']).first()
@@ -38,7 +64,7 @@ def login():
             flash('验证码错误！', "danger")
             return redirect(url_for("scholar.login"))
         session["admin"] = data['account']
-        print(session)
+        # print(session)
         return redirect(request.args.get("next") or url_for("scholar.index"))
     return render_template("login/login.html", form=form)
 
@@ -113,7 +139,7 @@ def search():
 @scholar_log_req
 def entities(keyword, page=1):
     page_size = 3
-    print("page", page)
+    # print("page", page)
     query = {
         "query": {
             "query_string": {
@@ -127,11 +153,11 @@ def entities(keyword, page=1):
     result = es.search(index='scholar', doc_type='teacherInfo', body=query)
     total = result['hits']['total']
     rest = total % page_size
-    print("rest", rest)
+    # print("rest", rest)
     res_dict = result['hits']['hits']
     page_num = ceil(total / page_size)
-    print("page_num", page_num)
+    # print("page_num", page_num)
     if page == page_num:
         res_dict = res_dict[-rest:]
-    print(res_dict)
+    # print(res_dict)
     return render_template("search/entities.html", kw=keyword, search_items=res_dict, page=page, page_num=page_num)

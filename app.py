@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail
-
+# from datetime import timedelta
 
 app = Flask(__name__)
 
@@ -21,6 +21,8 @@ app.debug = True
 # 注册数据模型
 db = SQLAlchemy(app)
 
+# 设置网页缓存时间
+# app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(seconds=100)
 
 # 邮件配置
 app.config['MAIL_SERVER'] = 'smtp.163.com'
