@@ -180,8 +180,13 @@ def professor():
     Researcher_info = {"ID": researcher.ID, "Name": researcher.Name, "Avatar": researcher.Avatar,
                         "Title": researcher.Title, "HomePage": researcher.HomePage, "University": researcher.University,
                         "Lab": researcher.Lab, "Bio": researcher.Bio, "Sig": researcher.Signature,
-                        "DOB": researcher.DOB, "Email": researcher.Email}
-    # print("Researcher_ID", researcher.Avatar)
+                        "DOB": researcher.DOB, "Email": researcher.Email, "Mottos": researcher.Mottos,
+                        "ResearchInterest": json.loads(researcher.ResearchInterest)["ResearchInterest"],
+                        "Co_authors": json.loads(researcher.Co_authors)["Co_authors"],
+                        "Papers": json.loads(researcher.Papers)["Papers"],
+                        "Cited_graph": json.loads(researcher.Cited_graph)["Cited_graph"],
+                    }
+    print("Researcher_info[ResearchInterest]", Researcher_info["ResearchInterest"])
     return render_template("search/professor.html", Researcher_info=Researcher_info)
 
 

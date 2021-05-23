@@ -29,6 +29,8 @@ class Researcher(db.Model):
     Signature = db.Column(db.String(100), unique=True)  # 签名
     DOB = db.Column(db.String(100), unique=True)  # Date of Birth
     Email = db.Column(db.String(100), unique=True)
+    Mottos = db.Column(db.String(100), unique=True)
+    ResearchInterest = db.Column(db.String(100), unique=True)
     Co_authors = db.Column(db.String(100), unique=True)  # 论文合作者
     Papers = db.Column(db.String(100), unique=True)  # 论文
     Cited_graph = db.Column(db.String(100), unique=True)  # 每年引用数量
