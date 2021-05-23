@@ -7,9 +7,10 @@ from modules.scholar.forms import SearchForm, RegisterForm
 from modules.scholar.forms import LoginForm
 from modules.scholar.utils import get_verify_code
 from modules.common import graph_list, scholar_log_req, es
-from modules.scholar.models import User
+from modules.scholar.models import User, Researcher
 from app import db
 import random
+import json
 
 
 @scholar_blue.route("/index", methods=["GET", "POST"])
@@ -167,6 +168,21 @@ def entities(keyword, page=1):
 @scholar_log_req
 def favor():
     return render_template("search/favor.html")
+
+@scholar_blue.route("/professor", methods=["GET", "POST"])
+@scholar_log_req
+def professor():
+    # 这个地方需要传入被点击的实验者的姓名, 然后在数据库中进行搜索展示
+    researcher = Researcher.query.filter_by(Name='Quanshi Zhang').first()
+    if researcher.DOB == "":
+        researcher.DOB = "Unknown"
+    print("researcher.Co_authors", json.loads(researcher.Co_authors)["Co_authors"])
+    Researcher_info = {"ID": researcher.ID, "Name": researcher.Name, "Avatar": researcher.Avatar,
+                        "Title": researcher.Title, "HomePage": researcher.HomePage, "University": researcher.University,
+                        "Lab": researcher.Lab, "Bio": researcher.Bio, "Sig": researcher.Signature,
+                        "DOB": researcher.DOB, "Email": researcher.Email}
+    # print("Researcher_ID", researcher.Avatar)
+    return render_template("search/professor.html", Researcher_info=Researcher_info)
 
 
 @scholar_blue.route("/operateFavor", methods=["POST"])

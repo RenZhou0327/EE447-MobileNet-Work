@@ -39,24 +39,36 @@ def insert_data():
             'category': '机器学习 可解释性',
             'paper': '学习硬知识 公务员狗都不去 这辈子也就那样了'
         },
-        # {
-        #     'tid': 2,
-        #     'name': '高晓沨',
-        #     'category': '数学建模',
-        #     'paper': '软知识 美赛'
-        # },
-        # {
-        #     'tid': 3,
-        #     'name': '蒋力',
-        #     'category': '操作系统',
-        #     'paper': '试试搜索 公务员'
-        # },
-        # {
-        #     'tid': 4,
-        #     'name': '周军',
-        #     'category': '计算机视觉',
-        #     'paper': '不知道了'
-        # },
+        {
+            'tid': 2,
+            'name': '高晓沨',
+            'category': '数学建模',
+            'paper': '软知识 美赛'
+        },
+        {
+            'tid': 3,
+            'name': '蒋力',
+            'category': '操作系统',
+            'paper': '试试搜索 公务员'
+        },
+        {
+            'tid': 4,
+            'name': '周军',
+            'category': '计算机视觉',
+            'paper': '不知道了'
+        },
+        {
+            'tid': 5,
+            'name': '张伟楠',
+            'category': '机器学习 强化学习',
+            'paper': '这里还是公务员 为什么这么多公务员'
+        },
+        {
+            'tid': 6,
+            'name': '王新兵',
+            'category': 'Ace map',
+            'paper': '王新兵也用公务员'
+        },
     ]
 
     # datas = [
@@ -104,5 +116,5 @@ def query_data():
 
 
 if __name__ == '__main__':
-    # insert_data()
-    pass
+    create_index()
+    insert_data()
