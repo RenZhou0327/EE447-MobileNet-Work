@@ -223,7 +223,7 @@
                                                 <div class="valign-table">
                                                     <div class="valign-cell">
                                                         {% set professor_url = "professor/" + favor_item[1] | replace (" ", "%20")  %}
-                                                        <a href={{ professor_url }}><h2 class="text-upper">{{ favor_item[1] }}</h2></a>
+                                                        <h2 class="text-upper">{{ favor_item[1] }}</h2>
                                                         <p>
                                                             {{ favor_item[4] }}
                                                             <br>
@@ -231,7 +231,7 @@
                                                         </p>
                                                         <div style="text-align: center">
                                                             <div style="width: 100px; height:auto; float:left; display: inline; margin-left: 40px" >
-                                                                <a href="#pf-popup-1" class="pf-btn-view btn btn-primary">View More</a>
+                                                                <a href={{ professor_url }} class="pf-btn-view btn btn-primary">View More</a>
                                                             </div>
                                                             <div style="width: 100px; height:auto; float:right; display: inline; margin-right: 40px" >
                                                                  <img id={{ favor_item[1] | replace (" ", "%20") }} src="../../static/main_style/img/favor-2.png" style="padding-left: 10px; width:40%; height:40%; padding-bottom: 10px" alt="favor" onclick="clickFavor(this.id)"/>

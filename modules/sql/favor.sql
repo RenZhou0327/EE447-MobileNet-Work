@@ -11,7 +11,7 @@
  Target Server Version : 80021
  File Encoding         : 65001
 
- Date: 24/05/2021 23:39:21
+ Date: 24/05/2021 23:43:36
 */
 
 SET NAMES utf8mb4;
@@ -32,5 +32,7 @@ CREATE TABLE `favor`  (
 -- Records of favor
 -- ----------------------------
 INSERT INTO `favor` VALUES (13, 'root', 'Quanshi Zhang');
+INSERT INTO `favor` VALUES (15, 'root', 'Xinbing Wang');
+INSERT INTO `favor` VALUES (16, 'root', 'Haiming Jin');
 
 SET FOREIGN_KEY_CHECKS = 1;
