@@ -170,11 +170,11 @@ def favor():
     return render_template("search/favor.html")
 
 
-@scholar_blue.route("/professor", methods=["GET", "POST"])
+@scholar_blue.route("/professor/<string:name>", methods=["GET", "POST"])
 @scholar_log_req
-def professor():
+def professor(name):
     # 这个地方需要传入被点击的实验者的姓名, 然后在数据库中进行搜索展示
-    researcher = Researcher.query.filter_by(Name='Quanshi Zhang').first()
+    researcher = Researcher.query.filter_by(Name=name).first()
     if researcher.DOB == "":
         researcher.DOB = "Unknown"
     Researcher_info = {"ID": researcher.ID, "Name": researcher.Name, "Avatar": researcher.Avatar,
@@ -192,14 +192,14 @@ def professor():
     return render_template("search/professor.html", Researcher_info=Researcher_info)
 
 
-@scholar_blue.route("/paper", methods=["GET", "POST"])
+@scholar_blue.route("/paper/<string:name>", methods=["GET", "POST"])
 @scholar_log_req
-def paper():
+def paper(name):
     # 这个地方需要传入被点击的实验者的姓名, 然后在数据库中进行搜索展示
-    researcher = Researcher.query.filter_by(Name='Quanshi Zhang').first()
+    researcher = Researcher.query.filter_by(Name=name).first()
     if researcher.DOB == "":
         researcher.DOB = "Unknown"
-    Researcher_info = {"ID": researcher.ID, "Name": researcher.Name, "Avatar": researcher.Avatar,
+    researcher_info = {"ID": researcher.ID, "Name": researcher.Name, "Avatar": researcher.Avatar,
                         "Title": researcher.Title, "HomePage": researcher.HomePage, "University": researcher.University,
                         "Lab": researcher.Lab, "Bio": researcher.Bio, "Sig": researcher.Signature,
                         "DOB": researcher.DOB, "Email": researcher.Email,
@@ -210,18 +210,18 @@ def paper():
                         "Papers": json.loads(researcher.Papers)["Papers"],
                         "Cited_graph": json.loads(researcher.Cited_graph)["Cited_graph"],
                     }
-    print("Researcher_info[Papers]", Researcher_info["Papers"])
-    return render_template("search/paper.html", Researcher_info=Researcher_info)
+    print("Researcher_info[Papers]", researcher_info["Papers"])
+    return render_template("search/paper.html", Researcher_info=researcher_info)
 
 
-@scholar_blue.route("/connection", methods=["GET", "POST"])
+@scholar_blue.route("/connection:<string:name>", methods=["GET", "POST"])
 @scholar_log_req
-def connection():
+def connection(name):
     # 这个地方需要传入被点击的实验者的姓名, 然后在数据库中进行搜索展示
-    researcher = Researcher.query.filter_by(Name='Quanshi Zhang').first()
+    researcher = Researcher.query.filter_by(Name=name).first()
     if researcher.DOB == "":
         researcher.DOB = "Unknown"
-    Researcher_info = {"ID": researcher.ID, "Name": researcher.Name, "Avatar": researcher.Avatar,
+    researcher_info = {"ID": researcher.ID, "Name": researcher.Name, "Avatar": researcher.Avatar,
                         "Title": researcher.Title, "HomePage": researcher.HomePage, "University": researcher.University,
                         "Lab": researcher.Lab, "Bio": researcher.Bio, "Sig": researcher.Signature,
                         "DOB": researcher.DOB, "Email": researcher.Email,
@@ -232,8 +232,8 @@ def connection():
                         "Papers": json.loads(researcher.Papers)["Papers"],
                         "Cited_graph": json.loads(researcher.Cited_graph)["Cited_graph"],
                     }
-    print("Researcher_info[Papers]", Researcher_info["Papers"])
-    return render_template("search/connection.html", Researcher_info=Researcher_info)
+    print("Researcher_info[Papers]", researcher_info["Papers"])
+    return render_template("search/connection.html", Researcher_info=researcher_info)
 
 
 @scholar_blue.route("/operateFavor", methods=["POST"])
