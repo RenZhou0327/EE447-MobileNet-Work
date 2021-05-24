@@ -941,6 +941,8 @@ input[type='month'],
     background-image: none;
     border: 1px solid transparent;
     transition: border 500ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    /* 让搜索框和搜索按钮并排展示 */
+    display: inline;
 }
 
 .form-item:focus {
@@ -1839,11 +1841,11 @@ submit
 }
 
 .text-right {
-    text-align: right;
+    text-align: center;
 }
 
 .text-left {
-    text-align: left;
+    text-align: right;
 }
 
 .text-upper {
@@ -2139,7 +2141,7 @@ img.aligncenter {
 .btn {
     font-family: inherit;
     color: #fff;
-    font-size: 10px;
+    font-size: 15px;
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: 0.05em;
@@ -2179,6 +2181,8 @@ img.aligncenter {
 .btn-primary {
     color: #010101;
     background-color: #c0e3e7;
+    /* 让搜索框和搜索按钮并排展示 */
+    display: inline;
 }
 
 .btn-lg {
@@ -2571,11 +2575,6 @@ img.aligncenter {
     vertical-align: middle;
 }
 
-.page-numbers.now {
-    background-color: #00F7DE;
-    /*color: #5bc0de;*/
-}
-
 .page-numbers.current {
     color: #010101;
 }
@@ -2780,9 +2779,25 @@ img.aligncenter {
     height: 42px;
 }
 
+.avatar-90 {
+    width: 90px;
+    height: 90px;
+    display: inline;
+    position: fixed;
+}
+
 .avatar-195 {
     width: 195px;
     height: 195px;
+}
+
+
+/**
+* TEXTS
+**/
+
+.text-inline {
+    display: inline;
 }
 
 
@@ -4738,7 +4753,7 @@ yx-axis
 }
 
 .slick-loading .slick-list {
-    background: url("main_style/img/ajax-loader.gif") center center no-repeat;
+    background: url("img/ajax-loader.gif") center center no-repeat;
 }
 
 .slick-track {
@@ -5140,8 +5155,7 @@ h6 {
         padding-right: 25px;
     }
     .ace-card-on .ace-container-shift {
-        /*margin-left: 288px;*/
-        margin: 0;
+        margin-left: 288px;
     }
     .ace-card-on .ace-paper-cont {
         float: left;
@@ -5266,8 +5280,11 @@ h6 {
 }
 
 .ace-head-row {
+    position: relative;
     display: table;
+    border: 1px solid #cfcfcf;
     width: 100%;
+    background-color: #fff;
 }
 
 .ace-head-col {
@@ -6543,8 +6560,7 @@ h6 {
 
 .pf-grid-item,
 .pf-grid-sizer {
-    width: 95%;
-    margin-bottom: 30px;
+    width: 100%;
 }
 
 .pf-grid-sizer {
@@ -6565,9 +6581,7 @@ h6 {
 }
 
 .project {
-    margin: 0 auto;
-    text-align: center;
-    width: 80%;
+    width: 100%;
     position: relative;
     overflow: hidden;
     cursor: pointer;
@@ -6737,12 +6751,6 @@ h6 {
     border-bottom: 1px solid #e6e6e6;
 }
 
-.search-after {
-    text-align: center;
-    margin-bottom: 30px;
-    border-bottom: 1px solid #e6e6e6;
-}
-
 .search-title {
     font-size: 1.250em;
     color: #757575;
@@ -6777,6 +6785,8 @@ h6 {
 
 .search-again .form-item-wrap {
     margin-left: 0;
+    /* 让搜索框和搜索按钮并排展示 */
+    display: inline;
 }
 
 .search-again .form-submit {
@@ -6784,9 +6794,12 @@ h6 {
 }
 
 .search-again .form-item {
-    max-width: 295px;
-    height: 50px;
+    margin: 20px 0px;
+    max-width: 360px;
+    /* 搜索框高度 */
+    height: 40px;
     margin: 0 auto;
+    border-radius: 50px;
 }
 
 .search-again .form-item::-webkit-input-placeholder {

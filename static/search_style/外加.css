@@ -1,0 +1,95 @@
+.ace-head-text {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    font-weight: 800;
+    color: #065279;
+}
+
+.btn-pic {
+    width: 100%;
+    height: 100%;
+}
+
+.btn-style {
+    width: 50px;
+    height: 40px;
+    border: none;
+    background-color: #fff;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+}
+
+.bigbox {
+    float: left;
+    width: 500px;
+    height: 450px;
+    border: 1px solid #cfcfcf;
+    margin-bottom: 100px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.leftbox {
+    height: 400px;
+    width: 280px;
+    float: left;
+}
+
+.picturebox {
+    width: 280px;
+    height: 100px;
+    margin: 30px 20px 30px 20px;
+}
+
+.person {
+    float: left;
+    width: 70px;
+    height: 90px;
+    margin: 5px 0px;
+}
+
+.text_instruction {
+    float: left;
+    height: 100px;
+    margin-left: 20px;
+}
+
+.up {
+    font-weight: bold;
+    color: #101010
+}
+
+.down {
+    color: #10104e;
+}
+
+.research {
+    width: 280px;
+    margin-left: 20px;
+    height: 250px;
+}
+
+.bio {
+    height: 125px;
+    text-overflow: none;
+    border: 1px solid #cfcfcf;
+}
+
+.researches {
+    height: 125px;
+    text-overflow: none;
+    border: 1px solid #cfcfcf;
+}
+
+.news {
+    float: right;
+    margin-right: 10px;
+    width: 180px;
+    height: 370px;
+    margin-top: 40px;
+    border: 1px solid #cfcfcf;
+}

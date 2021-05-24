@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="ace ace-card-on ace-tab-nav-on ace-main-nav-on ace-sidebar-on" data-theme-color="#c0e3e7">
 
 <head>
@@ -22,6 +22,7 @@
     <!-- Styles -->
     <link href="../../static/main_style/js/plugins/highlight/solarized-light.css" rel="stylesheet">
     <link href="../../static/main_style/style.css" rel="stylesheet">
+    <link href="../../static/search_style/paper.css" rel="stylesheet">
 
     <!-- Modernizer -->
     <script type="text/javascript" src="../../static/main_style/js/vendor/modernizr-3.3.1.min.js"></script>
@@ -71,10 +72,10 @@
         <nav id="ace-nav-sm" class="ace-nav hidden-lg hidden-md">
             <ul class="clear-list">
                 <li>
-                    <a href="index" data-tooltip="Home"><img class="avatar avatar-42" src={{ Researcher_info.Avatar }}></a>
+                    <a href="index.html" data-tooltip="Home"><img class="avatar avatar-42" src={{ Researcher_info.Avatar }}></a>
                 </li>
                 <li>
-                    <a href="paper" data-tooltip="Experience"><span class="ace-icon ace-icon-experience"></span></a>
+                    <a href="experience.html" data-tooltip="Experience"><span class="ace-icon ace-icon-experience"></span></a>
                 </li>
                 <li>
                     <a href="portfolio.html" data-tooltip="Portfolio"><span class="ace-icon ace-icon-portfolio"></span></a>
@@ -157,140 +158,30 @@
                                 <section class="section brd-btm">
                                     <div class="row">
                                         <div class="col-sm-12 clear-mrg text-box">
-                                            <h2 class="title-lg text-upper">About Me</h2>
-
-                                            <p><b>Helo, I’m {{ Researcher_info.Name }}</b><br> {{ Researcher_info.Bio }}
-                                            </p>
-
-                                            <p class="text-right">
-                                                <img src={{ Researcher_info.Sig }} alt="">
-                                            </p>
+                                            <h2 class="title-lg text-upper">Papers</h2>
                                         </div>
                                     </div>
                                 </section>
                                 <!-- .section -->
-
-                                <section class="section brd-btm">
-                                    <div class="row">
-                                        <div class="col-sm-6 clear-mrg">
-                                            <h2 class="title-thin text-muted">personal information</h2>
-
-                                            <dl class="dl-horizontal clear-mrg">
-                                                <dt class="text-upper">Full Name</dt>
-                                                <dd>{{ Researcher_info.Name }}</dd>
-
-                                                <dt class="text-upper">D.o.b.</dt>
-                                                <dd>{{ Researcher_info.DOB }}</dd>
-
-                                                <dt class="text-upper">Lab</dt>
-                                                <dd> {{ Researcher_info.Lab }} </dd>
-
-                                                <dt class="text-upper">e-mail</dt>
-                                                <dd><a href={{ "mailto:" + Researcher_info.Email }}> {{ Researcher_info.Email }} </a></dd>
-
-                                                <dt class="text-upper">phone</dt>
-                                                <dd>+86 1516 1762 373</dd>
-
-                                            </dl>
-                                        </div>
-                                        <!-- .col-sm-6 -->
-
-                                        <div class="col-sm-6 clear-mrg">
-                                            <h2 class="title-thin text-muted">languages</h2>
-
-                                            <div class="progress-bullets ace-animate" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="10">
-                                                <strong class="progress-title">Chinese</strong>
-                                                <span class="progress-bar">
-                            <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                </span>
-                                                <span class="progress-text text-muted">native</span>
-                                            </div>
-
-                                            <div class="progress-bullets ace-animate" role="progressbar" aria-valuenow="8" aria-valuemin="0" aria-valuemax="10">
-                                                <strong class="progress-title">English</strong>
-                                                <span class="progress-bar">
-                            <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet"></span>
-                                                <span class="bullet"></span>
-                                                </span>
-                                                <span class="progress-text text-muted">intermediate</span>
-                                            </div>
-
-                                        </div>
-                                        <!-- .col-sm-6 -->
+                                {% for paper in Researcher_info["Papers"] %}
+                                <article class="publication__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+                                    <div class="publication__item-teaser" style="margin-top: 1em;"> <img itemprop="image" src={{ paper[ "Paper_fig"] }} alt=""></div>
+                                    <div class="publication__item-text">
+                                        <h2 class="publication__item-title" itemprop="headline">
+                                            <p>{{ paper["Paper_name"] }}</p>
+                                        </h2>
+                                        <p style="margin-top: -2em;">{{ paper["Paper_authors"] }}</p>
+                                        <p style="margin-top: -1em;">{{ paper["Paper_conference_and_year"] }}</p>
+                                        <p style="margin-top: -1em;"> <a href="https://arxiv.org/pdf/2105.08756.pdf" class="btn btn--info">PDF</a> <a href="https://youtu.be/HNAmsdk7lJ4" class="btn">Code</a></p>
                                     </div>
-                                    <!-- .row -->
-                                </section>
-                                <!-- .section -->
+                                </article>
+                                <!-- NOTE: 这里的空行是为了 -->
+                                <p><br></p>
+                                <p><br></p>
+                                <p><br></p>
+                                <p><br></p>
+                                {% endfor %}
 
-                                <section class="section brd-btm">
-                                    <div class="row">
-                                        <div class="col-sm-6 clear-mrg">
-                                            <h2 class="title-thin text-muted">Research Interests</h2>
-                                            <div class="row">
-                                                {% for interest, proportion in Researcher_info["ResearchInterest"].items() %}
-                                                <div class="col-xs-4">
-                                                    <div class="progress-chart ace-animate" role="progressbar" aria-valuenow={{ proportion }} aria-valuemin="0" aria-valuemax="100">
-                                                        <div class="progress-bar" data-text={{ proportion }}% data-value={{ proportion / 100 }}></div>
-                                                        <strong class="progress-title"> {{ interest }} </strong>
-                                                    </div>
-                                                </div>
-                                                <!-- .col-xs-4 -->
-                                                {% endfor %}
-                                            </div>
-                                            <!-- .row -->
-                                        </div>
-                                        <!-- .col-sm-6 -->
-
-                                        <div class="col-sm-6 clear-mrg">
-                                            <h2 class="title-thin text-muted">Mottos</h2>
-                                            {% for motto in Researcher_info["Mottos"] %}
-                                            <div class="progress-line ace-animate" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                                                <strong class="progress-title">{{ motto }}</strong>
-                                            </div>
-                                            {% endfor %}
-                                        </div>
-                                        <!-- .col-sm-6 -->
-                                    </div>
-                                    <!-- .row -->
-                                </section>
-                                <!-- .section -->
-
-
-                                <section class="section">
-                                    <h2 class="title-thin text-muted">Awards and Achievements</h2>
-                                    <div class="row">
-                                        {% for award, src in Researcher_info["Awards"].items() %}
-                                        <div class="col-sm-6 clear-mrg">
-                                            <div class="award-box">
-                                                <figure class="award-img">
-                                                    <img src={{ src }} alt="">
-                                                </figure>
-                                                <h3 class="award-title">{{ award }}</h3>
-                                            </div>
-                                        </div>
-                                        <!-- .col-sm-6 -->
-                                        {% endfor %}
-                                    </div>
-                                    <!-- .row -->
-                                </section>
-                                <!-- .section -->
                             </div>
                             <!-- .padd-box -->
                             <!-- END: PAGE CONTENT -->

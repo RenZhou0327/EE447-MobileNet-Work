@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 # 配置数据库
 # 设置连接数据库
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:123456@127.0.0.1:3306/scholar?charset=utf8"
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:78tZrJy8rK(0@127.0.0.1:3306/scholar?charset=utf8"# 数据库和模型类同步修改
 # 数据库和模型类同步修改
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
 # 查询时显示原始SQL语句
