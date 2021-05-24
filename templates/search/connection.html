@@ -165,108 +165,6 @@
                                 </section>
                                 <!-- .section -->
 
-                                <section class="section brd-btm">
-                                    <div class="row">
-                                        <div class="col-sm-6 clear-mrg">
-                                            <h2 class="title-thin text-muted">personal information</h2>
-
-                                            <dl class="dl-horizontal clear-mrg">
-                                                <dt class="text-upper">Full Name</dt>
-                                                <dd>{{ Researcher_info.Name }}</dd>
-
-                                                <dt class="text-upper">D.o.b.</dt>
-                                                <dd>{{ Researcher_info.DOB }}</dd>
-
-                                                <dt class="text-upper">Lab</dt>
-                                                <dd> {{ Researcher_info.Lab }} </dd>
-
-                                                <dt class="text-upper">e-mail</dt>
-                                                <dd><a href={{ "mailto:" + Researcher_info.Email }}> {{ Researcher_info.Email }} </a></dd>
-
-                                                <dt class="text-upper">phone</dt>
-                                                <dd>+86 1516 1762 373</dd>
-
-                                            </dl>
-                                        </div>
-                                        <!-- .col-sm-6 -->
-
-                                        <div class="col-sm-6 clear-mrg">
-                                            <h2 class="title-thin text-muted">languages</h2>
-
-                                            <div class="progress-bullets ace-animate" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="10">
-                                                <strong class="progress-title">Chinese</strong>
-                                                <span class="progress-bar">
-                            <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                </span>
-                                                <span class="progress-text text-muted">native</span>
-                                            </div>
-
-                                            <div class="progress-bullets ace-animate" role="progressbar" aria-valuenow="8" aria-valuemin="0" aria-valuemax="10">
-                                                <strong class="progress-title">English</strong>
-                                                <span class="progress-bar">
-                            <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet fill"></span>
-                                                <span class="bullet"></span>
-                                                <span class="bullet"></span>
-                                                </span>
-                                                <span class="progress-text text-muted">intermediate</span>
-                                            </div>
-
-                                        </div>
-                                        <!-- .col-sm-6 -->
-                                    </div>
-                                    <!-- .row -->
-                                </section>
-                                <!-- .section -->
-
-                                <section class="section brd-btm">
-                                    <div class="row">
-                                        <div class="col-sm-6 clear-mrg">
-                                            <h2 class="title-thin text-muted">Research Interests</h2>
-                                            <div class="row">
-                                                {% for interest, proportion in Researcher_info["ResearchInterest"].items() %}
-                                                <div class="col-xs-4">
-                                                    <div class="progress-chart ace-animate" role="progressbar" aria-valuenow={{ proportion }} aria-valuemin="0" aria-valuemax="100">
-                                                        <div class="progress-bar" data-text={{ proportion }}% data-value={{ proportion / 100 }}></div>
-                                                        <strong class="progress-title"> {{ interest }} </strong>
-                                                    </div>
-                                                </div>
-                                                <!-- .col-xs-4 -->
-                                                {% endfor %}
-                                            </div>
-                                            <!-- .row -->
-                                        </div>
-                                        <!-- .col-sm-6 -->
-
-                                        <div class="col-sm-6 clear-mrg">
-                                            <h2 class="title-thin text-muted">Mottos</h2>
-                                            {% for motto in Researcher_info["Mottos"] %}
-                                            <div class="progress-line ace-animate" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                                                <strong class="progress-title">{{ motto }}</strong>
-                                            </div>
-                                            {% endfor %}
-                                        </div>
-                                        <!-- .col-sm-6 -->
-                                    </div>
-                                    <!-- .row -->
-                                </section>
-                                <!-- .section -->
-
                             </div>
                             <!-- .padd-box -->
                             <!-- END: PAGE CONTENT -->
@@ -275,15 +173,15 @@
                         <!-- .ace-paper-cont -->
                         <!-- Insert -->
                         <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-                        <div id="main" style="width: 600px;height:400px;"></div>
+                        <div id="citation" style="width: 600px;height:400px;"></div>
                         <script type="text/javascript">
                             // 基于准备好的dom，初始化echarts实例
-                            var myChart = echarts.init(document.getElementById('main'));
+                            var myChart = echarts.init(document.getElementById('citation'));
 
                             // 指定图表的配置项和数据
                             var option = {
                                 title: {
-                                    text: '第一个 ECharts 实例'
+                                    text: {{ Researcher_info.Name }}
                                 },
                                 tooltip: {},
                                 legend: {

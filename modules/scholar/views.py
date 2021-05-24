@@ -214,9 +214,10 @@ def paper(name):
     return render_template("search/paper.html", Researcher_info=researcher_info)
 
 
-@scholar_blue.route("/connection:<string:name>", methods=["GET", "POST"])
+# @scholar_blue.route("/connection:<string:name>", methods=["GET", "POST"])
+@scholar_blue.route("/connection", methods=["GET", "POST"])
 @scholar_log_req
-def connection(name):
+def connection(name="quanshi zhang"):
     # 这个地方需要传入被点击的实验者的姓名, 然后在数据库中进行搜索展示
     researcher = Researcher.query.filter_by(Name=name).first()
     if researcher.DOB == "":
