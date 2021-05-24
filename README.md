@@ -1,5 +1,8 @@
 # README
 
+## TODO
+1. 在 connection.html 上展示 co-author 和 cited_graph
+2. 
 
 ## Structure
 

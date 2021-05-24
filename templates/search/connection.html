@@ -158,13 +158,6 @@
                                     <div class="row">
                                         <div class="col-sm-12 clear-mrg text-box">
                                             <h2 class="title-lg text-upper">About Me</h2>
-
-                                            <p><b>Helo, I’m {{ Researcher_info.Name }}</b><br> {{ Researcher_info.Bio }}
-                                            </p>
-
-                                            <p class="text-right">
-                                                <img src={{ Researcher_info.Sig }} alt="">
-                                            </p>
                                         </div>
                                     </div>
                                 </section>
@@ -272,25 +265,6 @@
                                 </section>
                                 <!-- .section -->
 
-
-                                <section class="section">
-                                    <h2 class="title-thin text-muted">Awards and Achievements</h2>
-                                    <div class="row">
-                                        {% for award, src in Researcher_info["Awards"].items() %}
-                                        <div class="col-sm-6 clear-mrg">
-                                            <div class="award-box">
-                                                <figure class="award-img">
-                                                    <img src={{ src }} alt="">
-                                                </figure>
-                                                <h3 class="award-title">{{ award }}</h3>
-                                            </div>
-                                        </div>
-                                        <!-- .col-sm-6 -->
-                                        {% endfor %}
-                                    </div>
-                                    <!-- .row -->
-                                </section>
-                                <!-- .section -->
                             </div>
                             <!-- .padd-box -->
                             <!-- END: PAGE CONTENT -->
