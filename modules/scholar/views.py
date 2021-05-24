@@ -190,6 +190,7 @@ def professor():
     print("Researcher_info[Awards]", Researcher_info["Awards"])
     return render_template("search/professor.html", Researcher_info=Researcher_info)
 
+
 @scholar_blue.route("/paper", methods=["GET", "POST"])
 @scholar_log_req
 def paper():

@@ -165,7 +165,7 @@
                                 <!-- .section -->
                                 {% for paper in Researcher_info["Papers"] %}
                                 <article class="publication__item" itemscope="" itemtype="http://schema.org/CreativeWork">
-                                    <div class="publication__item-teaser" style="margin-top: 1em;"> <img itemprop="image" src="" alt=""></div>
+                                    <div class="publication__item-teaser" style="margin-top: 1em;"> <img itemprop="image" src={{ paper[ "Paper_fig"] }} alt=""></div>
                                     <div class="publication__item-text">
                                         <h2 class="publication__item-title" itemprop="headline">
                                             <p>{{ paper["Paper_name"] }}</p>
