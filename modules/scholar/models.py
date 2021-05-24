@@ -35,3 +35,13 @@ class Researcher(db.Model):
     Co_authors = db.Column(db.String(100), unique=True)  # 论文合作者
     Papers = db.Column(db.String(100), unique=True)  # 论文
     Cited_graph = db.Column(db.String(100), unique=True)  # 每年引用数量
+
+
+class Favor(db.Model):
+    __tablename__ = "favor"
+
+    favor_id = db.Column(db.Integer, primary_key=True)
+    # id = db.Column(db.Integer)  # 用户id
+    username = db.Column(db.String(100), unique=True)  # 用户名
+    # tid = db.Column(db.Integer, unique=True)  # 学者id
+    professor_name = db.Column(db.String, unique=True)  # 学者姓名

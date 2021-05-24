@@ -212,24 +212,29 @@
 
                                 <div class="pf-grid">
                                     <div class="pf-grid-sizer"></div><!-- used for sizing -->
-
-                                    <div class="pf-grid-item photography">
+                                    {% for favor_item in professor_info %}
+                                        <div class="pf-grid-item photography">
                                         <div class="project">
                                             <figure class="portfolio-figure">
-                                                <img src="../../static/main_style/img/uploads/portfolio/prj-01.jpg" alt="">
+                                                <img src={{ favor_item[3]}} alt="", style="height: 293px; width: 300px; margin: 0 auto">
                                             </figure>
 
                                             <div class="portfolio-caption text-center">
                                                 <div class="valign-table">
                                                     <div class="valign-cell">
-                                                        <h2 class="text-upper">stu unger rise</h2>
-                                                        <p>Accessories Here you can find the best computer monitor, printer, scanner, speaker, projector. hardware and more</p>
+                                                        {% set professor_url = "professor/" + favor_item[1] | replace (" ", "%20")  %}
+                                                        <a href={{ professor_url }}><h2 class="text-upper">{{ favor_item[1] }}</h2></a>
+                                                        <p>
+                                                            {{ favor_item[4] }}
+                                                            <br>
+                                                            {{ favor_item[5] }}
+                                                        </p>
                                                         <div style="text-align: center">
                                                             <div style="width: 100px; height:auto; float:left; display: inline; margin-left: 40px" >
                                                                 <a href="#pf-popup-1" class="pf-btn-view btn btn-primary">View More</a>
                                                             </div>
                                                             <div style="width: 100px; height:auto; float:right; display: inline; margin-right: 40px" >
-                                                                 <img id="tid_1" src="../../static/main_style/img/favor-2.png" style="padding-left: 10px; width:40%; height:40%; padding-bottom: 10px" alt="favor" onclick="clickFavor(this.id)"/>
+                                                                 <img id={{ favor_item[1] | replace (" ", "%20") }} src="../../static/main_style/img/favor-2.png" style="padding-left: 10px; width:40%; height:40%; padding-bottom: 10px" alt="favor" onclick="clickFavor(this.id)"/>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -268,202 +273,203 @@
                                             </div><!-- .pf-popup-col2 -->
                                         </div><!-- .pf-popup -->
                                     </div><!-- .pf-grid-item -->
+                                    {% endfor %}
 
-                                    <div class="pf-grid-item photography">
-                                        <div class="project">
-                                            <figure class="portfolio-figure">
-                                                <img src="../../static/main_style/img/uploads/portfolio/prj-03.jpg" alt="">
-                                            </figure>
-
-                                            <div class="portfolio-caption text-center">
-                                                <div class="valign-table">
-                                                    <div class="valign-cell">
-                                                        <h2 class="text-upper">stu unger rise</h2>
-                                                        <p>Accessories Here you can find the best computer monitor, printer, scanner, speaker, projector. hardware and more</p>
-                                                        <a href="#pf-popup-1" class="pf-btn-view btn btn-primary">View More</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div id="pf-popup-3" class="pf-popup clearfix">
-                                            <div class="pf-popup-col1">
-                                                <div class="pf-popup-media">
-
-                                                </div>
-                                            </div><!-- .pf-popup-col1 -->
-
-                                            <div class="pf-popup-col2">
-                                                <div class="pf-popup-info clear-mrg">
-                                                    <h2 class="text-upper">Project Title</h2>
-                                                    <p class="text-muted"><strong>design / development</strong></p>
-                                                    <dl class="dl-horizontal">
-                                                        <dt>Date:</dt>
-                                                        <dd>11 Jan 2012</dd>
-
-                                                        <dt>Site link:</dt>
-                                                        <dd><a href="www.sitedomen.com">www.sitedomen.com</a></dd>
-
-                                                        <dt>Client:</dt>
-                                                        <dd>11 Jan 2012</dd>
-                                                    </dl>
-                                                    <p>About 64% of all on-line teens say that do things online that they wouldn’t want their
-                                                        parents to know about. 11% of all adult internet users visit dating websites and spend their
-                                                        time in chatrooms. Some of the classify their behavior as “cyber affair” More then 60% of
-                                                        employees use company PC for the personal needs during their work hours as long as 80
-                                                        minutes per day. </p>
-                                                </div><!-- .pf-popup-info -->
-
-                                            </div><!-- .pf-popup-col2 -->
-                                        </div><!-- .pf-popup -->
-                                    </div><!-- .pf-grid-item -->
-
-                                    <div class="pf-grid-item photography">
-                                        <div class="project">
-                                            <figure class="portfolio-figure">
-                                                <img src="../../static/main_style/img/uploads/portfolio/prj-05.jpg" alt="">
-                                            </figure>
-
-                                            <div class="portfolio-caption text-center">
-                                                <div class="valign-table">
-                                                    <div class="valign-cell">
-                                                        <h2 class="text-upper">stu unger rise</h2>
-                                                        <p>Accessories Here you can find the best computer monitor, printer, scanner, speaker, projector. hardware and more</p>
-                                                        <a href="#pf-popup-5" class="pf-btn-view btn btn-primary">View More</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div id="pf-popup-5" class="pf-popup clearfix">
-                                            <div class="pf-popup-col1">
-                                                <div class="pf-popup-media">
-
-                                                </div>
-                                            </div><!-- .pf-popup-col1 -->
-
-                                            <div class="pf-popup-col2">
-                                                <div class="pf-popup-info clear-mrg">
-                                                    <h2 class="text-upper">Project Title</h2>
-                                                    <p class="text-muted"><strong>design / development</strong></p>
-                                                    <dl class="dl-horizontal">
-                                                        <dt>Date:</dt>
-                                                        <dd>11 Jan 2012</dd>
-
-                                                        <dt>Site link:</dt>
-                                                        <dd><a href="www.sitedomen.com">www.sitedomen.com</a></dd>
-
-                                                        <dt>Client:</dt>
-                                                        <dd>11 Jan 2012</dd>
-                                                    </dl>
-                                                    <p>About 64% of all on-line teens say that do things online that they wouldn’t want their
-                                                        parents to know about. 11% of all adult internet users visit dating websites and spend their
-                                                        time in chatrooms. Some of the classify their behavior as “cyber affair” More then 60% of
-                                                        employees use company PC for the personal needs during their work hours as long as 80
-                                                        minutes per day. </p>
-                                                </div><!-- .pf-popup-info -->
-
-                                            </div><!-- .pf-popup-col2 -->
-                                        </div><!-- .pf-popup -->
-                                    </div><!-- .pf-grid-item -->
-
-                                    <div class="pf-grid-item photography">
-                                        <div class="project">
-                                            <figure class="portfolio-figure">
-                                                <img src="../../static/main_style/img/uploads/portfolio/prj-01.jpg" alt="">
-                                            </figure>
-
-                                            <div class="portfolio-caption text-center">
-                                                <div class="valign-table">
-                                                    <div class="valign-cell">
-                                                        <h2 class="text-upper">stu unger rise</h2>
-                                                        <p>Accessories Here you can find the best computer monitor, printer, scanner, speaker, projector. hardware and more</p>
-                                                        <a href="#pf-popup-7" class="pf-btn-view btn btn-primary">View More</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div id="pf-popup-7" class="pf-popup clearfix">
-                                            <div class="pf-popup-col1">
-                                                <div class="pf-popup-media">
-
-                                                </div>
-                                            </div><!-- .pf-popup-col1 -->
-
-                                            <div class="pf-popup-col2">
-                                                <div class="pf-popup-info clear-mrg">
-                                                    <h2 class="text-upper">Project Title</h2>
-                                                    <p class="text-muted"><strong>design / development</strong></p>
-                                                    <dl class="dl-horizontal">
-                                                        <dt>Date:</dt>
-                                                        <dd>11 Jan 2012</dd>
-
-                                                        <dt>Site link:</dt>
-                                                        <dd><a href="www.sitedomen.com">www.sitedomen.com</a></dd>
-
-                                                        <dt>Client:</dt>
-                                                        <dd>11 Jan 2012</dd>
-                                                    </dl>
-                                                    <p>About 64% of all on-line teens say that do things online that they wouldn’t want their
-                                                        parents to know about. 11% of all adult internet users visit dating websites and spend their
-                                                        time in chatrooms. Some of the classify their behavior as “cyber affair” More then 60% of
-                                                        employees use company PC for the personal needs during their work hours as long as 80
-                                                        minutes per day. </p>
-                                                </div><!-- .pf-popup-info -->
-
-                                            </div><!-- .pf-popup-col2 -->
-                                        </div><!-- .pf-popup -->
-                                    </div><!-- .pf-grid-item -->
-
-                                    <div class="pf-grid-item photography">
-                                        <div class="project">
-                                            <figure class="portfolio-figure">
-                                                <img src="../../static/main_style/img/uploads/portfolio/prj-01.jpg" alt="">
-                                            </figure>
-
-                                            <div class="portfolio-caption text-center">
-                                                <div class="valign-table">
-                                                    <div class="valign-cell">
-                                                        <h2 class="text-upper">stu unger rise</h2>
-                                                        <p>Accessories Here you can find the best computer monitor, printer, scanner, speaker, projector. hardware and more</p>
-                                                        <a href="#pf-popup-1" class="pf-btn-view btn btn-primary">View More</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div id="pf-popup-1" class="pf-popup clearfix">
-                                            <div class="pf-popup-col1">
-                                                <div class="pf-popup-media">
-
-                                                </div>
-                                            </div><!-- .pf-popup-col1 -->
-
-                                            <div class="pf-popup-col2">
-                                                <div class="pf-popup-info clear-mrg">
-                                                    <h2 class="text-upper">Project Title</h2>
-                                                    <p class="text-muted"><strong>design / development</strong></p>
-                                                    <dl class="dl-horizontal">
-                                                        <dt>Date:</dt>
-                                                        <dd>11 Jan 2012</dd>
-
-                                                        <dt>Site link:</dt>
-                                                        <dd><a href="www.sitedomen.com">www.sitedomen.com</a></dd>
-
-                                                        <dt>Client:</dt>
-                                                        <dd>11 Jan 2012</dd>
-                                                    </dl>
-                                                    <p>About 64% of all on-line teens say that do things online that they wouldn’t want their
-                                                        parents to know about. 11% of all adult internet users visit dating websites and spend their
-                                                        time in chatrooms. Some of the classify their behavior as “cyber affair” More then 60% of
-                                                        employees use company PC for the personal needs during their work hours as long as 80
-                                                        minutes per day. </p>
-                                                </div><!-- .pf-popup-info -->
-
-                                            </div><!-- .pf-popup-col2 -->
-                                        </div><!-- .pf-popup -->
-                                    </div><!-- .pf-grid-item -->
+{#                                    <div class="pf-grid-item photography">#}
+{#                                        <div class="project">#}
+{#                                            <figure class="portfolio-figure">#}
+{#                                                <img src="../../static/main_style/img/uploads/portfolio/prj-03.jpg" alt="">#}
+{#                                            </figure>#}
+{##}
+{#                                            <div class="portfolio-caption text-center">#}
+{#                                                <div class="valign-table">#}
+{#                                                    <div class="valign-cell">#}
+{#                                                        <h2 class="text-upper">stu unger rise</h2>#}
+{#                                                        <p>Accessories Here you can find the best computer monitor, printer, scanner, speaker, projector. hardware and more</p>#}
+{#                                                        <a href="#pf-popup-1" class="pf-btn-view btn btn-primary">View More</a>#}
+{#                                                    </div>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                        <div id="pf-popup-3" class="pf-popup clearfix">#}
+{#                                            <div class="pf-popup-col1">#}
+{#                                                <div class="pf-popup-media">#}
+{##}
+{#                                                </div>#}
+{#                                            </div><!-- .pf-popup-col1 -->#}
+{##}
+{#                                            <div class="pf-popup-col2">#}
+{#                                                <div class="pf-popup-info clear-mrg">#}
+{#                                                    <h2 class="text-upper">Project Title</h2>#}
+{#                                                    <p class="text-muted"><strong>design / development</strong></p>#}
+{#                                                    <dl class="dl-horizontal">#}
+{#                                                        <dt>Date:</dt>#}
+{#                                                        <dd>11 Jan 2012</dd>#}
+{##}
+{#                                                        <dt>Site link:</dt>#}
+{#                                                        <dd><a href="www.sitedomen.com">www.sitedomen.com</a></dd>#}
+{##}
+{#                                                        <dt>Client:</dt>#}
+{#                                                        <dd>11 Jan 2012</dd>#}
+{#                                                    </dl>#}
+{#                                                    <p>About 64% of all on-line teens say that do things online that they wouldn’t want their#}
+{#                                                        parents to know about. 11% of all adult internet users visit dating websites and spend their#}
+{#                                                        time in chatrooms. Some of the classify their behavior as “cyber affair” More then 60% of#}
+{#                                                        employees use company PC for the personal needs during their work hours as long as 80#}
+{#                                                        minutes per day. </p>#}
+{#                                                </div><!-- .pf-popup-info -->#}
+{##}
+{#                                            </div><!-- .pf-popup-col2 -->#}
+{#                                        </div><!-- .pf-popup -->#}
+{#                                    </div><!-- .pf-grid-item -->#}
+{##}
+{#                                    <div class="pf-grid-item photography">#}
+{#                                        <div class="project">#}
+{#                                            <figure class="portfolio-figure">#}
+{#                                                <img src="../../static/main_style/img/uploads/portfolio/prj-05.jpg" alt="">#}
+{#                                            </figure>#}
+{##}
+{#                                            <div class="portfolio-caption text-center">#}
+{#                                                <div class="valign-table">#}
+{#                                                    <div class="valign-cell">#}
+{#                                                        <h2 class="text-upper">stu unger rise</h2>#}
+{#                                                        <p>Accessories Here you can find the best computer monitor, printer, scanner, speaker, projector. hardware and more</p>#}
+{#                                                        <a href="#pf-popup-5" class="pf-btn-view btn btn-primary">View More</a>#}
+{#                                                    </div>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                        <div id="pf-popup-5" class="pf-popup clearfix">#}
+{#                                            <div class="pf-popup-col1">#}
+{#                                                <div class="pf-popup-media">#}
+{##}
+{#                                                </div>#}
+{#                                            </div><!-- .pf-popup-col1 -->#}
+{##}
+{#                                            <div class="pf-popup-col2">#}
+{#                                                <div class="pf-popup-info clear-mrg">#}
+{#                                                    <h2 class="text-upper">Project Title</h2>#}
+{#                                                    <p class="text-muted"><strong>design / development</strong></p>#}
+{#                                                    <dl class="dl-horizontal">#}
+{#                                                        <dt>Date:</dt>#}
+{#                                                        <dd>11 Jan 2012</dd>#}
+{##}
+{#                                                        <dt>Site link:</dt>#}
+{#                                                        <dd><a href="www.sitedomen.com">www.sitedomen.com</a></dd>#}
+{##}
+{#                                                        <dt>Client:</dt>#}
+{#                                                        <dd>11 Jan 2012</dd>#}
+{#                                                    </dl>#}
+{#                                                    <p>About 64% of all on-line teens say that do things online that they wouldn’t want their#}
+{#                                                        parents to know about. 11% of all adult internet users visit dating websites and spend their#}
+{#                                                        time in chatrooms. Some of the classify their behavior as “cyber affair” More then 60% of#}
+{#                                                        employees use company PC for the personal needs during their work hours as long as 80#}
+{#                                                        minutes per day. </p>#}
+{#                                                </div><!-- .pf-popup-info -->#}
+{##}
+{#                                            </div><!-- .pf-popup-col2 -->#}
+{#                                        </div><!-- .pf-popup -->#}
+{#                                    </div><!-- .pf-grid-item -->#}
+{##}
+{#                                    <div class="pf-grid-item photography">#}
+{#                                        <div class="project">#}
+{#                                            <figure class="portfolio-figure">#}
+{#                                                <img src="../../static/main_style/img/uploads/portfolio/prj-01.jpg" alt="">#}
+{#                                            </figure>#}
+{##}
+{#                                            <div class="portfolio-caption text-center">#}
+{#                                                <div class="valign-table">#}
+{#                                                    <div class="valign-cell">#}
+{#                                                        <h2 class="text-upper">stu unger rise</h2>#}
+{#                                                        <p>Accessories Here you can find the best computer monitor, printer, scanner, speaker, projector. hardware and more</p>#}
+{#                                                        <a href="#pf-popup-7" class="pf-btn-view btn btn-primary">View More</a>#}
+{#                                                    </div>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                        <div id="pf-popup-7" class="pf-popup clearfix">#}
+{#                                            <div class="pf-popup-col1">#}
+{#                                                <div class="pf-popup-media">#}
+{##}
+{#                                                </div>#}
+{#                                            </div><!-- .pf-popup-col1 -->#}
+{##}
+{#                                            <div class="pf-popup-col2">#}
+{#                                                <div class="pf-popup-info clear-mrg">#}
+{#                                                    <h2 class="text-upper">Project Title</h2>#}
+{#                                                    <p class="text-muted"><strong>design / development</strong></p>#}
+{#                                                    <dl class="dl-horizontal">#}
+{#                                                        <dt>Date:</dt>#}
+{#                                                        <dd>11 Jan 2012</dd>#}
+{##}
+{#                                                        <dt>Site link:</dt>#}
+{#                                                        <dd><a href="www.sitedomen.com">www.sitedomen.com</a></dd>#}
+{##}
+{#                                                        <dt>Client:</dt>#}
+{#                                                        <dd>11 Jan 2012</dd>#}
+{#                                                    </dl>#}
+{#                                                    <p>About 64% of all on-line teens say that do things online that they wouldn’t want their#}
+{#                                                        parents to know about. 11% of all adult internet users visit dating websites and spend their#}
+{#                                                        time in chatrooms. Some of the classify their behavior as “cyber affair” More then 60% of#}
+{#                                                        employees use company PC for the personal needs during their work hours as long as 80#}
+{#                                                        minutes per day. </p>#}
+{#                                                </div><!-- .pf-popup-info -->#}
+{##}
+{#                                            </div><!-- .pf-popup-col2 -->#}
+{#                                        </div><!-- .pf-popup -->#}
+{#                                    </div><!-- .pf-grid-item -->#}
+{##}
+{#                                    <div class="pf-grid-item photography">#}
+{#                                        <div class="project">#}
+{#                                            <figure class="portfolio-figure">#}
+{#                                                <img src="../../static/main_style/img/uploads/portfolio/prj-01.jpg" alt="">#}
+{#                                            </figure>#}
+{##}
+{#                                            <div class="portfolio-caption text-center">#}
+{#                                                <div class="valign-table">#}
+{#                                                    <div class="valign-cell">#}
+{#                                                        <h2 class="text-upper">stu unger rise</h2>#}
+{#                                                        <p>Accessories Here you can find the best computer monitor, printer, scanner, speaker, projector. hardware and more</p>#}
+{#                                                        <a href="#pf-popup-1" class="pf-btn-view btn btn-primary">View More</a>#}
+{#                                                    </div>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                        <div id="pf-popup-1" class="pf-popup clearfix">#}
+{#                                            <div class="pf-popup-col1">#}
+{#                                                <div class="pf-popup-media">#}
+{##}
+{#                                                </div>#}
+{#                                            </div><!-- .pf-popup-col1 -->#}
+{##}
+{#                                            <div class="pf-popup-col2">#}
+{#                                                <div class="pf-popup-info clear-mrg">#}
+{#                                                    <h2 class="text-upper">Project Title</h2>#}
+{#                                                    <p class="text-muted"><strong>design / development</strong></p>#}
+{#                                                    <dl class="dl-horizontal">#}
+{#                                                        <dt>Date:</dt>#}
+{#                                                        <dd>11 Jan 2012</dd>#}
+{##}
+{#                                                        <dt>Site link:</dt>#}
+{#                                                        <dd><a href="www.sitedomen.com">www.sitedomen.com</a></dd>#}
+{##}
+{#                                                        <dt>Client:</dt>#}
+{#                                                        <dd>11 Jan 2012</dd>#}
+{#                                                    </dl>#}
+{#                                                    <p>About 64% of all on-line teens say that do things online that they wouldn’t want their#}
+{#                                                        parents to know about. 11% of all adult internet users visit dating websites and spend their#}
+{#                                                        time in chatrooms. Some of the classify their behavior as “cyber affair” More then 60% of#}
+{#                                                        employees use company PC for the personal needs during their work hours as long as 80#}
+{#                                                        minutes per day. </p>#}
+{#                                                </div><!-- .pf-popup-info -->#}
+{##}
+{#                                            </div><!-- .pf-popup-col2 -->#}
+{#                                        </div><!-- .pf-popup -->#}
+{#                                    </div><!-- .pf-grid-item -->#}
 
                                 </div><!-- .pf-grid -->
                             </div><!-- .pf-wrap -->

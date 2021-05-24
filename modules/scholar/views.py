@@ -7,7 +7,7 @@ from modules.scholar.forms import SearchForm, RegisterForm
 from modules.scholar.forms import LoginForm
 from modules.scholar.utils import get_verify_code
 from modules.common import graph_list, scholar_log_req, es
-from modules.scholar.models import User, Researcher
+from modules.scholar.models import User, Researcher, Favor
 from app import db
 import random
 import json
@@ -167,12 +167,27 @@ def entities(keyword, page=1):
 @scholar_blue.route("/favor", methods=["GET", "POST"])
 @scholar_log_req
 def favor():
-    return render_template("search/favor.html")
+    username = session["admin"]
+    professor_info = db.session.query(Favor.username, Favor.professor_name, Researcher.Name, Researcher.Avatar,
+        Researcher.University, Researcher.Title).filter(Favor.username == username)\
+        .join(Researcher, Favor.professor_name == Researcher.Name)
+    # .join(Researcher.Name, Researcher.Avatar, Researcher.Title).filter(Favor.professor_name == Researcher.Name)
+    # professor_info = {}
+    # for item in professors:
+    #     professor_info['user'] = item[0]
+    #     professor_info['name'] = item[1]
+    #     professor_info['avatar'] = item[3]
+    #     print(item[3])
+    #     professor_info['school'] = item[4]
+    #     professor_info['title'] = item[5]
+    #     professor_info['url'] = "professor/" + item[1]
+    return render_template("search/favor.html", professor_info=professor_info)
 
 
 @scholar_blue.route("/professor/<string:name>", methods=["GET", "POST"])
 @scholar_log_req
 def professor(name):
+    print("name", name)
     # 这个地方需要传入被点击的实验者的姓名, 然后在数据库中进行搜索展示
     researcher = Researcher.query.filter_by(Name=name).first()
     if researcher.DOB == "":
@@ -188,7 +203,6 @@ def professor(name):
                         "Papers": json.loads(researcher.Papers)["Papers"],
                         "Cited_graph": json.loads(researcher.Cited_graph)["Cited_graph"],
                     }
-    print("Researcher_info[Awards]", Researcher_info["Awards"])
     return render_template("search/professor.html", Researcher_info=Researcher_info)
 
 
@@ -238,9 +252,22 @@ def connection(name="quanshi zhang"):
 
 
 @scholar_blue.route("/operateFavor", methods=["POST"])
+@scholar_log_req
 def oprateFavor():
     json_data = request.get_json()
-    print(json_data["id"], json_data["op"])
+    user_name = session["admin"]
+    professor_name = json_data["id"].replace("%20", " ")
+    # print(user_name, professor_name)
+    if json_data["op"] == 0:
+        favor_obj = Favor.query.filter_by(username=user_name, professor_name=professor_name).first()
+        print(favor_obj.username, favor_obj.professor_name)
+        db.session.delete(favor_obj)
+        db.session.commit()
+    elif json_data["op"] == 1:
+        favor_obj = Favor(username=user_name, professor_name=professor_name)
+        db.session.add(favor_obj)
+        db.session.commit()
+    print(user_name, professor_name)
     return jsonify(res="success", id=json_data["id"], op=json_data["op"])
 
 

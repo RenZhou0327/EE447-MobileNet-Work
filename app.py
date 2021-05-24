@@ -12,6 +12,8 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:123456@127.0.0.1:3
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
 # 查询时显示原始SQL语句
 app.config["SQLALCHEMY_ECHO"] = False
+# sql 连接的秒数
+app.config["SQLALCHEMY_POOL_RECYCLE"] = 20
 
 # 密钥配置
 app.config["SECRET_KEY"] = "d890fbe7e26c4c3eb557b6009e3f4d3d"

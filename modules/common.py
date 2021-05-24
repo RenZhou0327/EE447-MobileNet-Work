@@ -6,8 +6,6 @@ from elasticsearch import Elasticsearch
 def scholar_log_req(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        print(f)
-        print(session)
         if 'admin' not in session:
             flash("您尚未登录！")
             return redirect(url_for("scholar.login", next=request.url))
