@@ -197,10 +197,6 @@ def paper():
     researcher = Researcher.query.filter_by(Name='Quanshi Zhang').first()
     if researcher.DOB == "":
         researcher.DOB = "Unknown"
-    # 对 PaperPaper_name 进行预处理, 太长的会影响页面展示格式
-    Papers = json.loads(researcher.Papers)["Papers"]
-    for p in range(len(Papers)):
-        Papers[p]["Paper_name"] = Papers[p]["Paper_name"][:]
     Researcher_info = {"ID": researcher.ID, "Name": researcher.Name, "Avatar": researcher.Avatar,
                         "Title": researcher.Title, "HomePage": researcher.HomePage, "University": researcher.University,
                         "Lab": researcher.Lab, "Bio": researcher.Bio, "Sig": researcher.Signature,
@@ -209,8 +205,7 @@ def paper():
                         "ResearchInterest": json.loads(researcher.ResearchInterest)["ResearchInterest"],
                         "Awards": json.loads(researcher.Awards)["Awards"],
                         "Co_authors": json.loads(researcher.Co_authors)["Co_authors"],
-                        # "Papers": json.loads(researcher.Papers)["Papers"],
-                        "Papers": Papers,
+                        "Papers": json.loads(researcher.Papers)["Papers"],
                         "Cited_graph": json.loads(researcher.Cited_graph)["Cited_graph"],
                     }
     print("Researcher_info[Papers]", Researcher_info["Papers"])
