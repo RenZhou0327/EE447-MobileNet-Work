@@ -1,4 +1,4 @@
 __pycache__
 .idea
-modules/scholar/__pycache__
+**/__pycache__
 /modules/common.py
