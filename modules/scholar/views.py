@@ -241,3 +241,9 @@ def oprateFavor():
     json_data = request.get_json()
     print(json_data["id"], json_data["op"])
     return jsonify(res="success", id=json_data["id"], op=json_data["op"])
+
+
+@scholar_blue.route("/test", methods=["GET", "POST"])
+@scholar_log_req
+def test():
+    return render_template("search/test.html")
