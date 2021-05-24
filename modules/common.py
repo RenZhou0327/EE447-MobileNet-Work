@@ -2,6 +2,7 @@ from functools import wraps
 from flask import session, redirect, url_for, request, flash
 from elasticsearch import Elasticsearch
 
+
 def scholar_log_req(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
