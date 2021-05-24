@@ -169,6 +169,7 @@ def entities(keyword, page=1):
 def favor():
     return render_template("search/favor.html")
 
+
 @scholar_blue.route("/professor", methods=["GET", "POST"])
 @scholar_log_req
 def professor():

@@ -18,8 +18,8 @@ def scholar_log_req(f):
 graph_list = [(0, 1), (0, 2), (0, 3)]
 # es = Elasticsearch("172.17.0.7:9200")
 # es = Elasticsearch("1.15.106.125:9200")
-ES_HOST = {
-            "host": "localhost",
-            "port": 9200
-        }
-es = Elasticsearch(hosts=[ES_HOST,])
+# ES_HOST = {
+#             "host": "localhost",
+#             "port": 9205
+#         }
+es = Elasticsearch()
