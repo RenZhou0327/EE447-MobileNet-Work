@@ -3,7 +3,7 @@ from math import ceil
 from flask import render_template, session, redirect, make_response, request, url_for, flash, jsonify
 from io import BytesIO
 from modules.scholar import scholar_blue
-from modules.scholar.forms import SearchForm, RegisterForm
+from modules.scholar.forms import SearchForm, RegisterForm, EasySearchForm
 from modules.scholar.forms import LoginForm
 from modules.scholar.utils import get_verify_code
 from modules.common import graph_list, scholar_log_req, es
@@ -136,6 +136,18 @@ def search():
     return render_template("search/search.html", form=form)
 
 
+@scholar_blue.route("/easySearch", methods=["GET", "POST"])
+@scholar_log_req
+def easySearch():
+    json_data = request.get_json()
+    kw = json_data['kw']
+    print(kw)
+    if kw is not None and kw != "":
+        print(url_for("scholar.entities", keyword=kw, page=1))
+        return jsonify(redirect=url_for("scholar.entities", keyword=kw, page=1))
+    return jsonify(redirect="")
+
+
 @scholar_blue.route("/entities/<string:keyword>&<int:page>", methods=["GET", "POST"])
 @scholar_log_req
 def entities(keyword, page=1):
@@ -167,6 +179,13 @@ def entities(keyword, page=1):
 @scholar_blue.route("/favor", methods=["GET", "POST"])
 @scholar_log_req
 def favor():
+    # form = EasySearchForm()
+    # if form.validate_on_submit():
+    #     data = form.data
+    #     print("searchData", data)
+    #     if data['searchInput'] is not None:
+    #         return redirect(url_for("scholar.entities", keyword=data['searchInput'], page=1))
+
     username = session["admin"]
     professor_info = db.session.query(Favor.username, Favor.professor_name, Researcher.Name, Researcher.Avatar,
         Researcher.University, Researcher.Title).filter(Favor.username == username)\
