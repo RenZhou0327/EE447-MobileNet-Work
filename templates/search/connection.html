@@ -25,11 +25,11 @@
 
     <!-- Modernizer -->
     <script type="text/javascript" src="../../static/main_style/js/vendor/modernizr-3.3.1.min.js"></script>
-    <!-- ECharts -->
+    <!-- Echarts.js -->
     <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
 </head>
 
-<body class="mEdia">
+<body>
     <div class="ace-wrapper">
         <header id="ace-header" class="ace-container-shift ace-logo-in ace-head-boxed ace-nav-right">
             <div class="ace-head-inner">
@@ -159,11 +159,53 @@
                                 <section class="section brd-btm">
                                     <div class="row">
                                         <div class="col-sm-12 clear-mrg text-box">
-                                            <h2 class="title-lg text-upper">About Me</h2>
+                                            <h2 class="title-lg text-upper">h2o</h2>
                                         </div>
                                     </div>
                                 </section>
                                 <!-- .section -->
+
+                                <section class="section brd-btm">
+                                    <!-- NOTE Insert -->
+                                    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+                                    <div id="main" style="width: 600px;height:400px;"></div>
+                                    <script type="text/javascript">
+                                        // 基于准备好的dom，初始化echarts实例
+                                        var myChart = echarts.init(document.getElementById('main'));
+                                        // var Name = JSON.parse('{{ Citation }}');
+                                        // console.log(Name);
+                                        // var year = JSON.parse('{{ Citation }}');
+                                        var year = '{{ Citation|safe }}';
+                                        console.log("year:before")
+                                        console.log(year);
+                                        // 指定图表的配置项和数据
+                                        var option = {
+                                            color: ['#2f4554'],
+                                            title: {
+                                                text: 'CITATION'
+                                            },
+                                            tooltip: {},
+                                            legend: {
+                                                data: ['销量']
+                                            },
+                                            xAxis: {
+                                                // data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+                                                data: ["衬衫", "羊毛衫"]
+                                            },
+                                            yAxis: {},
+                                            series: [{
+                                                name: 'Citations',
+                                                type: 'bar',
+                                                data: [5, 20, 36, 10, 10, 20]
+                                            }]
+                                        };
+
+                                        // 使用刚指定的配置项和数据显示图表。
+                                        myChart.setOption(option);
+                                    </script>
+                                </section>
+                                <!-- .section -->
+
 
                             </div>
                             <!-- .padd-box -->
@@ -171,36 +213,6 @@
 
                         </div>
                         <!-- .ace-paper-cont -->
-                        <!-- Insert -->
-                        <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-                        <div id="citation" style="width: 600px;height:400px;"></div>
-                        <script type="text/javascript">
-                            // 基于准备好的dom，初始化echarts实例
-                            var myChart = echarts.init(document.getElementById('citation'));
-
-                            // 指定图表的配置项和数据
-                            var option = {
-                                title: {
-                                    text: {{ Researcher_info.Name }}
-                                },
-                                tooltip: {},
-                                legend: {
-                                    data: ['销量']
-                                },
-                                xAxis: {
-                                    data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
-                                },
-                                yAxis: {},
-                                series: [{
-                                    name: '销量',
-                                    type: 'bar',
-                                    data: [5, 100, 36, 10, 10, 20]
-                                }]
-                            };
-
-                            // 使用刚指定的配置项和数据显示图表。
-                            myChart.setOption(option);
-                        </script>
                     </main>
                     <!-- .ace-paper -->
                 </div>
@@ -391,9 +403,9 @@
         <svg id="ace-bg-shape-2" class="hidden-sm hidden-xs" height="536" width="633">
         <polygon points="0,0,633,0,633,536" style="fill:#c0e3e7;stroke:purple;stroke-width:0"></polygon>
         </svg>
+
     </div>
     <!-- .ace-wrapper -->
-
 
     <!-- Scripts -->
     <script type="text/javascript" src="../../static/main_style/js/vendor/jquery-1.12.4.min.js"></script>
