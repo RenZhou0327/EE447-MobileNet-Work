@@ -89,6 +89,39 @@
             }
 
         }
+
+
+        function clickSearchButton(id) {
+            var searchForm = document.getElementById(id);
+            var kw = searchForm.children[0].children[1].value;
+            {#window.alert(kw);#}
+            if (kw === "") {
+                window.alert("Nothing to Search")
+            }
+            else {
+                var data = {};
+                data["kw"] = kw;
+                $.ajax({
+                        type: 'POST',
+                        url: '/scholar/easySearch',
+                        dataType: 'json',
+                        contentType: 'application/json; charset=utf-8',
+                        data: JSON.stringify(data),
+                        success: window.onload=function(callback) {
+                             if (callback.redirect) {
+                                window.location.href = callback.redirect;
+                             }
+                             else {
+                                 window.alert("Something get error!");
+                             }
+                        },
+                        error: function() {
+                            window.alert("Something get error!")
+                        }
+                    });
+            }
+        }
+
     </script>
   </head>
   <body>
@@ -98,8 +131,8 @@
                  <div class="ace-head-container ace-container">
                      <div class="ace-head-row">
                          <div id="ace-head-col1" class="ace-head-col text-left">
-                             <a id="ace-logo" class="ace-logo" href="index.html">
-                                <img src="../../static/main_style/img/uploads/brand/logo.svg" alt="ace resume"><span>.Certy</span>
+                             <a id="ace-logo" class="ace-logo" href="{{ "index" }}">
+                                <img src="../../static/main_style/img/uploads/brand/logo.svg" alt="ace resume"><span>YanHu</span>
                              </a>
                          </div>
                          
@@ -107,12 +140,12 @@
                              <div class="ace-nav-container ace-container hidden-sm hidden-xs">
                                  <nav id="ace-main-nav">
                                     <ul class="clear-list">
-										<li><a href="index.html">about</a></li>
-										<li><a href="portfolio.html">portfolio</a>
-										<li><a href="testimonials.html">references</a></li>
+										<li><a href= {{ "index" }}>hot</a></li>
+{#										<li><a href="portfolio.html">portfolio</a>#}
+{#										<li><a href="testimonials.html">references</a></li>#}
 										<li><a href={{ "search" }}>search</a></li>
-										<li><a href="category.html">category</a></li>
-										<li><a href={{ "logout" }}>contact</a></li>
+										<li><a href={{ "favor" }}>favor</a></li>
+										<li><a href={{ "logout" }}>logout</a></li>
 									</ul>
                                  </nav>
                              </div>
@@ -129,28 +162,28 @@
         </header><!-- #ace-header -->
 
         
-        <nav id="ace-nav-sm" class="ace-nav hidden-lg hidden-md">
-            <ul class="clear-list">
-                <li>
-                    <a href="index.html" data-tooltip="Home"><img class="avatar avatar-42" src="../../static/main_style/img/uploads/avatar/avatar-42x42.png" alt=""></a>
-                </li>
-                <li>
-                    <a href="experience.html" data-tooltip="Experience"><span class="ace-icon ace-icon-experience"></span></a>
-                </li>
-                <li>
-                    <a href="portfolio.html" data-tooltip="Portfolio"><span class="ace-icon ace-icon-portfolio"></span></a>
-                </li>
-                <li>
-                    <a href="testimonials.html" data-tooltip="References"><span class="ace-icon ace-icon-references"></span></a>
-                </li>
-                <li>
-                    <a href="contact.html" data-tooltip="Contact"><span class="ace-icon ace-icon-contact"></span></a>
-                </li>
-                <li>
-                    <a href="category.html" data-tooltip="Blog"><span class="ace-icon ace-icon-blog"></span></a>
-                </li>
-            </ul>
-        </nav><!-- #ace-tab-nav-sm -->
+{#        <nav id="ace-nav-sm" class="ace-nav hidden-lg hidden-md">#}
+{#            <ul class="clear-list">#}
+{#                <li>#}
+{#                    <a href="index.html" data-tooltip="Home"><img class="avatar avatar-42" src="../../static/main_style/img/uploads/avatar/avatar-42x42.png" alt=""></a>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a href="experience.html" data-tooltip="Experience"><span class="ace-icon ace-icon-experience"></span></a>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a href="portfolio.html" data-tooltip="Portfolio"><span class="ace-icon ace-icon-portfolio"></span></a>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a href="testimonials.html" data-tooltip="References"><span class="ace-icon ace-icon-references"></span></a>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a href="contact.html" data-tooltip="Contact"><span class="ace-icon ace-icon-contact"></span></a>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a href="category.html" data-tooltip="Blog"><span class="ace-icon ace-icon-blog"></span></a>#}
+{#                </li>#}
+{#            </ul>#}
+{#        </nav><!-- #ace-tab-nav-sm -->#}
 
         <div id="ace-content" class="ace-container-shift">
             <div class="ace-container">
@@ -203,7 +236,10 @@
                             <div class="padd-box">
                                 <h1 class="title-lg text-upper">My Stars</h1>
                             </div>
+                            <div class="brd-btm">
+                            </div>
 
+                            <br>
 
                             <div class="pf-wrap">
                                 <div class="pf-filter padd-box">
@@ -212,24 +248,29 @@
 
                                 <div class="pf-grid">
                                     <div class="pf-grid-sizer"></div><!-- used for sizing -->
-
-                                    <div class="pf-grid-item photography">
+                                    {% for favor_item in professor_info %}
+                                        <div class="pf-grid-item photography">
                                         <div class="project">
                                             <figure class="portfolio-figure">
-                                                <img src="../../static/main_style/img/uploads/portfolio/prj-01.jpg" alt="">
+                                                <img src={{ favor_item[3]}} alt="" style="height: 293px; width: 300px; margin: 0 auto">
                                             </figure>
 
                                             <div class="portfolio-caption text-center">
                                                 <div class="valign-table">
                                                     <div class="valign-cell">
-                                                        <h2 class="text-upper">stu unger rise</h2>
-                                                        <p>Accessories Here you can find the best computer monitor, printer, scanner, speaker, projector. hardware and more</p>
+                                                        {% set professor_url = "professor/" + favor_item[1] | replace (" ", "%20")  %}
+                                                        <h2 class="text-upper">{{ favor_item[1] }}</h2>
+                                                        <p>
+                                                            {{ favor_item[4] }}
+                                                            <br>
+                                                            {{ favor_item[5] }}
+                                                        </p>
                                                         <div style="text-align: center">
                                                             <div style="width: 100px; height:auto; float:left; display: inline; margin-left: 40px" >
-                                                                <a href="#pf-popup-1" class="pf-btn-view btn btn-primary">View More</a>
+                                                                <a href={{ professor_url }} ; class="pf-btn-view btn btn-primary">View More</a>
                                                             </div>
                                                             <div style="width: 100px; height:auto; float:right; display: inline; margin-right: 40px" >
-                                                                 <img id="tid_1" src="../../static/main_style/img/favor-2.png" style="padding-left: 10px; width:40%; height:40%; padding-bottom: 10px" alt="favor" onclick="clickFavor(this.id)"/>
+                                                                 <img id={{ favor_item[1] | replace (" ", "%20") }} src="../../static/main_style/img/favor-2.png" style="padding-left: 10px; width:40%; height:40%; padding-bottom: 10px" alt="favor" onclick="clickFavor(this.id)"/>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -237,233 +278,234 @@
                                             </div>
                                         </div>
 
-                                        <div id="pf-popup-1" class="pf-popup clearfix">
-                                            <div class="pf-popup-col1">
-                                                <div class="pf-popup-media">
-
-                                                </div>
-                                            </div><!-- .pf-popup-col1 -->
-
-                                            <div class="pf-popup-col2">
-                                                <div class="pf-popup-info clear-mrg">
-                                                    <h2 class="text-upper">Project Title</h2>
-                                                    <p class="text-muted"><strong>design / development</strong></p>
-                                                    <dl class="dl-horizontal">
-                                                        <dt>Date:</dt>
-                                                        <dd>11 Jan 2012</dd>
-
-                                                        <dt>Site link:</dt>
-                                                        <dd><a href="www.sitedomen.com">www.sitedomen.com</a></dd>
-
-                                                        <dt>Client:</dt>
-                                                        <dd>11 Jan 2012</dd>
-                                                    </dl>
-                                                    <p>About 64% of all on-line teens say that do things online that they wouldn’t want their
-                                                        parents to know about. 11% of all adult internet users visit dating websites and spend their
-                                                        time in chatrooms. Some of the classify their behavior as “cyber affair” More then 60% of
-                                                        employees use company PC for the personal needs during their work hours as long as 80
-                                                        minutes per day. </p>
-                                                </div><!-- .pf-popup-info -->
-
-                                            </div><!-- .pf-popup-col2 -->
-                                        </div><!-- .pf-popup -->
+{#                                        <div id="pf-popup-1" class="pf-popup clearfix">#}
+{#                                            <div class="pf-popup-col1">#}
+{#                                                <div class="pf-popup-media">#}
+{##}
+{#                                                </div>#}
+{#                                            </div><!-- .pf-popup-col1 -->#}
+{##}
+{#                                            <div class="pf-popup-col2">#}
+{#                                                <div class="pf-popup-info clear-mrg">#}
+{#                                                    <h2 class="text-upper">Project Title</h2>#}
+{#                                                    <p class="text-muted"><strong>design / development</strong></p>#}
+{#                                                    <dl class="dl-horizontal">#}
+{#                                                        <dt>Date:</dt>#}
+{#                                                        <dd>11 Jan 2012</dd>#}
+{##}
+{#                                                        <dt>Site link:</dt>#}
+{#                                                        <dd><a href="www.sitedomen.com">www.sitedomen.com</a></dd>#}
+{##}
+{#                                                        <dt>Client:</dt>#}
+{#                                                        <dd>11 Jan 2012</dd>#}
+{#                                                    </dl>#}
+{#                                                    <p>About 64% of all on-line teens say that do things online that they wouldn’t want their#}
+{#                                                        parents to know about. 11% of all adult internet users visit dating websites and spend their#}
+{#                                                        time in chatrooms. Some of the classify their behavior as “cyber affair” More then 60% of#}
+{#                                                        employees use company PC for the personal needs during their work hours as long as 80#}
+{#                                                        minutes per day. </p>#}
+{#                                                </div><!-- .pf-popup-info -->#}
+{##}
+{#                                            </div><!-- .pf-popup-col2 -->#}
+{#                                        </div><!-- .pf-popup -->#}
                                     </div><!-- .pf-grid-item -->
+                                    {% endfor %}
 
-                                    <div class="pf-grid-item photography">
-                                        <div class="project">
-                                            <figure class="portfolio-figure">
-                                                <img src="../../static/main_style/img/uploads/portfolio/prj-03.jpg" alt="">
-                                            </figure>
-
-                                            <div class="portfolio-caption text-center">
-                                                <div class="valign-table">
-                                                    <div class="valign-cell">
-                                                        <h2 class="text-upper">stu unger rise</h2>
-                                                        <p>Accessories Here you can find the best computer monitor, printer, scanner, speaker, projector. hardware and more</p>
-                                                        <a href="#pf-popup-1" class="pf-btn-view btn btn-primary">View More</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div id="pf-popup-3" class="pf-popup clearfix">
-                                            <div class="pf-popup-col1">
-                                                <div class="pf-popup-media">
-
-                                                </div>
-                                            </div><!-- .pf-popup-col1 -->
-
-                                            <div class="pf-popup-col2">
-                                                <div class="pf-popup-info clear-mrg">
-                                                    <h2 class="text-upper">Project Title</h2>
-                                                    <p class="text-muted"><strong>design / development</strong></p>
-                                                    <dl class="dl-horizontal">
-                                                        <dt>Date:</dt>
-                                                        <dd>11 Jan 2012</dd>
-
-                                                        <dt>Site link:</dt>
-                                                        <dd><a href="www.sitedomen.com">www.sitedomen.com</a></dd>
-
-                                                        <dt>Client:</dt>
-                                                        <dd>11 Jan 2012</dd>
-                                                    </dl>
-                                                    <p>About 64% of all on-line teens say that do things online that they wouldn’t want their
-                                                        parents to know about. 11% of all adult internet users visit dating websites and spend their
-                                                        time in chatrooms. Some of the classify their behavior as “cyber affair” More then 60% of
-                                                        employees use company PC for the personal needs during their work hours as long as 80
-                                                        minutes per day. </p>
-                                                </div><!-- .pf-popup-info -->
-
-                                            </div><!-- .pf-popup-col2 -->
-                                        </div><!-- .pf-popup -->
-                                    </div><!-- .pf-grid-item -->
-
-                                    <div class="pf-grid-item photography">
-                                        <div class="project">
-                                            <figure class="portfolio-figure">
-                                                <img src="../../static/main_style/img/uploads/portfolio/prj-05.jpg" alt="">
-                                            </figure>
-
-                                            <div class="portfolio-caption text-center">
-                                                <div class="valign-table">
-                                                    <div class="valign-cell">
-                                                        <h2 class="text-upper">stu unger rise</h2>
-                                                        <p>Accessories Here you can find the best computer monitor, printer, scanner, speaker, projector. hardware and more</p>
-                                                        <a href="#pf-popup-5" class="pf-btn-view btn btn-primary">View More</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div id="pf-popup-5" class="pf-popup clearfix">
-                                            <div class="pf-popup-col1">
-                                                <div class="pf-popup-media">
-
-                                                </div>
-                                            </div><!-- .pf-popup-col1 -->
-
-                                            <div class="pf-popup-col2">
-                                                <div class="pf-popup-info clear-mrg">
-                                                    <h2 class="text-upper">Project Title</h2>
-                                                    <p class="text-muted"><strong>design / development</strong></p>
-                                                    <dl class="dl-horizontal">
-                                                        <dt>Date:</dt>
-                                                        <dd>11 Jan 2012</dd>
-
-                                                        <dt>Site link:</dt>
-                                                        <dd><a href="www.sitedomen.com">www.sitedomen.com</a></dd>
-
-                                                        <dt>Client:</dt>
-                                                        <dd>11 Jan 2012</dd>
-                                                    </dl>
-                                                    <p>About 64% of all on-line teens say that do things online that they wouldn’t want their
-                                                        parents to know about. 11% of all adult internet users visit dating websites and spend their
-                                                        time in chatrooms. Some of the classify their behavior as “cyber affair” More then 60% of
-                                                        employees use company PC for the personal needs during their work hours as long as 80
-                                                        minutes per day. </p>
-                                                </div><!-- .pf-popup-info -->
-
-                                            </div><!-- .pf-popup-col2 -->
-                                        </div><!-- .pf-popup -->
-                                    </div><!-- .pf-grid-item -->
-
-                                    <div class="pf-grid-item photography">
-                                        <div class="project">
-                                            <figure class="portfolio-figure">
-                                                <img src="../../static/main_style/img/uploads/portfolio/prj-01.jpg" alt="">
-                                            </figure>
-
-                                            <div class="portfolio-caption text-center">
-                                                <div class="valign-table">
-                                                    <div class="valign-cell">
-                                                        <h2 class="text-upper">stu unger rise</h2>
-                                                        <p>Accessories Here you can find the best computer monitor, printer, scanner, speaker, projector. hardware and more</p>
-                                                        <a href="#pf-popup-7" class="pf-btn-view btn btn-primary">View More</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div id="pf-popup-7" class="pf-popup clearfix">
-                                            <div class="pf-popup-col1">
-                                                <div class="pf-popup-media">
-
-                                                </div>
-                                            </div><!-- .pf-popup-col1 -->
-
-                                            <div class="pf-popup-col2">
-                                                <div class="pf-popup-info clear-mrg">
-                                                    <h2 class="text-upper">Project Title</h2>
-                                                    <p class="text-muted"><strong>design / development</strong></p>
-                                                    <dl class="dl-horizontal">
-                                                        <dt>Date:</dt>
-                                                        <dd>11 Jan 2012</dd>
-
-                                                        <dt>Site link:</dt>
-                                                        <dd><a href="www.sitedomen.com">www.sitedomen.com</a></dd>
-
-                                                        <dt>Client:</dt>
-                                                        <dd>11 Jan 2012</dd>
-                                                    </dl>
-                                                    <p>About 64% of all on-line teens say that do things online that they wouldn’t want their
-                                                        parents to know about. 11% of all adult internet users visit dating websites and spend their
-                                                        time in chatrooms. Some of the classify their behavior as “cyber affair” More then 60% of
-                                                        employees use company PC for the personal needs during their work hours as long as 80
-                                                        minutes per day. </p>
-                                                </div><!-- .pf-popup-info -->
-
-                                            </div><!-- .pf-popup-col2 -->
-                                        </div><!-- .pf-popup -->
-                                    </div><!-- .pf-grid-item -->
-
-                                    <div class="pf-grid-item photography">
-                                        <div class="project">
-                                            <figure class="portfolio-figure">
-                                                <img src="../../static/main_style/img/uploads/portfolio/prj-01.jpg" alt="">
-                                            </figure>
-
-                                            <div class="portfolio-caption text-center">
-                                                <div class="valign-table">
-                                                    <div class="valign-cell">
-                                                        <h2 class="text-upper">stu unger rise</h2>
-                                                        <p>Accessories Here you can find the best computer monitor, printer, scanner, speaker, projector. hardware and more</p>
-                                                        <a href="#pf-popup-1" class="pf-btn-view btn btn-primary">View More</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div id="pf-popup-1" class="pf-popup clearfix">
-                                            <div class="pf-popup-col1">
-                                                <div class="pf-popup-media">
-
-                                                </div>
-                                            </div><!-- .pf-popup-col1 -->
-
-                                            <div class="pf-popup-col2">
-                                                <div class="pf-popup-info clear-mrg">
-                                                    <h2 class="text-upper">Project Title</h2>
-                                                    <p class="text-muted"><strong>design / development</strong></p>
-                                                    <dl class="dl-horizontal">
-                                                        <dt>Date:</dt>
-                                                        <dd>11 Jan 2012</dd>
-
-                                                        <dt>Site link:</dt>
-                                                        <dd><a href="www.sitedomen.com">www.sitedomen.com</a></dd>
-
-                                                        <dt>Client:</dt>
-                                                        <dd>11 Jan 2012</dd>
-                                                    </dl>
-                                                    <p>About 64% of all on-line teens say that do things online that they wouldn’t want their
-                                                        parents to know about. 11% of all adult internet users visit dating websites and spend their
-                                                        time in chatrooms. Some of the classify their behavior as “cyber affair” More then 60% of
-                                                        employees use company PC for the personal needs during their work hours as long as 80
-                                                        minutes per day. </p>
-                                                </div><!-- .pf-popup-info -->
-
-                                            </div><!-- .pf-popup-col2 -->
-                                        </div><!-- .pf-popup -->
-                                    </div><!-- .pf-grid-item -->
+{#                                    <div class="pf-grid-item photography">#}
+{#                                        <div class="project">#}
+{#                                            <figure class="portfolio-figure">#}
+{#                                                <img src="../../static/main_style/img/uploads/portfolio/prj-03.jpg" alt="">#}
+{#                                            </figure>#}
+{##}
+{#                                            <div class="portfolio-caption text-center">#}
+{#                                                <div class="valign-table">#}
+{#                                                    <div class="valign-cell">#}
+{#                                                        <h2 class="text-upper">stu unger rise</h2>#}
+{#                                                        <p>Accessories Here you can find the best computer monitor, printer, scanner, speaker, projector. hardware and more</p>#}
+{#                                                        <a href="#pf-popup-1" class="pf-btn-view btn btn-primary">View More</a>#}
+{#                                                    </div>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                        <div id="pf-popup-3" class="pf-popup clearfix">#}
+{#                                            <div class="pf-popup-col1">#}
+{#                                                <div class="pf-popup-media">#}
+{##}
+{#                                                </div>#}
+{#                                            </div><!-- .pf-popup-col1 -->#}
+{##}
+{#                                            <div class="pf-popup-col2">#}
+{#                                                <div class="pf-popup-info clear-mrg">#}
+{#                                                    <h2 class="text-upper">Project Title</h2>#}
+{#                                                    <p class="text-muted"><strong>design / development</strong></p>#}
+{#                                                    <dl class="dl-horizontal">#}
+{#                                                        <dt>Date:</dt>#}
+{#                                                        <dd>11 Jan 2012</dd>#}
+{##}
+{#                                                        <dt>Site link:</dt>#}
+{#                                                        <dd><a href="www.sitedomen.com">www.sitedomen.com</a></dd>#}
+{##}
+{#                                                        <dt>Client:</dt>#}
+{#                                                        <dd>11 Jan 2012</dd>#}
+{#                                                    </dl>#}
+{#                                                    <p>About 64% of all on-line teens say that do things online that they wouldn’t want their#}
+{#                                                        parents to know about. 11% of all adult internet users visit dating websites and spend their#}
+{#                                                        time in chatrooms. Some of the classify their behavior as “cyber affair” More then 60% of#}
+{#                                                        employees use company PC for the personal needs during their work hours as long as 80#}
+{#                                                        minutes per day. </p>#}
+{#                                                </div><!-- .pf-popup-info -->#}
+{##}
+{#                                            </div><!-- .pf-popup-col2 -->#}
+{#                                        </div><!-- .pf-popup -->#}
+{#                                    </div><!-- .pf-grid-item -->#}
+{##}
+{#                                    <div class="pf-grid-item photography">#}
+{#                                        <div class="project">#}
+{#                                            <figure class="portfolio-figure">#}
+{#                                                <img src="../../static/main_style/img/uploads/portfolio/prj-05.jpg" alt="">#}
+{#                                            </figure>#}
+{##}
+{#                                            <div class="portfolio-caption text-center">#}
+{#                                                <div class="valign-table">#}
+{#                                                    <div class="valign-cell">#}
+{#                                                        <h2 class="text-upper">stu unger rise</h2>#}
+{#                                                        <p>Accessories Here you can find the best computer monitor, printer, scanner, speaker, projector. hardware and more</p>#}
+{#                                                        <a href="#pf-popup-5" class="pf-btn-view btn btn-primary">View More</a>#}
+{#                                                    </div>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                        <div id="pf-popup-5" class="pf-popup clearfix">#}
+{#                                            <div class="pf-popup-col1">#}
+{#                                                <div class="pf-popup-media">#}
+{##}
+{#                                                </div>#}
+{#                                            </div><!-- .pf-popup-col1 -->#}
+{##}
+{#                                            <div class="pf-popup-col2">#}
+{#                                                <div class="pf-popup-info clear-mrg">#}
+{#                                                    <h2 class="text-upper">Project Title</h2>#}
+{#                                                    <p class="text-muted"><strong>design / development</strong></p>#}
+{#                                                    <dl class="dl-horizontal">#}
+{#                                                        <dt>Date:</dt>#}
+{#                                                        <dd>11 Jan 2012</dd>#}
+{##}
+{#                                                        <dt>Site link:</dt>#}
+{#                                                        <dd><a href="www.sitedomen.com">www.sitedomen.com</a></dd>#}
+{##}
+{#                                                        <dt>Client:</dt>#}
+{#                                                        <dd>11 Jan 2012</dd>#}
+{#                                                    </dl>#}
+{#                                                    <p>About 64% of all on-line teens say that do things online that they wouldn’t want their#}
+{#                                                        parents to know about. 11% of all adult internet users visit dating websites and spend their#}
+{#                                                        time in chatrooms. Some of the classify their behavior as “cyber affair” More then 60% of#}
+{#                                                        employees use company PC for the personal needs during their work hours as long as 80#}
+{#                                                        minutes per day. </p>#}
+{#                                                </div><!-- .pf-popup-info -->#}
+{##}
+{#                                            </div><!-- .pf-popup-col2 -->#}
+{#                                        </div><!-- .pf-popup -->#}
+{#                                    </div><!-- .pf-grid-item -->#}
+{##}
+{#                                    <div class="pf-grid-item photography">#}
+{#                                        <div class="project">#}
+{#                                            <figure class="portfolio-figure">#}
+{#                                                <img src="../../static/main_style/img/uploads/portfolio/prj-01.jpg" alt="">#}
+{#                                            </figure>#}
+{##}
+{#                                            <div class="portfolio-caption text-center">#}
+{#                                                <div class="valign-table">#}
+{#                                                    <div class="valign-cell">#}
+{#                                                        <h2 class="text-upper">stu unger rise</h2>#}
+{#                                                        <p>Accessories Here you can find the best computer monitor, printer, scanner, speaker, projector. hardware and more</p>#}
+{#                                                        <a href="#pf-popup-7" class="pf-btn-view btn btn-primary">View More</a>#}
+{#                                                    </div>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                        <div id="pf-popup-7" class="pf-popup clearfix">#}
+{#                                            <div class="pf-popup-col1">#}
+{#                                                <div class="pf-popup-media">#}
+{##}
+{#                                                </div>#}
+{#                                            </div><!-- .pf-popup-col1 -->#}
+{##}
+{#                                            <div class="pf-popup-col2">#}
+{#                                                <div class="pf-popup-info clear-mrg">#}
+{#                                                    <h2 class="text-upper">Project Title</h2>#}
+{#                                                    <p class="text-muted"><strong>design / development</strong></p>#}
+{#                                                    <dl class="dl-horizontal">#}
+{#                                                        <dt>Date:</dt>#}
+{#                                                        <dd>11 Jan 2012</dd>#}
+{##}
+{#                                                        <dt>Site link:</dt>#}
+{#                                                        <dd><a href="www.sitedomen.com">www.sitedomen.com</a></dd>#}
+{##}
+{#                                                        <dt>Client:</dt>#}
+{#                                                        <dd>11 Jan 2012</dd>#}
+{#                                                    </dl>#}
+{#                                                    <p>About 64% of all on-line teens say that do things online that they wouldn’t want their#}
+{#                                                        parents to know about. 11% of all adult internet users visit dating websites and spend their#}
+{#                                                        time in chatrooms. Some of the classify their behavior as “cyber affair” More then 60% of#}
+{#                                                        employees use company PC for the personal needs during their work hours as long as 80#}
+{#                                                        minutes per day. </p>#}
+{#                                                </div><!-- .pf-popup-info -->#}
+{##}
+{#                                            </div><!-- .pf-popup-col2 -->#}
+{#                                        </div><!-- .pf-popup -->#}
+{#                                    </div><!-- .pf-grid-item -->#}
+{##}
+{#                                    <div class="pf-grid-item photography">#}
+{#                                        <div class="project">#}
+{#                                            <figure class="portfolio-figure">#}
+{#                                                <img src="../../static/main_style/img/uploads/portfolio/prj-01.jpg" alt="">#}
+{#                                            </figure>#}
+{##}
+{#                                            <div class="portfolio-caption text-center">#}
+{#                                                <div class="valign-table">#}
+{#                                                    <div class="valign-cell">#}
+{#                                                        <h2 class="text-upper">stu unger rise</h2>#}
+{#                                                        <p>Accessories Here you can find the best computer monitor, printer, scanner, speaker, projector. hardware and more</p>#}
+{#                                                        <a href="#pf-popup-1" class="pf-btn-view btn btn-primary">View More</a>#}
+{#                                                    </div>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{##}
+{#                                        <div id="pf-popup-1" class="pf-popup clearfix">#}
+{#                                            <div class="pf-popup-col1">#}
+{#                                                <div class="pf-popup-media">#}
+{##}
+{#                                                </div>#}
+{#                                            </div><!-- .pf-popup-col1 -->#}
+{##}
+{#                                            <div class="pf-popup-col2">#}
+{#                                                <div class="pf-popup-info clear-mrg">#}
+{#                                                    <h2 class="text-upper">Project Title</h2>#}
+{#                                                    <p class="text-muted"><strong>design / development</strong></p>#}
+{#                                                    <dl class="dl-horizontal">#}
+{#                                                        <dt>Date:</dt>#}
+{#                                                        <dd>11 Jan 2012</dd>#}
+{##}
+{#                                                        <dt>Site link:</dt>#}
+{#                                                        <dd><a href="www.sitedomen.com">www.sitedomen.com</a></dd>#}
+{##}
+{#                                                        <dt>Client:</dt>#}
+{#                                                        <dd>11 Jan 2012</dd>#}
+{#                                                    </dl>#}
+{#                                                    <p>About 64% of all on-line teens say that do things online that they wouldn’t want their#}
+{#                                                        parents to know about. 11% of all adult internet users visit dating websites and spend their#}
+{#                                                        time in chatrooms. Some of the classify their behavior as “cyber affair” More then 60% of#}
+{#                                                        employees use company PC for the personal needs during their work hours as long as 80#}
+{#                                                        minutes per day. </p>#}
+{#                                                </div><!-- .pf-popup-info -->#}
+{##}
+{#                                            </div><!-- .pf-popup-col2 -->#}
+{#                                        </div><!-- .pf-popup -->#}
+{#                                    </div><!-- .pf-grid-item -->#}
 
                                 </div><!-- .pf-grid -->
                             </div><!-- .pf-wrap -->
@@ -483,54 +525,54 @@
         </button>
 
         <div id="ace-sidebar-inner">
-            <nav id="ace-main-nav-sm" class="visible-xs visible-sm text-center">
-                <ul class="clear-list">
-                    <li><a href="index.html">about</a></li>
-                    <li><a href="portfolio.html">portfolio</a>
-                    <li><a href="testimonials.html">references</a></li>
-                    <li class="has-sub-menu"><a href="#">pages</a>
-                        <ul class="sub-menu">
-                            <li><a href="typography.html">typography</a></li>
-                            <li><a href="components.html">components</a></li>
-                            <li><a href="search.html">search</a></li>
-                            <li><a href="404.html">404</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-sub-menu"><a href="category.html">blog</a>
-                        <ul class="sub-menu">
-                            <li><a href="single.html">single</a></li>
-                            <li><a href="single-image.html">single image</a></li>
-                            <li><a href="single-slider.html">single slider</a></li>
-                            <li><a href="single-youtube.html">single youtube</a></li>
-                            <li><a href="single-vimeo.html">single vimeo</a></li>
-                            <li><a href="single-dailymotion.html">single dailymotion</a></li>
-                            <li><a href="single-soundcloud.html">single soundcloud</a></li>
-                            <li><a href="single-video.html">single video</a></li>
-                            <li><a href="single-audio.html">single audio</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="contact.html">contact</a></li>
-                </ul>
-            </nav><!-- #ace-main-nav-sm -->
+{#            <nav id="ace-main-nav-sm" class="visible-xs visible-sm text-center">#}
+{#                <ul class="clear-list">#}
+{#                    <li><a href="index.html">about</a></li>#}
+{#                    <li><a href="portfolio.html">portfolio</a>#}
+{#                    <li><a href="testimonials.html">references</a></li>#}
+{#                    <li class="has-sub-menu"><a href="#">pages</a>#}
+{#                        <ul class="sub-menu">#}
+{#                            <li><a href="typography.html">typography</a></li>#}
+{#                            <li><a href="components.html">components</a></li>#}
+{#                            <li><a href="search.html">search</a></li>#}
+{#                            <li><a href="404.html">404</a></li>#}
+{#                        </ul>#}
+{#                    </li>#}
+{#                    <li class="has-sub-menu"><a href="category.html">blog</a>#}
+{#                        <ul class="sub-menu">#}
+{#                            <li><a href="single.html">single</a></li>#}
+{#                            <li><a href="single-image.html">single image</a></li>#}
+{#                            <li><a href="single-slider.html">single slider</a></li>#}
+{#                            <li><a href="single-youtube.html">single youtube</a></li>#}
+{#                            <li><a href="single-vimeo.html">single vimeo</a></li>#}
+{#                            <li><a href="single-dailymotion.html">single dailymotion</a></li>#}
+{#                            <li><a href="single-soundcloud.html">single soundcloud</a></li>#}
+{#                            <li><a href="single-video.html">single video</a></li>#}
+{#                            <li><a href="single-audio.html">single audio</a></li>#}
+{#                        </ul>#}
+{#                    </li>#}
+{#                    <li><a href="contact.html">contact</a></li>#}
+{#                </ul>#}
+{#            </nav><!-- #ace-main-nav-sm -->#}
 
-            <article class="ace-card bg-primary">
-                <div class="ace-card-inner text-center">
-                    <img class="avatar avatar-195" src="../../static/main_style/img/uploads/avatar/avatar-195x195.png" width="195" height="195" alt="">
-                    <h1>Ola Lowe</h1>
-                    <p class="text-muted">Florist | Decorator</p>
-                    <ul class="ace-social clear-list">
-                        <li><a><span class="ace-icon ace-icon-facebook"></span></a></li>
-                        <li><a><span class="ace-icon ace-icon-twitter"></span></a></li>
-                        <li><a><span class="ace-icon ace-icon-google-plus"></span></a></li>
-                        <li><a><span class="ace-icon ace-icon-instagram"></span></a></li>
-                        <li><a><span class="ace-icon ace-icon-pinterest"></span></a></li>
-                    </ul>
-                </div>
-            </article><!-- #ace-card -->
+{#            <article class="ace-card bg-primary">#}
+{#                <div class="ace-card-inner text-center">#}
+{#                    <img class="avatar avatar-195" src="../../static/main_style/img/uploads/avatar/avatar-195x195.png" width="195" height="195" alt="">#}
+{#                    <h1>Ola Lowe</h1>#}
+{#                    <p class="text-muted">Florist | Decorator</p>#}
+{#                    <ul class="ace-social clear-list">#}
+{#                        <li><a><span class="ace-icon ace-icon-facebook"></span></a></li>#}
+{#                        <li><a><span class="ace-icon ace-icon-twitter"></span></a></li>#}
+{#                        <li><a><span class="ace-icon ace-icon-google-plus"></span></a></li>#}
+{#                        <li><a><span class="ace-icon ace-icon-instagram"></span></a></li>#}
+{#                        <li><a><span class="ace-icon ace-icon-pinterest"></span></a></li>#}
+{#                    </ul>#}
+{#                </div>#}
+{#            </article><!-- #ace-card -->#}
 
             <aside class="widget-area">
                 <section class="widget widget_search">
-                    <form role="search" method="get" class="search-form" action="http://sc.chinaz.com/jiaoben/">
+                    <form role="search" method="post" class="search-form" id="easySearch" onSubmit=clickSearchButton(this.id)>
                         <label>
                             <span class="screen-reader-text">Search for:</span>
                             <input type="search" class="search-field" placeholder="Search" value="" name="s">
@@ -543,98 +585,101 @@
                 </section>
 
                 <section class="widget widget_posts_entries">
-                    <h2 class="widget-title">popular posts</h2>
+                    <h2 class="widget-title">recommendation</h2>
                     <ul>
+                        {% for item in recomm_list %}
+                            {% set recomm_url = "professor/" + item[0] | replace (" ", "%20")  %}
                         <li>
-                            <a class="post-image" href="">
-                                <img src="http://noemi.px-lab.com/wp-content/uploads/2016/05/tttt-70x70.png" alt="">
+                            <a class="post-image" href={{ recomm_url }}>
+                                <img src={{ item[1] }} alt="">
                             </a>
                             <div class="post-content">
                                 <h3>
-                                    <a href="">contextual advertising</a>
+                                    <a href={{ recomm_url }}>{{ item[0] }}</a>
                                 </h3>
                             </div>
                             <div class="post-category-comment">
-                                <a href="" class="post-category">Work</a>
-                                <a href="" class="post-comments">256 comments</a>
+                                <a href="#" class="post-category">{{ item[2] }}</a>
+                                <a href="#" class="post-comments">{{ item[3] }}</a>
                             </div>
                         </li>
+                        {% endfor %}
 
-                        <li>
-                            <a class="post-image" href="">
-                                <img src="http://noemi.px-lab.com/wp-content/uploads/2016/05/IMG_8945-1-70x70.jpg" alt="">
-                            </a>
-                            <div class="post-content">
-                                <h3>
-                                    <a href="">grilling tips for the dog days of summer</a>
-                                </h3>
-                            </div>
-                            <div class="post-category-comment">
-                                <a href="" class="post-category">Work</a>
-                                <a href="" class="post-comments">256 comments</a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <a class="post-image" href="">
-                                <img src="http://noemi.px-lab.com/wp-content/uploads/2016/05/15-70x70.png" alt="">
-                            </a>
-                            <div class="post-content">
-                                <h3><a href=""></a>branding do you know who are</h3>
-                            </div>
-                            <div class="post-category-comment">
-                                <a href="" class="post-category">Work</a>
-                                <a href="" class="post-comments">256 comments</a>
-                            </div>
-                        </li>
+{#                        <li>#}
+{#                            <a class="post-image" href="">#}
+{#                                <img src="http://noemi.px-lab.com/wp-content/uploads/2016/05/IMG_8945-1-70x70.jpg" alt="">#}
+{#                            </a>#}
+{#                            <div class="post-content">#}
+{#                                <h3>#}
+{#                                    <a href="">grilling tips for the dog days of summer</a>#}
+{#                                </h3>#}
+{#                            </div>#}
+{#                            <div class="post-category-comment">#}
+{#                                <a href="" class="post-category">Work</a>#}
+{#                                <a href="" class="post-comments">256 comments</a>#}
+{#                            </div>#}
+{#                        </li>#}
+{##}
+{#                        <li>#}
+{#                            <a class="post-image" href="">#}
+{#                                <img src="http://noemi.px-lab.com/wp-content/uploads/2016/05/15-70x70.png" alt="">#}
+{#                            </a>#}
+{#                            <div class="post-content">#}
+{#                                <h3><a href=""></a>branding do you know who are</h3>#}
+{#                            </div>#}
+{#                            <div class="post-category-comment">#}
+{#                                <a href="" class="post-category">Work</a>#}
+{#                                <a href="" class="post-comments">256 comments</a>#}
+{#                            </div>#}
+{#                        </li>#}
                     </ul>
                 </section>
 
-                <section id="tag_cloud-2" class="widget widget_tag_cloud">
-                    <h2 class="widget-title">Tags</h2>
-                    <div class="tagcloud">
-                        <a href="http://sc.chinaz.com/jiaoben/tag/audios/" class="tag-link-5 tag-link-position-1" title="1 topic" style="font-size: 1em;">Audios</a>
-                        <a href="" class="tag-link-7 tag-link-position-2" title="1 topic" style="font-size: 1em;">Freelance</a></div>
-                </section>
-
-                <section id="recent-posts-3" class="widget widget_recent_entries">
-                    <h4 class="widget-title">Recent Posts</h4>
-                    <ul>
-                        <li>
-                            <a href="">Global Travel And Vacations  Luxury Travel On A Tight  Budget</a>
-                            <div class="post-category-comment">
-                                <a href="" class="post-category">Photography</a>
-                                <a href="" class="post-comments">256 comments</a>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="">cooking for one</a>
-                            <div class="post-category-comment">
-                                <a href="" class="post-category">Work</a>
-                                <a href="" class="post-comments">256 comments</a>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="">An Ugly Myspace Profile Will  Sure Ruin Your Reputation</a>
-                            <div class="post-category-comment">
-                                <a href="" class="post-category">Photography</a>
-                                <a href="" class="post-comments">256 comments</a>
-                            </div>
-                        </li>
-                    </ul>
-                </section>
-
-                <section class="widget widget_categories">
-                    <h4 class="widget-title">post categories</h4>
-                    <ul>
-                        <li class="cat-item"><a href="">Audios</a>5</li>
-                        <li class="cat-item"><a href="">Daili Inspiration</a>2</li>
-                        <li class="cat-item"><a href="">Freelance</a>27</li>
-                        <li class="cat-item"><a href="">Links</a>5</li>
-                        <li class="cat-item"><a href="">Mobile</a>2</li>
-                        <li class="cat-item"><a href="">Phography</a>27</li>
-                    </ul>
-                </section>
+{#                <section id="tag_cloud-2" class="widget widget_tag_cloud">#}
+{#                    <h2 class="widget-title">Tags</h2>#}
+{#                    <div class="tagcloud">#}
+{#                        <a href="http://sc.chinaz.com/jiaoben/tag/audios/" class="tag-link-5 tag-link-position-1" title="1 topic" style="font-size: 1em;">Audios</a>#}
+{#                        <a href="" class="tag-link-7 tag-link-position-2" title="1 topic" style="font-size: 1em;">Freelance</a></div>#}
+{#                </section>#}
+{##}
+{#                <section id="recent-posts-3" class="widget widget_recent_entries">#}
+{#                    <h4 class="widget-title">Recent Posts</h4>#}
+{#                    <ul>#}
+{#                        <li>#}
+{#                            <a href="">Global Travel And Vacations  Luxury Travel On A Tight  Budget</a>#}
+{#                            <div class="post-category-comment">#}
+{#                                <a href="" class="post-category">Photography</a>#}
+{#                                <a href="" class="post-comments">256 comments</a>#}
+{#                            </div>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <a href="">cooking for one</a>#}
+{#                            <div class="post-category-comment">#}
+{#                                <a href="" class="post-category">Work</a>#}
+{#                                <a href="" class="post-comments">256 comments</a>#}
+{#                            </div>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <a href="">An Ugly Myspace Profile Will  Sure Ruin Your Reputation</a>#}
+{#                            <div class="post-category-comment">#}
+{#                                <a href="" class="post-category">Photography</a>#}
+{#                                <a href="" class="post-comments">256 comments</a>#}
+{#                            </div>#}
+{#                        </li>#}
+{#                    </ul>#}
+{#                </section>#}
+{##}
+{#                <section class="widget widget_categories">#}
+{#                    <h4 class="widget-title">post categories</h4>#}
+{#                    <ul>#}
+{#                        <li class="cat-item"><a href="">Audios</a>5</li>#}
+{#                        <li class="cat-item"><a href="">Daili Inspiration</a>2</li>#}
+{#                        <li class="cat-item"><a href="">Freelance</a>27</li>#}
+{#                        <li class="cat-item"><a href="">Links</a>5</li>#}
+{#                        <li class="cat-item"><a href="">Mobile</a>2</li>#}
+{#                        <li class="cat-item"><a href="">Phography</a>27</li>#}
+{#                    </ul>#}
+{#                </section>#}
             </aside>
 
         </div><!-- #ace-sidebar-inner -->
