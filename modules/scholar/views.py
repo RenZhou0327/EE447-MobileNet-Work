@@ -255,13 +255,15 @@ def connection(name="Quanshi Zhang"):
                         "Co_authors": json.loads(researcher.Co_authors)["Co_authors"],
                         "Papers": json.loads(researcher.Papers)["Papers"],
                         # "Cited_graph": json.loads(researcher.Cited_graph)["Cited_graph"],
-                    }
-    # print("Researcher_info[Papers]", researcher_info["Papers"])
-    citation = researcher.Cited_graph
-    print("Citation", citation)
-    # return render_template("search/connection.html", Researcher_info=researcher_info, Citation=json.dumps(json.loads(researcher.Cited_graph)))
-    return render_template("search/connection.html", Researcher_info=researcher_info, Citation=citation)
-
+    }
+    # print("type", type(json.loads(researcher.Cited_graph)["Cited_graph"]))
+    citation = json.loads(researcher.Cited_graph)["Cited_graph"]
+    year_num = len(citation)
+    return render_template("search/connection.html", Researcher_info=researcher_info, 
+    xAxis=citation[:year_num//2],  # 柱状图 x-axis
+    data=citation[year_num//2:],  # 柱状图 y-axis
+    AuthorNodes = "",  # co-authors
+    )
 
 @scholar_blue.route("/operateFavor", methods=["POST"])
 @scholar_log_req
