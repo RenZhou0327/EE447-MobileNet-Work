@@ -259,10 +259,30 @@ def connection(name="Quanshi Zhang"):
     # print("type", type(json.loads(researcher.Cited_graph)["Cited_graph"]))
     citation = json.loads(researcher.Cited_graph)["Cited_graph"]
     year_num = len(citation)
+    # Co-authors
+    raw_authors = json.loads(researcher.Co_authors)["Co_authors"]
+    coauthors = []
+    Links = []
+    coauthors.append({
+        "name": researcher.Name,
+        "symbolSize": 70,
+        "category": 0,
+    })
+    for raw_author in raw_authors:
+        coauthors.append({
+            "name": raw_author["Co_authors_name"],
+            "symbolSize": 50,
+            "category": 1,
+        })
+        Links.append({
+            "source": researcher.Name,
+            "target": raw_author["Co_authors_name"]
+        })
     return render_template("search/connection.html", Researcher_info=researcher_info, 
     xAxis=citation[:year_num//2],  # 柱状图 x-axis
     data=citation[year_num//2:],  # 柱状图 y-axis
-    AuthorNodes = "",  # co-authors
+    AuthorNodes = coauthors,  # co-authors
+    Links = Links  # co-authors 边的关系
     )
 
 @scholar_blue.route("/operateFavor", methods=["POST"])
