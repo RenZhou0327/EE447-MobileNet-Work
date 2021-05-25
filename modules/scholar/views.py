@@ -54,7 +54,7 @@ def login():
         # print("I am here", form.data)
         # {'account': 'root', 'pwd': 'root', 'verify_code': 'utas', 'submit': True,
         # 'csrf_token': 'IjBhZGE4Zjc1YmE2MWJlNmI4ZDliOTY3NTRmMGQ2ODQ3MmEzNGQ3ZmYi.YJC1HQ.TNuDjDz-cGqt1f1BUVdCOn-ixCI'}
-        usr_count = User.query.filter_by(username=data['account']).first()
+        usr_count = User.query.filter_by(username=data['account']).limit(20).first()
         if usr_count is None:
             flash("账号错误！", "danger")
             return redirect(url_for("scholar.login"))
@@ -90,7 +90,7 @@ def register():
         if session.get('image').lower() != form.verify_code.data.lower():
             flash('验证码错误！', "danger")
             return redirect(url_for("scholar.register"))
-        names = User.query.filter_by(username=data['account']).count()
+        names = User.query.filter_by(username=data['account']).limit(20).count()
         if names >= 1:
             flash("已有此用户，请使用其他用户名！")
             return redirect(url_for("scholar.register"))
@@ -182,12 +182,12 @@ def favor():
     username = session["admin"]
     professor_info = db.session.query(Favor.username, Favor.professor_name, Researcher.Name, Researcher.Avatar,
         Researcher.University, Researcher.Title).filter(Favor.username == username)\
-        .join(Researcher, Favor.professor_name == Researcher.Name)
+        .join(Researcher, Favor.professor_name == Researcher.Name).limit(20)
 
     # professor_id_list = random_walk_recomm()
     professor_id_list = [0, 1, 2]
     recomm_professor_list = db.session.query(Researcher.Name, Researcher.Avatar, Researcher.University,
-                                             Researcher.Title).filter(Researcher.ID.in_(professor_id_list)).all()
+                                             Researcher.Title).filter(Researcher.ID.in_(professor_id_list)).limit(20).all()
     print(recomm_professor_list)
 
     return render_template("search/favor.html", professor_info=professor_info, recomm_list=recomm_professor_list)
@@ -198,7 +198,7 @@ def favor():
 def professor(name):
     print("name", name)
     # 这个地方需要传入被点击的实验者的姓名, 然后在数据库中进行搜索展示
-    researcher = Researcher.query.filter_by(Name=name).first()
+    researcher = Researcher.query.filter_by(Name=name).limit(20).first()
     if researcher.DOB == "":
         researcher.DOB = "Unknown"
     Researcher_info = {"ID": researcher.ID, "Name": researcher.Name, "Avatar": researcher.Avatar,
@@ -219,7 +219,7 @@ def professor(name):
 @scholar_log_req
 def paper(name):
     # 这个地方需要传入被点击的实验者的姓名, 然后在数据库中进行搜索展示
-    researcher = Researcher.query.filter_by(Name=name).first()
+    researcher = Researcher.query.filter_by(Name=name).limit(20).first()
     if researcher.DOB == "":
         researcher.DOB = "Unknown"
     researcher_info = {"ID": researcher.ID, "Name": researcher.Name, "Avatar": researcher.Avatar,
@@ -242,7 +242,7 @@ def paper(name):
 @scholar_log_req
 def connection(name="Quanshi Zhang"):
     # 这个地方需要传入被点击的实验者的姓名, 然后在数据库中进行搜索展示
-    researcher = Researcher.query.filter_by(Name=name).first()
+    researcher = Researcher.query.filter_by(Name=name).limit(20).first()
     if researcher.DOB == "":
         researcher.DOB = "Unknown"
     researcher_info = {"ID": researcher.ID, "Name": researcher.Name, "Avatar": researcher.Avatar,
@@ -293,7 +293,7 @@ def operateFavor():
     professor_name = json_data["id"].replace("%20", " ")
     # print(user_name, professor_name)
     if json_data["op"] == 0:
-        favor_obj = Favor.query.filter_by(username=user_name, professor_name=professor_name).first()
+        favor_obj = Favor.query.filter_by(username=user_name, professor_name=professor_name).limit(20).first()
         print(favor_obj.username, favor_obj.professor_name)
         db.session.delete(favor_obj)
         db.session.commit()
@@ -309,3 +309,13 @@ def operateFavor():
 @scholar_log_req
 def test():
     return render_template("search/test.html")
+
+
+@scholar_blue.route("/recomm", methods=["GET", "POST"])
+@scholar_log_req
+def recomm():
+    professor_id_list = [1, 2]
+    recomm_professor_list = db.session.query(Researcher.Name, Researcher.Avatar, Researcher.University,
+                                             Researcher.Title).filter(
+        Researcher.ID.in_(professor_id_list)).limit(20).all()
+    return jsonify(recomm_list=recomm_professor_list)
