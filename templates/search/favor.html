@@ -278,36 +278,36 @@
                                             </div>
                                         </div>
 
-                                        <div id="pf-popup-1" class="pf-popup clearfix">
-                                            <div class="pf-popup-col1">
-                                                <div class="pf-popup-media">
-
-                                                </div>
-                                            </div><!-- .pf-popup-col1 -->
-
-                                            <div class="pf-popup-col2">
-                                                <div class="pf-popup-info clear-mrg">
-                                                    <h2 class="text-upper">Project Title</h2>
-                                                    <p class="text-muted"><strong>design / development</strong></p>
-                                                    <dl class="dl-horizontal">
-                                                        <dt>Date:</dt>
-                                                        <dd>11 Jan 2012</dd>
-
-                                                        <dt>Site link:</dt>
-                                                        <dd><a href="www.sitedomen.com">www.sitedomen.com</a></dd>
-
-                                                        <dt>Client:</dt>
-                                                        <dd>11 Jan 2012</dd>
-                                                    </dl>
-                                                    <p>About 64% of all on-line teens say that do things online that they wouldn’t want their
-                                                        parents to know about. 11% of all adult internet users visit dating websites and spend their
-                                                        time in chatrooms. Some of the classify their behavior as “cyber affair” More then 60% of
-                                                        employees use company PC for the personal needs during their work hours as long as 80
-                                                        minutes per day. </p>
-                                                </div><!-- .pf-popup-info -->
-
-                                            </div><!-- .pf-popup-col2 -->
-                                        </div><!-- .pf-popup -->
+{#                                        <div id="pf-popup-1" class="pf-popup clearfix">#}
+{#                                            <div class="pf-popup-col1">#}
+{#                                                <div class="pf-popup-media">#}
+{##}
+{#                                                </div>#}
+{#                                            </div><!-- .pf-popup-col1 -->#}
+{##}
+{#                                            <div class="pf-popup-col2">#}
+{#                                                <div class="pf-popup-info clear-mrg">#}
+{#                                                    <h2 class="text-upper">Project Title</h2>#}
+{#                                                    <p class="text-muted"><strong>design / development</strong></p>#}
+{#                                                    <dl class="dl-horizontal">#}
+{#                                                        <dt>Date:</dt>#}
+{#                                                        <dd>11 Jan 2012</dd>#}
+{##}
+{#                                                        <dt>Site link:</dt>#}
+{#                                                        <dd><a href="www.sitedomen.com">www.sitedomen.com</a></dd>#}
+{##}
+{#                                                        <dt>Client:</dt>#}
+{#                                                        <dd>11 Jan 2012</dd>#}
+{#                                                    </dl>#}
+{#                                                    <p>About 64% of all on-line teens say that do things online that they wouldn’t want their#}
+{#                                                        parents to know about. 11% of all adult internet users visit dating websites and spend their#}
+{#                                                        time in chatrooms. Some of the classify their behavior as “cyber affair” More then 60% of#}
+{#                                                        employees use company PC for the personal needs during their work hours as long as 80#}
+{#                                                        minutes per day. </p>#}
+{#                                                </div><!-- .pf-popup-info -->#}
+{##}
+{#                                            </div><!-- .pf-popup-col2 -->#}
+{#                                        </div><!-- .pf-popup -->#}
                                     </div><!-- .pf-grid-item -->
                                     {% endfor %}
 
@@ -587,48 +587,51 @@
                 <section class="widget widget_posts_entries">
                     <h2 class="widget-title">recommendation</h2>
                     <ul>
+                        {% for item in recomm_list %}
+                            {% set recomm_url = "professor/" + item[0] | replace (" ", "%20")  %}
                         <li>
-                            <a class="post-image" href="">
-                                <img src="http://noemi.px-lab.com/wp-content/uploads/2016/05/tttt-70x70.png" alt="">
+                            <a class="post-image" href={{ recomm_url }}>
+                                <img src={{ item[1] }} alt="">
                             </a>
                             <div class="post-content">
                                 <h3>
-                                    <a href="">contextual advertising</a>
+                                    <a href={{ recomm_url }}>{{ item[0] }}</a>
                                 </h3>
                             </div>
                             <div class="post-category-comment">
-                                <a href="" class="post-category">Work</a>
-                                <a href="" class="post-comments">256 comments</a>
+                                <a href="#" class="post-category">{{ item[2] }}</a>
+                                <a href="#" class="post-comments">{{ item[3] }}</a>
                             </div>
                         </li>
+                        {% endfor %}
 
-                        <li>
-                            <a class="post-image" href="">
-                                <img src="http://noemi.px-lab.com/wp-content/uploads/2016/05/IMG_8945-1-70x70.jpg" alt="">
-                            </a>
-                            <div class="post-content">
-                                <h3>
-                                    <a href="">grilling tips for the dog days of summer</a>
-                                </h3>
-                            </div>
-                            <div class="post-category-comment">
-                                <a href="" class="post-category">Work</a>
-                                <a href="" class="post-comments">256 comments</a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <a class="post-image" href="">
-                                <img src="http://noemi.px-lab.com/wp-content/uploads/2016/05/15-70x70.png" alt="">
-                            </a>
-                            <div class="post-content">
-                                <h3><a href=""></a>branding do you know who are</h3>
-                            </div>
-                            <div class="post-category-comment">
-                                <a href="" class="post-category">Work</a>
-                                <a href="" class="post-comments">256 comments</a>
-                            </div>
-                        </li>
+{#                        <li>#}
+{#                            <a class="post-image" href="">#}
+{#                                <img src="http://noemi.px-lab.com/wp-content/uploads/2016/05/IMG_8945-1-70x70.jpg" alt="">#}
+{#                            </a>#}
+{#                            <div class="post-content">#}
+{#                                <h3>#}
+{#                                    <a href="">grilling tips for the dog days of summer</a>#}
+{#                                </h3>#}
+{#                            </div>#}
+{#                            <div class="post-category-comment">#}
+{#                                <a href="" class="post-category">Work</a>#}
+{#                                <a href="" class="post-comments">256 comments</a>#}
+{#                            </div>#}
+{#                        </li>#}
+{##}
+{#                        <li>#}
+{#                            <a class="post-image" href="">#}
+{#                                <img src="http://noemi.px-lab.com/wp-content/uploads/2016/05/15-70x70.png" alt="">#}
+{#                            </a>#}
+{#                            <div class="post-content">#}
+{#                                <h3><a href=""></a>branding do you know who are</h3>#}
+{#                            </div>#}
+{#                            <div class="post-category-comment">#}
+{#                                <a href="" class="post-category">Work</a>#}
+{#                                <a href="" class="post-comments">256 comments</a>#}
+{#                            </div>#}
+{#                        </li>#}
                     </ul>
                 </section>
 

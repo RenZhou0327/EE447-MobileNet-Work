@@ -14,6 +14,10 @@ def scholar_log_req(f):
     return decorated_function
 
 
+def random_walk_recomm():
+    return []
+
+
 graph_list = [(0, 1), (0, 2), (0, 3)]
 # es = Elasticsearch("172.17.0.7:9200")
 # es = Elasticsearch("1.15.106.125:9200")

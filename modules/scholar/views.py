@@ -6,7 +6,7 @@ from modules.scholar import scholar_blue
 from modules.scholar.forms import SearchForm, RegisterForm, EasySearchForm
 from modules.scholar.forms import LoginForm
 from modules.scholar.utils import get_verify_code
-from modules.common import graph_list, scholar_log_req, es
+from modules.common import graph_list, scholar_log_req, es, random_walk_recomm
 from modules.scholar.models import User, Researcher, Favor
 from app import db
 import random
@@ -179,28 +179,18 @@ def entities(keyword, page=1):
 @scholar_blue.route("/favor", methods=["GET", "POST"])
 @scholar_log_req
 def favor():
-    # form = EasySearchForm()
-    # if form.validate_on_submit():
-    #     data = form.data
-    #     print("searchData", data)
-    #     if data['searchInput'] is not None:
-    #         return redirect(url_for("scholar.entities", keyword=data['searchInput'], page=1))
-
     username = session["admin"]
     professor_info = db.session.query(Favor.username, Favor.professor_name, Researcher.Name, Researcher.Avatar,
         Researcher.University, Researcher.Title).filter(Favor.username == username)\
         .join(Researcher, Favor.professor_name == Researcher.Name)
-    # .join(Researcher.Name, Researcher.Avatar, Researcher.Title).filter(Favor.professor_name == Researcher.Name)
-    # professor_info = {}
-    # for item in professors:
-    #     professor_info['user'] = item[0]
-    #     professor_info['name'] = item[1]
-    #     professor_info['avatar'] = item[3]
-    #     print(item[3])
-    #     professor_info['school'] = item[4]
-    #     professor_info['title'] = item[5]
-    #     professor_info['url'] = "professor/" + item[1]
-    return render_template("search/favor.html", professor_info=professor_info)
+
+    # professor_id_list = random_walk_recomm()
+    professor_id_list = [0, 1, 2]
+    recomm_professor_list = db.session.query(Researcher.Name, Researcher.Avatar, Researcher.University,
+                                             Researcher.Title).filter(Researcher.ID.in_(professor_id_list)).all()
+    print(recomm_professor_list)
+
+    return render_template("search/favor.html", professor_info=professor_info, recomm_list=recomm_professor_list)
 
 
 @scholar_blue.route("/professor/<string:name>", methods=["GET", "POST"])
@@ -272,7 +262,7 @@ def connection(name="quanshi zhang"):
 
 @scholar_blue.route("/operateFavor", methods=["POST"])
 @scholar_log_req
-def oprateFavor():
+def operateFavor():
     json_data = request.get_json()
     user_name = session["admin"]
     professor_name = json_data["id"].replace("%20", " ")
