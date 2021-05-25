@@ -169,24 +169,26 @@
                                     <!-- NOTE Insert -->
                                     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
                                     <div id="main" style="width: 600px;height:400px;"></div>
+                                    <!-- NOTE: 这些 hidden 是为了从 flask 获取数据, 然后防止在 js 中被转义为 HTML language 的无奈之举 -->
+                                    <!-- <div id="Name" hidden>{{ Citation }}</div> -->
+                                    <div id="Name" style="display: none;">{{ Researcher_info.Name }}</div>
+                                    
                                     <script type="text/javascript">
                                         // 基于准备好的dom，初始化echarts实例
                                         var myChart = echarts.init(document.getElementById('main'));
                                         // var Name = JSON.parse('{{ Citation }}');
                                         // console.log(Name);
                                         // var year = JSON.parse('{{ Citation }}');
-                                        var year = '{{ Citation|safe }}';
-                                        console.log("year:before")
-                                        console.log(year);
+                                        var Name = document.getElementById('Name').innerText;
                                         // 指定图表的配置项和数据
                                         var option = {
                                             color: ['#2f4554'],
                                             title: {
-                                                text: 'CITATION'
+                                                text: Name
                                             },
                                             tooltip: {},
                                             legend: {
-                                                data: ['销量']
+                                                data: ['Citations']
                                             },
                                             xAxis: {
                                                 // data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
