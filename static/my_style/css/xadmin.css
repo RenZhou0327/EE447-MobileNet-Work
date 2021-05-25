@@ -1,0 +1,48 @@
+.page{
+    margin-top: 20px;
+    text-align: center;
+    /*@include "./font.css";*/
+    /*@include "./xadmin.css";*/
+    /*@include "../js/jquery-3.3.1.min.js";*/
+    /*@include "../lib/layui/layui.js";*/
+    /*@include "../js/xadmin.js";*/
+
+}
+.page a{
+    display: inline-block;
+    background: #fff url() 0 0 no-repeat;
+    color: #888;
+    padding: 10px;
+    min-width: 15px;
+    border: 1px solid #E2E2E2;
+
+}
+.page span{
+    display: inline-block;
+    padding: 10px;
+    min-width: 15px;
+    border: 1px solid #E2E2E2;
+}
+.page span.current{
+    display: inline-block;
+    background: #009688 url() 0 0 no-repeat;
+    color: #fff;
+    padding: 10px;
+    min-width: 15px;
+    border: 1px solid #009688;
+}
+.page .pagination li{
+    display: inline-block;
+    margin-right: 5px;
+    text-align: center;
+}
+.page .pagination li.active span{
+    background: #009688 url() 0 0 no-repeat;
+    color: #fff;
+    border: 1px solid #009688;
+
+}
+
+a{
+    text-decoration:none;
+}
