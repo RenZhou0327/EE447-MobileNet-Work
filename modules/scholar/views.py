@@ -254,12 +254,16 @@ def connection(name="Quanshi Zhang"):
                         "Awards": json.loads(researcher.Awards)["Awards"],
                         "Co_authors": json.loads(researcher.Co_authors)["Co_authors"],
                         "Papers": json.loads(researcher.Papers)["Papers"],
-                        "Cited_graph": json.loads(researcher.Cited_graph)["Cited_graph"],
-                    }
+                        # "Cited_graph": json.loads(researcher.Cited_graph)["Cited_graph"],
+    }
+    # print("type", type(json.loads(researcher.Cited_graph)["Cited_graph"]))
+    citation = json.loads(researcher.Cited_graph)["Cited_graph"]
+    year_num = len(citation)
     return render_template("search/connection.html", Researcher_info=researcher_info, 
-    xAxis=["2012","2013","2014","2015","2016","2017","2018","2019","2020","2021"],
-    data=["3","6","6","7","14","11","17","33","43","18"])
-
+    xAxis=citation[:year_num//2],  # 柱状图 x-axis
+    data=citation[year_num//2:],  # 柱状图 y-axis
+    AuthorNodes = "",  # co-authors
+    )
 
 @scholar_blue.route("/operateFavor", methods=["POST"])
 @scholar_log_req
