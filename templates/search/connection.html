@@ -172,6 +172,8 @@
                                     <!-- NOTE: 这些 hidden 是为了从 flask 获取数据, 然后防止在 js 中被转义为 HTML language 的无奈之举 -->
                                     <!-- <div id="Name" hidden>{{ Citation }}</div> -->
                                     <div id="Name" style="display: none;">{{ Researcher_info.Name }}</div>
+                                    <div id="xAxis" style="display: none;">{{ xAxis }}</div>
+                                    <div id="series" style="display: none;">{{ data }}</div>
                                     
                                     <script type="text/javascript">
                                         // 基于准备好的dom，初始化echarts实例
@@ -180,6 +182,9 @@
                                         // console.log(Name);
                                         // var year = JSON.parse('{{ Citation }}');
                                         var Name = document.getElementById('Name').innerText;
+                                        var x_test = document.getElementById('xAxis').innerText;
+                                        var y_test = document.getElementById('series').innerText;
+                                        console.log(x_test);
                                         // 指定图表的配置项和数据
                                         var option = {
                                             color: ['#2f4554'],
@@ -192,13 +197,13 @@
                                             },
                                             xAxis: {
                                                 // data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
-                                                data: ["衬衫", "羊毛衫"]
+                                                data: eval(x_test)
                                             },
                                             yAxis: {},
                                             series: [{
                                                 name: 'Citations',
                                                 type: 'bar',
-                                                data: [5, 20, 36, 10, 10, 20]
+                                                data: eval(y_test)
                                             }]
                                         };
 
