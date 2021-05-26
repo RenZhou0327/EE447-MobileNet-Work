@@ -211,10 +211,12 @@ def professor(name="Quanshi Zhang"):
                         "Co_authors": json.loads(researcher.Co_authors)["Co_authors"],
                         "Papers": json.loads(researcher.Papers)["Papers"],
                         "Cited_graph": json.loads(researcher.Cited_graph)["Cited_graph"],
+                        "PaperUrl": "/scholar/paper/" + researcher.Name.replace(" ", "%20")
                     }
     return render_template("search/professor.html", Researcher_info=Researcher_info)
 
 
+# @scholar_blue.route("/professor/paper/<string:name>", methods=["GET", "POST"])
 @scholar_blue.route("/paper/<string:name>", methods=["GET", "POST"])
 @scholar_log_req
 def paper(name="Quanshi Zhang"):

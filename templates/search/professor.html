@@ -10,7 +10,6 @@
     <meta name="description" content="">
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="shortcut icon" href="favicon.ico">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet">
@@ -68,30 +67,6 @@
         <!-- #ace-header -->
 
 
-        <nav id="ace-nav-sm" class="ace-nav hidden-lg hidden-md">
-            <ul class="clear-list">
-                <li>
-                    <a href="index" data-tooltip="Home"><img class="avatar avatar-42" src={{ Researcher_info.Avatar }}></a>
-                </li>
-                <li>
-                    <a href="paper" data-tooltip="Experience"><span class="ace-icon ace-icon-experience"></span></a>
-                </li>
-                <li>
-                    <a href="portfolio.html" data-tooltip="Portfolio"><span class="ace-icon ace-icon-portfolio"></span></a>
-                </li>
-                <li>
-                    <a href="testimonials.html" data-tooltip="References"><span class="ace-icon ace-icon-references"></span></a>
-                </li>
-                <li>
-                    <a href="contact.html" data-tooltip="Contact"><span class="ace-icon ace-icon-contact"></span></a>
-                </li>
-                <li>
-                    <a href="category.html" data-tooltip="Blog"><span class="ace-icon ace-icon-blog"></span></a>
-                </li>
-            </ul>
-        </nav>
-        <!-- #ace-tab-nav-sm -->
-
         <article id="ace-card" class="ace-card bg-primary">
             <div class="ace-card-inner text-center">
                 <img class="avatar avatar-195" src={{ Researcher_info.Avatar }} width="195" height="195" alt="">
@@ -118,7 +93,7 @@
                                         <a href="index" data-tooltip="Home"><img class="avatar avatar-42" src={{ Researcher_info.Avatar }} alt=""></a>
                                     </li>
                                     <li>
-                                        <a href="paper" data-tooltip="Papers"><span class="ace-icon ace-icon-experience"></span></a>
+                                        <a href= {{ Researcher_info.PaperUrl }} data-tooltip="Papers"><span class="ace-icon ace-icon-experience"></span></a>
                                     </li>
                                     <li>
                                         <a href="connection" data-tooltip="connection"><span class="ace-icon ace-icon-portfolio"></span></a>

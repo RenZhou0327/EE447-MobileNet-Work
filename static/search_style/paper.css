@@ -256,14 +256,6 @@ abbr[data-original-title] {
     border-bottom: 1px dotted #494e52
 }
 
-blockquote {
-    margin: 2em 1em 2em 0;
-    padding-left: 1em;
-    padding-right: 1em;
-    font-style: italic;
-    border-left: 0.25em solid #7a8288
-}
-
 blockquote cite {
     font-style: italic
 }
@@ -804,11 +796,6 @@ body:hover .visually-hidden button {
     font-size: .75em
 }
 
-a.reversefootnote {
-    color: #7a8288;
-    text-decoration: none
-}
-
 a.reversefootnote:hover {
     text-decoration: underline
 }
@@ -868,22 +855,6 @@ th {
     vertical-align: middle
 }
 
-.btn,
-#goog-wm-sb {
-    display: inline-block;
-    margin-bottom: 0.25em;
-    padding: 0.5em 1em;
-    color: #fff !important;
-    font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
-    font-size: .75em;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    background-color: #7a8288;
-    border: 0 !important;
-    border-radius: 4px;
-    cursor: pointer
-}
 
 .btn:hover,
 #goog-wm-sb:hover {
@@ -907,17 +878,6 @@ th {
 
 .btn--block+.btn--block {
     margin-top: 0.25em
-}
-
-.btn--inverse {
-    color: #7a8288 !important;
-    border: 1px solid #bdc1c4 !important;
-    background-color: #fff
-}
-
-.btn--inverse:hover {
-    color: #fff !important;
-    border-color: #7a8288
 }
 
 .btn--light-outline {
@@ -1085,9 +1045,6 @@ th {
     padding-top: 0
 }
 
-.notice--primary a {
-    color: #7a8288
-}
 
 .notice--primary a:hover {
     color: #494e52
@@ -1465,11 +1422,6 @@ th {
     color: #3e8296
 }
 
-.pagination li a.current {
-    color: #fff;
-    background: #7a8288
-}
-
 .pagination li a.disabled {
     color: #bdc1c4;
     pointer-events: none;
@@ -1541,29 +1493,11 @@ th {
     background: #fff
 }
 
-.greedy-nav a {
-    display: block;
-    margin: 0 1rem;
-    padding: 0.5rem 0;
-    color: #7a8288;
-    text-decoration: none
-}
-
 .greedy-nav a:hover {
     color: #5c6266
 }
 
-.greedy-nav button {
-    position: absolute;
-    height: 100%;
-    right: 0;
-    padding: 0 0.5rem;
-    border: 0;
-    outline: none;
-    background-color: #7a8288;
-    color: #fff;
-    cursor: pointer
-}
+
 
 .greedy-nav .visible-links {
     display: table
@@ -1685,16 +1619,6 @@ th {
     text-decoration: underline
 }
 
-.nav__list .active {
-    margin-left: -0.5em;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-    color: #fff;
-    font-weight: bold;
-    background: #7a8288;
-    border-radius: 4px
-}
-
 .nav__list .active:hover {
     color: #fff
 }
@@ -1718,41 +1642,12 @@ th {
     border-bottom: 1px solid #f2f3f3
 }
 
-.toc {
-    font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
-    color: #7a8288;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    background-color: #fff;
-    border: 1px solid #f2f3f3;
-    border-radius: 4px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125)
-}
-
-.toc .nav__title {
-    color: #fff;
-    font-size: .75em;
-    background: #7a8288;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px
-}
-
 .toc__menu {
     margin: 0;
     padding: 0;
     width: 100%;
     list-style: none;
     font-size: 0.8rem
-}
-
-.toc__menu a {
-    display: block;
-    padding: 0.5rem 1rem;
-    color: #7a8288;
-    font-size: .6875em;
-    font-weight: bold;
-    line-height: 1.5;
-    border-bottom: 1px solid #f2f3f3
 }
 
 .toc__menu a:hover {
@@ -2391,13 +2286,6 @@ select[readonly],
 textarea[readonly] {
     opacity: 0.5;
     cursor: not-allowed
-}
-
-input:focus,
-textarea:focus {
-    border-color: #7a8288;
-    outline: 0;
-    outline: thin dotted \9
 }
 
 input[type="file"]:focus,
@@ -3225,7 +3113,7 @@ select:focus {
     width: 30%;
     float: left;
     height: 120px;
-    padding-left: 10em;
+    /* padding-left: 10em; */
 }
 
 .publication__item-teaser img {
