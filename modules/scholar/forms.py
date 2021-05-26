@@ -34,7 +34,7 @@ class SearchForm(FlaskForm):
 
 # 侧边栏搜索
 class EasySearchForm(FlaskForm):
-    s = StringField(
+    SideSearch = StringField(
         label='名称',
         validators=[
             DataRequired()
@@ -44,13 +44,36 @@ class EasySearchForm(FlaskForm):
             "type": "search",
             "placeholder": "Search",
             "class": "search-field",
-            # "name": "s",
+            "id": "SideSearch",
             "value": "",
-            # "size": "30",
-            # "maxlength": "80",
-            # "required": "required"
         }
     )
+    submit = SubmitField(
+        "Submit",
+        render_kw={
+            "class": "search-submit",
+            "type": "submit",
+            "id": "SideSubmit"
+        }
+    )
+    # s = StringField(
+    #     label='名称',
+    #     validators=[
+    #         DataRequired()
+    #     ],
+    #     description='搜索关键词',
+    #     render_kw={
+    #         "type": "search",
+    #         "placeholder": "Search",
+    #         "class": "search-field",
+    #         # "name": "s",
+    #         "id": "SideSearch",
+    #         "value": "",
+    #         # "size": "30",
+    #         # "maxlength": "80",
+    #         # "required": "required"
+    #     }
+    # )
 
 
 # 登陆表单

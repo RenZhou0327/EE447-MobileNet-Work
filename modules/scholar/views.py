@@ -211,9 +211,17 @@ def professor(name="Quanshi Zhang"):
                         "Co_authors": json.loads(researcher.Co_authors)["Co_authors"],
                         "Papers": json.loads(researcher.Papers)["Papers"],
                         "Cited_graph": json.loads(researcher.Cited_graph)["Cited_graph"],
-                        "PaperUrl": "/scholar/paper/" + researcher.Name.replace(" ", "%20")
+                        "PaperUrl": "/scholar/paper/" + researcher.Name.replace(" ", "%20"),
+                        "ConnectionUrl": "/scholar/connection/" + researcher.Name.replace(" ", "%20")
                     }
-    return render_template("search/professor.html", Researcher_info=Researcher_info)
+    # Sidebar 的 sarch
+    form = EasySearchForm()
+    if form.validate_on_submit():
+        data = form.data
+        print("EasySearchForm", data)
+        if data['SideSearch'] is not None:
+            return redirect(url_for("scholar.entities", keyword=data['SideSearch'], page=1))
+    return render_template("search/professor.html", Researcher_info=Researcher_info, form=form)
 
 
 # @scholar_blue.route("/professor/paper/<string:name>", methods=["GET", "POST"])
@@ -236,7 +244,14 @@ def paper(name="Quanshi Zhang"):
                         "Cited_graph": json.loads(researcher.Cited_graph)["Cited_graph"],
                     }
     print("Researcher_info[Papers]", researcher_info["Papers"])
-    return render_template("search/paper.html", Researcher_info=researcher_info)
+    # Sidebar 的 sarch
+    form = EasySearchForm()
+    if form.validate_on_submit():
+        data = form.data
+        print("EasySearchForm", data)
+        if data['SideSearch'] is not None:
+            return redirect(url_for("scholar.entities", keyword=data['SideSearch'], page=1))
+    return render_template("search/paper.html", Researcher_info=researcher_info, form=form)
 
 
 @scholar_blue.route("/connection/<string:name>", methods=["GET", "POST"])
@@ -257,10 +272,12 @@ def connection(name="Quanshi Zhang"):
                         "Papers": json.loads(researcher.Papers)["Papers"],
                         # "Cited_graph": json.loads(researcher.Cited_graph)["Cited_graph"],
     }
-    # print("type", type(json.loads(researcher.Cited_graph)["Cited_graph"]))
+
+    # 引用论文绘图数据
     citation = json.loads(researcher.Cited_graph)["Cited_graph"]
     year_num = len(citation)
-    # Co-authors
+
+    # Co-authors 绘图数据
     raw_authors = json.loads(researcher.Co_authors)["Co_authors"]
     coauthors = []
     Links = []
@@ -279,11 +296,19 @@ def connection(name="Quanshi Zhang"):
             "source": researcher.Name,
             "target": raw_author["Co_authors_name"]
         })
+    # Sidebar 的 sarch
+    form = EasySearchForm()
+    if form.validate_on_submit():
+        data = form.data
+        print("EasySearchForm", data)
+        if data['SideSearch'] is not None:
+            return redirect(url_for("scholar.entities", keyword=data['SideSearch'], page=1))
     return render_template("search/connection.html", Researcher_info=researcher_info, 
     xAxis=citation[:year_num//2],  # 柱状图 x-axis
     data=citation[year_num//2:],  # 柱状图 y-axis
     AuthorNodes = coauthors,  # co-authors
-    Links = Links  # co-authors 边的关系
+    Links = Links,  # co-authors 边的关系
+    form=form,  # Sidebar 的 form
     )
 
 @scholar_blue.route("/operateFavor", methods=["POST"])

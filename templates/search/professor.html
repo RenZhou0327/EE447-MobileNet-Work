@@ -96,7 +96,7 @@
                                         <a href= {{ Researcher_info.PaperUrl }} data-tooltip="Papers"><span class="ace-icon ace-icon-experience"></span></a>
                                     </li>
                                     <li>
-                                        <a href="connection" data-tooltip="connection"><span class="ace-icon ace-icon-portfolio"></span></a>
+                                        <a href={{ Researcher_info.ConnectionUrl }} data-tooltip="connection"><span class="ace-icon ace-icon-portfolio"></span></a>
                                     </li>
                                     <li>
                                         <a href="testimonials.html" data-tooltip="References"><span class="ace-icon ace-icon-references"></span></a>
@@ -331,15 +331,17 @@
 
                 <aside class="widget-area">
                     <section class="widget widget_search">
-                        <form role="search" method="get" class="search-form" action="http://sc.chinaz.com/jiaoben/">
+                        <form role="search" method="post" class="search-form">
                             <label>
-                            <span class="screen-reader-text">Search for:</span>
-                            <input type="search" class="search-field" placeholder="Search" value="" name="s">
-                        </label>
-                            <button type="submit" class="search-submit">
-                            <span class="screen-reader-text">Search</span>
-                            <span class="ace-icon ace-icon-search"></span>
-                        </button>
+                                <span class="screen-reader-text">Search for:</span>
+                                {{ form.SideSearch }}
+                            </label>
+                            {{form.csrf_token}}
+                            <!-- {{ form.submit }} -->
+                            <button type="submit" class="search-submit" id="SideSubmit">
+                                <span class="screen-reader-text">Search</span>
+                                <span class="ace-icon ace-icon-search"></span>
+                            </button>
                         </form>
                     </section>
 
