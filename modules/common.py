@@ -2,7 +2,8 @@ from functools import wraps
 from flask import session, redirect, url_for, request, flash
 from elasticsearch import Elasticsearch
 from app import db
-from modules.scholar.models import Researcher
+from modules.scholar.models import Researcher, SimTable
+import random
 
 
 def scholar_log_req(f):
@@ -16,16 +17,30 @@ def scholar_log_req(f):
     return decorated_function
 
 
-def get_professor_by_id(id_list):
-    # id_list = [0, 1, 2]
-    recomm_professor_list = db.session.query(Researcher.Name, Researcher.Avatar, Researcher.University,
-                                             Researcher.Title).filter(Researcher.ID.in_(id_list)).limit(20).all()
-    print(recomm_professor_list)
-    return recomm_professor_list
+def get_recomm_professor(t_name_list):
+    recomm_list = db.session.query(SimTable.dst).filter(SimTable.src.in_(t_name_list)).limit(30).all()
+    random.shuffle(recomm_list)
+    recomm_list = [prof[0] for prof in recomm_list]
+    # print(recomm_list)
+    recomm_professors = db.session.query(Researcher.Name, Researcher.Avatar, Researcher.University,
+                                         Researcher.Title).filter(Researcher.Name.in_(recomm_list)).all()
+    return recomm_professors
 
-
-def random_walk_recomm():
-    return []
+# def get_professor_by_id(id_list):
+#     recomm_professor_list = db.session.query(Researcher.Name, Researcher.Avatar, Researcher.University,
+#                                              Researcher.Title).filter(Researcher.ID.in_(id_list)).all()
+#     print(recomm_professor_list)
+#     return recomm_professor_list
+#
+#
+# def random_walk_recomm_list(pid_list):
+#     print("random_walk_recomm_list", pid_list)
+#     return [0, 1, 2]
+#
+#
+# def random_walk_recomm_int(pid):
+#     print("random_walk_recomm_int", pid)
+#     return [1, 2]
 
 
 graph_list = [(0, 1), (0, 2), (0, 3)]
