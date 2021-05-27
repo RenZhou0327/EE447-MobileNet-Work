@@ -183,14 +183,17 @@ def entities(keyword, page=1):
     result = es.search(index='scholar', doc_type='teacherInfo', body=query)
     total = result['hits']['total']
     rest = total % page_size
-    # print("rest", rest)
     res_dict = result['hits']['hits']
     page_num = ceil(total / page_size)
-    # print("page_num", page_num)
     if page == page_num:
         res_dict = res_dict[-rest:]
-    professor_id_list = [0, 1, 2]
-    recomm_professor_list = []
+
+    print("res_dict", res_dict)
+    t_name_list = [name['_source']['name'] for name in res_dict]
+    print("t_name", t_name_list)
+    recomm_professor_list = get_recomm_professor(t_name_list)
+    # professor_id_list = [0, 1, 2]
+    # recomm_professor_list = []
     # print(res_dict)
     return render_template("search/entities.html", kw=keyword, search_items=res_dict, page=page, page_num=page_num, recomm_list=recomm_professor_list)
 
@@ -201,14 +204,15 @@ def favor():
     username = session["admin"]
     professor_info = db.session.query(Favor.username, Favor.professor_name, Researcher.Name, Researcher.Avatar,
         Researcher.University, Researcher.Title).filter(Favor.username == username)\
-        .join(Researcher, Favor.professor_name == Researcher.Name)
+        .join(Researcher, Favor.professor_name == Researcher.Name).all()
 
-    tname_list = []
-    if professor_info.all() is not None:
-        tname_list = [tname[2] for tname in professor_info.all()]
-    tid_obj = TeacherID.query.filter(TeacherID.tname.in_(tname_list)).all()
-    professor_id_list = [one_obj.tid for one_obj in tid_obj]
-    recomm_professor_list = []
+    # print(professor_info)
+    t_name_list = []
+    if professor_info is not None:
+        t_name_list = [item[2] for item in professor_info]
+    print("t_name", t_name_list)
+    # t_name_list = ["Haiming Jin", "Quanshi Zhang", "Xinbing Wang"]
+    recomm_professor_list = get_recomm_professor(t_name_list)
 
     return render_template("search/favor.html", professor_info=professor_info, recomm_list=recomm_professor_list)
 
@@ -251,7 +255,9 @@ def professor(name="Quanshi Zhang"):
     isFavor = "notFavor" if whether is None else "favor"
     # Sidebar 的 search
     print("Researcher_info['ConnectionUrl']", Researcher_info['ConnectionUrl'])
-    recomm_professor_list = []
+
+    recomm_professor_list = get_recomm_professor([Researcher.Name])
+
     form = EasySearchForm()
     if form.validate_on_submit():
         data = form.data
@@ -267,7 +273,7 @@ def professor(name="Quanshi Zhang"):
 @scholar_log_req
 def paper(name="Quanshi Zhang"):
     # 这个地方需要传入被点击的实验者的姓名, 然后在数据库中进行搜索展示
-    researcher = Researcher.query.filter_by(Name="Quanshi Zhang").first()
+    researcher = Researcher.query.filter_by(Name=name).first()
     if researcher.DOB == "":
         researcher.DOB = "Unknown"
     researcher_info = {"ID": researcher.ID, "Name": researcher.Name, "Avatar": researcher.Avatar,
@@ -380,9 +386,13 @@ def test():
 @scholar_blue.route("/recomm", methods=["GET", "POST"])
 @scholar_log_req
 def recomm():
-    professor_id_list = [1, 2, 0]
-    recomm_professor_list = db.session.query(Researcher.Name, Researcher.Avatar, Researcher.University,
-                                             Researcher.Title).filter(
-        Researcher.ID.in_(professor_id_list)).all()
-    random.shuffle(recomm_professor_list)
+    t_name_list = request.get_json()
+    print("json_data", t_name_list)
+    # professor_id_list = [1, 2, 0]
+    recomm_professor_list = get_recomm_professor(t_name_list)
+    print("recomm", recomm_professor_list)
+    # recomm_professor_list = db.session.query(Researcher.Name, Researcher.Avatar, Researcher.University,
+    #                                          Researcher.Title).filter(
+    #     Researcher.ID.in_(professor_id_list)).all()
+    # random.shuffle(recomm_professor_list)
     return jsonify(recomm_list=recomm_professor_list)
