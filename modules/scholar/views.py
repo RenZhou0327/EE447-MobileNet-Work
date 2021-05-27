@@ -34,13 +34,7 @@ def index():
     }
     result = es.search(index='scholar', doc_type='teacherInfo', body=query)
     res_dict = result['hits']['hits']
-
-    # form = SearchForm()
-    # if form.validate_on_submit():
-    #     data = form.data
-    #     print("searchData", data)
-    #     if data['searchInput'] is not None:
-    #         return redirect(url_for("scholar.entities", keyword=data['searchInput'], page=1))
+    
     # Sidebar 的 sarch
     form = TopSearchForm()
     print(form.validate_on_submit())
