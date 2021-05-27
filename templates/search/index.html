@@ -95,7 +95,6 @@
         {#            });#}
         {#    }#}
         {##}
-        {#}#}
 
 
         function clickSearchButton(id) {
@@ -306,7 +305,7 @@
 
                                                 <div class="ref-info" style="float: left;">
                                                     <div class="ref-author">
-                                                        <strong>{{ source["name"] }}</strong>
+                                                        <a href="{{ "professor/"  + source["name"] | replace (" ", "%20")}}"><strong>{{ source["name"] }}</strong></a>
                                                         <span>{{ source["school"] }}</span>
                                                     </div>
 {#                                                    {% set descrip = source["paper"] if len(source["paper"]) <= 20 else source["paper"][:20] %}#}

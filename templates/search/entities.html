@@ -256,7 +256,7 @@
 
                                                 <div class="ref-info" style="float: left;">
                                                     <div class="ref-author">
-                                                        <strong>{{ source["name"] }}</strong>
+                                                        <a href="{{ "../professor/"  + source["name"] | replace (" ", "%20")}}"><strong>{{ source["name"] }}</strong></a>
 
                                                         <span>{{ source["school"] }}</span>
                                                          <p>{{ source["title"] }}</p>

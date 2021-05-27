@@ -213,6 +213,7 @@ def favor():
 @scholar_blue.route("/professor/<string:name>", methods=["GET", "POST"])
 @scholar_log_req
 def professor(name="Quanshi Zhang"):
+    username = session["admin"]
     print("name", name)
     # 这个地方需要传入被点击的实验者的姓名, 然后在数据库中进行搜索展示
     researcher = Researcher.query.filter_by(Name=name).limit(20).first()
@@ -231,6 +232,8 @@ def professor(name="Quanshi Zhang"):
                         "PaperUrl": "/scholar/paper/" + researcher.Name.replace(" ", "%20"),
                         "ConnectionUrl": "/scholar/connection/" + researcher.Name.replace(" ", "%20")
                     }
+    whether = Favor.query.filter_by(username=username, professor_name=name).limit(10).first()
+    isFavor = "notFavor" if whether is None else "favor"
     # Sidebar 的 search
     print("Researcher_info['ConnectionUrl']", Researcher_info['ConnectionUrl'])
     professor_id_list = [0, 1, 2]
@@ -241,7 +244,8 @@ def professor(name="Quanshi Zhang"):
         # print("EasySearchForm", data)
         if data['SideSearch'] is not None:
             return redirect(url_for("scholar.entities", keyword=data['SideSearch'], page=1))
-    return render_template("search/professor.html", Researcher_info=Researcher_info, form=form, recomm_list=recomm_professor_list)
+    return render_template("search/professor.html", Researcher_info=Researcher_info, form=form,
+                           recomm_list=recomm_professor_list, isFavor=isFavor)
 
 
 # @scholar_blue.route("/professor/paper/<string:name>", methods=["GET", "POST"])

@@ -25,6 +25,72 @@
     <!-- Modernizer -->
     <script type="text/javascript" src="../../static/main_style/js/vendor/modernizr-3.3.1.min.js"></script>
     <script type="text/javascript">
+
+        function clickFavor(id) {
+            var img = document.getElementById(id);
+            var isFavor = img.getAttribute("alt");
+            if (isFavor === "favor") {
+                img.setAttribute("alt", "notFavor");
+                img.setAttribute("src", "../../static/main_style/img/favor-1.png");
+                var data = {};
+                data["id"] = id;
+                data["op"] = 0;
+
+                $.ajax({
+                        type: 'POST',
+                        url: '/scholar/operateFavor',
+                        dataType: 'json',
+                        contentType: 'application/json; charset=utf-8',
+                        data: JSON.stringify(data),
+                        success: window.onload=function(callback) {
+                            {#window.alert(callback.res + callback.id + callback.op);#}
+                            {#console.log(callback);#}
+                            {#window.alert(callback.first_name + " " + callback.last_name);#}
+                            // Watch out for Cross Site Scripting security issues when setting dynamic content!
+                            {#var elem = document.getElementById('hello');#}
+                            {#console.log(elem);#}
+                            {#elem.innerText = callback.first_name + ' ' + callback.last_name  + '!';#}
+                            {#elem.style.color = "red";#}
+                            {#$(this).text('Hello ' + callback.first_name + ' ' + callback.last_name  + '!');#}
+                        },
+                        error: function() {
+                            window.alert("Something get error!")
+                        }
+                    });
+            }
+            else {
+                img.setAttribute("alt", "favor");
+                img.setAttribute("src", "../../static/main_style/img/favor-2.png");
+                var data = {};
+                data["id"] = id;
+                data["op"] = 1;
+
+                $.ajax({
+                        type: 'POST',
+                        url: '/scholar/operateFavor',
+                        dataType: 'json',
+                        contentType: 'application/json; charset=utf-8',
+                        data: JSON.stringify(data),
+                        success: window.onload=function(callback) {
+                            {#window.alert(callback.res + callback.id + callback.op);#}
+                            {#console.log(callback);#}
+                            {#window.alert(callback.first_name + " " + callback.last_name);#}
+                            // Watch out for Cross Site Scripting security issues when setting dynamic content!
+                            {#var elem = document.getElementById('hello');#}
+                            {#console.log(elem);#}
+                            {#elem.innerText = callback.first_name + ' ' + callback.last_name  + '!';#}
+                            {#elem.style.color = "red";#}
+                            {#$(this).text('Hello ' + callback.first_name + ' ' + callback.last_name  + '!');#}
+                        },
+                        error: function() {
+                            window.alert("Something get error!")
+                        }
+                    });
+            }
+
+        }
+
+
         function changeRecomm() {
             var recomm = document.getElementsByClassName("widget widget_posts_entries")[0];
             {#window.alert(recomm);#}
@@ -176,10 +242,7 @@
 
                 <div class="ace-paper-stock">
                     <main class="ace-paper clearfix">
-                        <!-- NOTE 收藏 -->
-                        <blockquote style="border-style:none;">
-                            <img src="../../static/main_style/img/favor-2.png" style="padding-left: 10px; width:12%; height:12%; padding-bottom: 10px; float: right;" alt="favor" onclick="clickFavor(this.id)"/>
-                        </blockquote>
+
                         <div class="ace-paper-cont clear-mrg">
 
                             <!-- START: PAGE CONTENT -->
@@ -188,9 +251,35 @@
                                     <div class="row">
                                         <div class="col-sm-12 clear-mrg text-box">
                                             <h2 class="title-lg text-upper">About Me</h2>
+                                            <div>
+                                                <div style="display: inline; float: left">
+                                                    <!-- NOTE 收藏 -->
+                                                    <b>Helo, I’m {{ Researcher_info.Name }}</b>
+                                                </div>
+                                                <div style="display: inline; float: right">
+                                                    <!-- NOTE 收藏 -->
+                                                    {% if isFavor == "notFavor" %}
+                                                        {% set url_star = "../../static/main_style/img/favor-1.png" %}
+                                                    {% else %}
+                                                        {% set url_star = "../../static/main_style/img/favor-2.png" %}
+                                                    {% endif %}
+                                                    <blockquote style="border-style:none;">
+                                                        <img src={{ url_star }} ; id={{ Researcher_info.Name | replace (" ", "%20") }} ; style="padding-left: 10px; width:25%; height:25%; padding-bottom: 10px; float: right;" alt={{ isFavor }} ; onclick="clickFavor(this.id)"/>
+                                                    </blockquote>
+                                                </div>
 
-                                            <p><b>Helo, I’m {{ Researcher_info.Name }}</b><br> {{ Researcher_info.Bio }}
-                                            </p>
+                                            </div>
+                                            <p>
+                                                    <br> {{ Researcher_info.Bio }}
+                                                </p>
+{#                                            <div style="display: inline">#}
+{#                                                <!-- NOTE 收藏 -->#}
+{#                                                <blockquote style="border-style:none;">#}
+{#                                                    <img src="../../static/main_style/img/favor-2.png" style="padding-left: 10px; width:12%; height:12%; padding-bottom: 10px; float: right;" alt="favor" onclick="clickFavor(this.id)"/>#}
+{#                                                </blockquote>#}
+{#                                            </div>#}
+{#                                            <p><b>Helo, I’m {{ Researcher_info.Name }}</b><br> {{ Researcher_info.Bio }}#}
+{#                                            </p>#}
 
                                             <p class="text-right">
                                                 <img src={{ Researcher_info.Sig }} alt="">
