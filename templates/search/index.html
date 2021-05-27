@@ -135,18 +135,18 @@
             var ul_list = recomm.children[1];
             var res;
             $.ajax({
-                        type: 'POST',
-                        url: '/scholar/recomm',
-                        dataType: 'json',
-                        contentType: 'application/json; charset=utf-8',
-                        async:false,
-                        success: window.onload=function(callback) {
-                             res = callback.recomm_list;
-                        },
-                        error: function() {
-                            window.alert("Something get error!");
-                        }
-                    });
+                type: 'POST',
+                url: '/scholar/recomm',
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                async: false,
+                success: window.onload = function (callback) {
+                    res = callback.recomm_list;
+                },
+                error: function () {
+                    window.alert("Something get error!");
+                }
+            });
             if (!res) {
                 window.alert("Something get error!");
             }
@@ -173,7 +173,7 @@
                 ul_list.children[i].remove();
             }
         }
-
+    </script>
     <style>
         .now {
             background-color: #00F7DE;
