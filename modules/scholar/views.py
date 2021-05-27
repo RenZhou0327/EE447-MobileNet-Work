@@ -33,6 +33,7 @@ def index():
         "size": 10
     }
     result = es.search(index='scholar', doc_type='teacherInfo', body=query)
+    print("result", result)
     res_dict = result['hits']['hits']
     
     # Sidebar 的 sarch

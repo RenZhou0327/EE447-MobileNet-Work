@@ -31,6 +31,148 @@
 
     <!-- Modernizer -->
     <script type="text/javascript" src="../../static/main_style/js/vendor/modernizr-3.3.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+        function clickFavor(id) {
+            var img = document.getElementById(id);
+            var isFavor = img.getAttribute("alt");
+            if (isFavor === "favor") {
+                img.setAttribute("alt", "notFavor");
+                img.setAttribute("src", "../../static/main_style/img/favor-1.png");
+                var data = {};
+                data["id"] = id;
+                data["op"] = 0;
+
+                $.ajax({
+                        type: 'POST',
+                        url: '/scholar/operateFavor',
+                        dataType: 'json',
+                        contentType: 'application/json; charset=utf-8',
+                        data: JSON.stringify(data),
+                        success: window.onload=function(callback) {
+                            window.alert(callback.res + callback.id + callback.op);
+                            {#console.log(callback);#}
+                            {#window.alert(callback.first_name + " " + callback.last_name);#}
+                            // Watch out for Cross Site Scripting security issues when setting dynamic content!
+                            {#var elem = document.getElementById('hello');#}
+                            {#console.log(elem);#}
+                            {#elem.innerText = callback.first_name + ' ' + callback.last_name  + '!';#}
+                            {#elem.style.color = "red";#}
+                            {#$(this).text('Hello ' + callback.first_name + ' ' + callback.last_name  + '!');#}
+                        },
+                        error: function() {
+                            window.alert("Something get error!")
+                        }
+                    });
+            }
+            else {
+                img.setAttribute("alt", "favor");
+                img.setAttribute("src", "../../static/main_style/img/favor-2.png");
+                var data = {};
+                data["id"] = id;
+                data["op"] = 1;
+
+                $.ajax({
+                        type: 'POST',
+                        url: '/scholar/operateFavor',
+                        dataType: 'json',
+                        contentType: 'application/json; charset=utf-8',
+                        data: JSON.stringify(data),
+                        success: window.onload=function(callback) {
+                            window.alert(callback.res + callback.id + callback.op);
+                            {#console.log(callback);#}
+                            {#window.alert(callback.first_name + " " + callback.last_name);#}
+                            // Watch out for Cross Site Scripting security issues when setting dynamic content!
+                            {#var elem = document.getElementById('hello');#}
+                            {#console.log(elem);#}
+                            {#elem.innerText = callback.first_name + ' ' + callback.last_name  + '!';#}
+                            {#elem.style.color = "red";#}
+                            {#$(this).text('Hello ' + callback.first_name + ' ' + callback.last_name  + '!');#}
+                        },
+                        error: function() {
+                            window.alert("Something get error!")
+                        }
+                    });
+            }
+
+        }
+
+
+        function clickSearchButton(id) {
+            var searchForm = document.getElementById(id);
+            var kw = searchForm.children[0].children[1].value;
+            {#window.alert(kw);#}
+            if (kw === "") {
+                window.alert("Nothing to Search")
+            }
+            else {
+                var data = {};
+                data["kw"] = kw;
+                $.ajax({
+                        type: 'POST',
+                        url: '/scholar/easySearch',
+                        dataType: 'json',
+                        contentType: 'application/json; charset=utf-8',
+                        data: JSON.stringify(data),
+                        success: window.onload=function(callback) {
+                             if (callback.redirect) {
+                                window.location.href = callback.redirect;
+                             }
+                             else {
+                                 window.alert("Something get error!");
+                             }
+                        },
+                        error: function() {
+                            window.alert("Something get error!")
+                        }
+                    });
+            }
+        }
+
+        function changeRecomm() {
+            var recomm = document.getElementsByClassName("widget widget_posts_entries")[0];
+            {#window.alert(recomm);#}
+            var ul_list = recomm.children[1];
+            var res;
+            $.ajax({
+                        type: 'POST',
+                        url: '/scholar/recomm',
+                        dataType: 'json',
+                        contentType: 'application/json; charset=utf-8',
+                        async:false,
+                        success: window.onload=function(callback) {
+                             res = callback.recomm_list;
+                        },
+                        error: function() {
+                            window.alert("Something get error!");
+                        }
+                    });
+            if (!res) {
+                window.alert("Something get error!");
+            }
+            var i = 0;
+            for (i = 0; i < res.length; ++i) {
+                var li = ul_list.children[i];
+                var a1 = li.children[0];
+                var div1 = li.children[1];
+                var div2 = li.children[2];
+                var img = a1.children[0];
+                var a2 = div1.children[0].children[0];
+                var a3 = div2.children[0];
+                var a4 = div2.children[1];
+                img.setAttribute("src", res[i][1]);
+                a1.setAttribute("href", "professor/" + res[i][0]);
+                a2.setAttribute("href", "professor/" + res[i][0]);
+                a2.innerHTML = res[i][0];
+                a3.innerHTML = (res[i][2]) ? res[i][2] : "None";
+                a4.innerHTML = (res[i][3]) ? res[i][3] : "None";
+            }
+            {#window.alert(i + " " + ul_list.children.length);#}
+            for (; i < ul_list.children.length; ++i) {
+                {#window.alert(i + " " + ul_list[i]);#}
+                ul_list.children[i].remove();
+            }
+        }
 
     <style>
         .now {
@@ -187,6 +329,27 @@
                                                         <p>{{ source["paper"] }}</p>
                                                     </blockquote>
                                                 </div>
+												<div class="portfolio-caption text-center">
+                                                <div class="valign-table">
+                                                    <div class="valign-cell">
+                                                        {% set professor_url = "professor/" + favor_item[1] | replace (" ", "%20")  %}
+                                                        <h2 class="text-upper">{{ favor_item[1] }}</h2>
+                                                        <p>
+                                                            {{ favor_item[4] }}
+                                                            <br>
+                                                            {{ favor_item[5] }}
+                                                        </p>
+                                                        <div style="text-align: center">
+                                                            <div style="width: 100px; height:auto; float:left; display: inline; margin-left: 40px" >
+                                                                <a href={{ professor_url }} ; class="pf-btn-view btn btn-primary">View More</a>
+                                                            </div>
+                                                            <div style="width: 100px; height:auto; float:right; display: inline; margin-right: 40px" >
+                                                                 <img id={{ "Quanshi Zhang" | replace (" ", "%20") }} src="../../static/main_style/img/favor-2.png" style="padding-left: 10px; width:40%; height:40%; padding-bottom: 10px" alt="favor" onclick="clickFavor(this.id)"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             </div><!-- .ref-box -->
                                         {% endfor %}
 {#                                            <div class="ref-box brd-btm hreview">#}

@@ -29,3 +29,11 @@ su ela
 
 ### Resources
 /root/mobile-net-work-ee447/static
+
+SELECT * 
+FROM Students A
+WHERE name IN (SELECT TOP 3 name
+                       FROM Students B
+                      WHERE B.kemu = A.kemu
+                      ORDER BY B.score DESC)
+ORDER BY A.kemu, A.score DESC
