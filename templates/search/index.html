@@ -33,6 +33,70 @@
     <script type="text/javascript" src="../../static/main_style/js/vendor/modernizr-3.3.1.min.js"></script>
     <script type="text/javascript">
 
+        {#function clickFavor(id) {#}
+        {#    var img = document.getElementById(id);#}
+        {#    var isFavor = img.getAttribute("alt");#}
+        {#    if (isFavor === "favor") {#}
+        {#        img.setAttribute("alt", "notFavor");#}
+        {#        img.setAttribute("src", "../../static/main_style/img/favor-1.png");#}
+        {#        var data = {};#}
+        {#        data["id"] = id;#}
+        {#        data["op"] = 0;#}
+        {##}
+        {#        $.ajax({#}
+        {#                type: 'POST',#}
+        {#                url: '/scholar/operateFavor',#}
+        {#                dataType: 'json',#}
+        {#                contentType: 'application/json; charset=utf-8',#}
+        {#                data: JSON.stringify(data),#}
+        {#                success: window.onload=function(callback) {#}
+                            {#window.alert(callback.res + callback.id + callback.op);#}
+                            {#console.log(callback);#}
+                            {#window.alert(callback.first_name + " " + callback.last_name);#}
+        {#                    // Watch out for Cross Site Scripting security issues when setting dynamic content!#}
+                            {#var elem = document.getElementById('hello');#}
+                            {#console.log(elem);#}
+                            {#elem.innerText = callback.first_name + ' ' + callback.last_name  + '!';#}
+                            {#elem.style.color = "red";#}
+                            {#$(this).text('Hello ' + callback.first_name + ' ' + callback.last_name  + '!');#}
+        {#                },#}
+        {#                error: function() {#}
+        {#                    window.alert("Something get error!")#}
+        {#                }#}
+        {#            });#}
+        {#    }#}
+        {#    else {#}
+        {#        img.setAttribute("alt", "favor");#}
+        {#        img.setAttribute("src", "../../static/main_style/img/favor-2.png");#}
+        {#        var data = {};#}
+        {#        data["id"] = id;#}
+        {#        data["op"] = 1;#}
+        {##}
+        {#        $.ajax({#}
+        {#                type: 'POST',#}
+        {#                url: '/scholar/operateFavor',#}
+        {#                dataType: 'json',#}
+        {#                contentType: 'application/json; charset=utf-8',#}
+        {#                data: JSON.stringify(data),#}
+        {#                success: window.onload=function(callback) {#}
+                            {#window.alert(callback.res + callback.id + callback.op);#}
+                            {#console.log(callback);#}
+                            {#window.alert(callback.first_name + " " + callback.last_name);#}
+        {#                    // Watch out for Cross Site Scripting security issues when setting dynamic content!#}
+                            {#var elem = document.getElementById('hello');#}
+                            {#console.log(elem);#}
+                            {#elem.innerText = callback.first_name + ' ' + callback.last_name  + '!';#}
+                            {#elem.style.color = "red";#}
+                            {#$(this).text('Hello ' + callback.first_name + ' ' + callback.last_name  + '!');#}
+        {#                },#}
+        {#                error: function() {#}
+        {#                    window.alert("Something get error!")#}
+        {#                }#}
+        {#            });#}
+        {#    }#}
+        {##}
+
+
         function clickSearchButton(id) {
             var searchForm = document.getElementById(id);
             var kw = searchForm.children[0].children[1].value;
@@ -169,29 +233,6 @@
              </div><!-- .ace-head-inner -->
         </header><!-- #ace-header -->
 
-        <nav id="ace-nav-sm" class="ace-nav hidden-lg hidden-md">
-            <ul class="clear-list">
-				<li>
-					<a href="index.html" data-tooltip="Home"><img class="avatar avatar-42" src="../../static/main_style/img/uploads/avatar/avatar-42x42.png" alt=""></a>
-				</li>
-				<li>
-					<a href="experience.html" data-tooltip="Experience"><span class="ace-icon ace-icon-experience"></span></a>
-				</li>
-				<li>
-					<a href="portfolio.html" data-tooltip="Portfolio"><span class="ace-icon ace-icon-portfolio"></span></a>
-				</li>
-				<li>
-					<a href="testimonials.html" data-tooltip="References"><span class="ace-icon ace-icon-references"></span></a>
-				</li>
-				<li>
-					<a href="contact.html" data-tooltip="Contact"><span class="ace-icon ace-icon-contact"></span></a>
-				</li>
-				<li>
-					<a href="category.html" data-tooltip="Blog"><span class="ace-icon ace-icon-blog"></span></a>
-				</li>
-			</ul>
-        </nav><!-- #ace-tab-nav-sm -->
-
         <div id="ace-content" class="ace-container-shift">
             <div class="ace-container">
 
@@ -264,16 +305,17 @@
 
                                                 <div class="ref-info" style="float: left;">
                                                     <div class="ref-author">
-                                                        <strong>{{ source["name"] }}</strong>
-
-                                                        <span>{{ source["category"] }}</span>
+                                                        <a href="{{ "professor/"  + source["name"] | replace (" ", "%20")}}"><strong>{{ source["name"] }}</strong></a>
+                                                        <span>{{ source["school"] }}</span>
                                                     </div>
+{#                                                    {% set descrip = source["paper"] if len(source["paper"]) <= 20 else source["paper"][:20] %}#}
                                                     <blockquote class="ref-cont clear-mrg">
-                                                        <p style="display: inline;">{{ source["paper"] }}</p>
+                                                        <p style="display: inline;">{{ source["title"] }}</p>
                                                     </blockquote>
                                                 </div>
 												<blockquote style="border-style:none;">
-													<img src="../../static/main_style/img/favor-2.png" style="padding-left: 10px; width:12%; height:12%; padding-bottom: 10px; float: right;" alt="favor" onclick="clickFavor(this.id)"/>
+
+													<img src="../../static/my_style/imgs/fire.png"  style="padding-left: 10px; width:12%; height:12%; padding-bottom: 10px; float: right;"/>
 												</blockquote>
 												<div class="portfolio-caption text-center">
                                             </div>
