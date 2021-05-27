@@ -46,3 +46,19 @@ class Favor(db.Model):
     username = db.Column(db.String(100), unique=True)  # 用户名
     # tid = db.Column(db.Integer, unique=True)  # 学者id
     professor_name = db.Column(db.String, unique=True)  # 学者姓名
+
+
+class TeacherID(db.Model):
+    __tablename__ = "teacherid"
+
+    tid = db.Column(db.Integer, primary_key=True)
+    tname = db.Column(db.String(100), unique=True)
+
+
+class SimTable(db.Model):
+    __tablename__ = "sim"
+
+    id = db.Column(db.Integer, primary_key=True)
+    src = db.Column(db.String(100), unique=True)
+    dst = db.Column(db.String(100), unique=True)
+

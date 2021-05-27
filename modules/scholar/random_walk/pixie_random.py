@@ -7,7 +7,7 @@ import random
 import numpy as np
 import networkx as nx
 from datetime import date
-from utils import load_my_graph, time2int, alias_setup, alias_draw
+from modules.scholar.random_walk.utils import load_my_graph, time2int, alias_setup, alias_draw
 
 
 class graphSys:
@@ -199,7 +199,7 @@ class graphSys:
         assert (node>=1 and node<=numTeachers) or (node<=-1 and node>=-numStudents)
         pairList=[]
         for nb in self.graph.neighbors(node):
-            pairList.append([time2int(self.graph[nb][node]['weight']),nb])
+            pairList.append([time2int(self.graph[nb][node]['weight']), nb])
         pairList.sort(reverse=True)
         return pairList
 
@@ -210,7 +210,7 @@ if __name__ == '__main__':
     # myGraph, numStudents, numTeachers = load_my_graph(graph_path, verbose=True)
     # mySys=graphSys(myGraph,numStudents,numTeachers)
 
-    myGraph=nx.Graph()
+    myGraph = nx.Graph()
     myGraph.add_nodes_from([1, 2, 3, 4, -1])
     myGraph.add_edge(-1, 1)
     numStudents, numTeachers = 1, 4

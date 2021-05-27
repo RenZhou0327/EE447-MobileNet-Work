@@ -6,8 +6,8 @@ from modules.scholar import scholar_blue
 from modules.scholar.forms import SearchForm, RegisterForm, EasySearchForm, TopSearchForm
 from modules.scholar.forms import LoginForm
 from modules.scholar.utils import get_verify_code
-from modules.common import graph_list, scholar_log_req, es, random_walk_recomm, get_professor_by_id
-from modules.scholar.models import User, Researcher, Favor
+from modules.common import graph_list, scholar_log_req, es, get_recomm_professor
+from modules.scholar.models import User, Researcher, Favor, TeacherID
 from app import db
 import random
 import json
@@ -16,7 +16,7 @@ import json
 @scholar_blue.route("/index", methods=["GET", "POST"])
 @scholar_log_req
 def index():
-    seed = random.randint(0, 300)
+    # seed = random.randint(0, 300)
     # query = {
     #     "query": {
     #         "function_score": {
@@ -45,13 +45,14 @@ def index():
     # print("result", result)
     res_dict = result['hits']['hits']
     print("res_dict", res_dict)
+    t_name_list = [name['_source']['name'] for name in res_dict]
+    print("t_name", t_name_list)
 
-    professor_id_list = [0, 1, 2]
-    recomm_professor_list = get_professor_by_id(professor_id_list)
-    
-    # Sidebar 的 sarch
+    recomm_professor_list = get_recomm_professor(t_name_list)
+
+    # Sidebar 的 search
     form = TopSearchForm()
-    print(form.validate_on_submit())
+    # print(form.validate_on_submit())
     if form.validate_on_submit():
         data = form.data
         print("searchInput", data)
@@ -70,7 +71,7 @@ def login():
         # print("I am here", form.data)
         # {'account': 'root', 'pwd': 'root', 'verify_code': 'utas', 'submit': True,
         # 'csrf_token': 'IjBhZGE4Zjc1YmE2MWJlNmI4ZDliOTY3NTRmMGQ2ODQ3MmEzNGQ3ZmYi.YJC1HQ.TNuDjDz-cGqt1f1BUVdCOn-ixCI'}
-        usr_count = User.query.filter_by(username=data['account']).limit(20).first()
+        usr_count = User.query.filter_by(username=data['account']).first()
         if usr_count is None:
             flash("账号错误！", "danger")
             return redirect(url_for("scholar.login"))
@@ -106,7 +107,7 @@ def register():
         if session.get('image').lower() != form.verify_code.data.lower():
             flash('验证码错误！', "danger")
             return redirect(url_for("scholar.register"))
-        names = User.query.filter_by(username=data['account']).limit(20).count()
+        names = User.query.filter_by(username=data['account']).count()
         if names >= 1:
             flash("已有此用户，请使用其他用户名！")
             return redirect(url_for("scholar.register"))
@@ -189,7 +190,7 @@ def entities(keyword, page=1):
     if page == page_num:
         res_dict = res_dict[-rest:]
     professor_id_list = [0, 1, 2]
-    recomm_professor_list = get_professor_by_id(professor_id_list)
+    recomm_professor_list = []
     # print(res_dict)
     return render_template("search/entities.html", kw=keyword, search_items=res_dict, page=page, page_num=page_num, recomm_list=recomm_professor_list)
 
@@ -200,12 +201,14 @@ def favor():
     username = session["admin"]
     professor_info = db.session.query(Favor.username, Favor.professor_name, Researcher.Name, Researcher.Avatar,
         Researcher.University, Researcher.Title).filter(Favor.username == username)\
-        .join(Researcher, Favor.professor_name == Researcher.Name).limit(20)
+        .join(Researcher, Favor.professor_name == Researcher.Name)
 
-    # professor_id_list = random_walk_recomm()
-    professor_id_list = [0, 1, 2]
-    recomm_professor_list = get_professor_by_id(professor_id_list)
-    print(recomm_professor_list)
+    tname_list = []
+    if professor_info.all() is not None:
+        tname_list = [tname[2] for tname in professor_info.all()]
+    tid_obj = TeacherID.query.filter(TeacherID.tname.in_(tname_list)).all()
+    professor_id_list = [one_obj.tid for one_obj in tid_obj]
+    recomm_professor_list = []
 
     return render_template("search/favor.html", professor_info=professor_info, recomm_list=recomm_professor_list)
 
@@ -216,7 +219,7 @@ def professor(name="Quanshi Zhang"):
     username = session["admin"]
     print("name", name)
     # 这个地方需要传入被点击的实验者的姓名, 然后在数据库中进行搜索展示
-    researcher = Researcher.query.filter_by(Name=name).limit(20).first()
+    researcher = Researcher.query.filter_by(Name=name).first()
     if researcher.DOB == "":
         researcher.DOB = "Unknown"
     Researcher_info = {"ID": researcher.ID, "Name": researcher.Name, "Avatar": researcher.Avatar,
@@ -236,8 +239,7 @@ def professor(name="Quanshi Zhang"):
     isFavor = "notFavor" if whether is None else "favor"
     # Sidebar 的 search
     print("Researcher_info['ConnectionUrl']", Researcher_info['ConnectionUrl'])
-    professor_id_list = [0, 1, 2]
-    recomm_professor_list = get_professor_by_id(professor_id_list)
+    recomm_professor_list = []
     form = EasySearchForm()
     if form.validate_on_submit():
         data = form.data
@@ -253,7 +255,7 @@ def professor(name="Quanshi Zhang"):
 @scholar_log_req
 def paper(name="Quanshi Zhang"):
     # 这个地方需要传入被点击的实验者的姓名, 然后在数据库中进行搜索展示
-    researcher = Researcher.query.filter_by(Name="Quanshi Zhang").limit(20).first()
+    researcher = Researcher.query.filter_by(Name="Quanshi Zhang").first()
     if researcher.DOB == "":
         researcher.DOB = "Unknown"
     researcher_info = {"ID": researcher.ID, "Name": researcher.Name, "Avatar": researcher.Avatar,
@@ -283,7 +285,7 @@ def paper(name="Quanshi Zhang"):
 def connection(name):
     print("connection-name", name)
     # 这个地方需要传入被点击的实验者的姓名, 然后在数据库中进行搜索展示
-    researcher = Researcher.query.filter_by(Name=name).limit(20).first()
+    researcher = Researcher.query.filter_by(Name=name).first()
     if researcher.DOB == "":
         researcher.DOB = "Unknown"
     researcher_info = {"ID": researcher.ID, "Name": researcher.Name, "Avatar": researcher.Avatar,
@@ -345,7 +347,7 @@ def operateFavor():
     professor_name = json_data["id"].replace("%20", " ")
     # print(user_name, professor_name)
     if json_data["op"] == 0:
-        favor_obj = Favor.query.filter_by(username=user_name, professor_name=professor_name).limit(20).first()
+        favor_obj = Favor.query.filter_by(username=user_name, professor_name=professor_name).first()
         print(favor_obj.username, favor_obj.professor_name)
         db.session.delete(favor_obj)
         db.session.commit()
@@ -369,6 +371,6 @@ def recomm():
     professor_id_list = [1, 2, 0]
     recomm_professor_list = db.session.query(Researcher.Name, Researcher.Avatar, Researcher.University,
                                              Researcher.Title).filter(
-        Researcher.ID.in_(professor_id_list)).limit(20).all()
+        Researcher.ID.in_(professor_id_list)).all()
     random.shuffle(recomm_professor_list)
     return jsonify(recomm_list=recomm_professor_list)
