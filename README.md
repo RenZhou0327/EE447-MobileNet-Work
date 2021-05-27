@@ -3,7 +3,9 @@
 ## TODO
 1. 在 connection.html 上展示 co-author 和 cited_graph, 已完成
 2. Search Bar, 已完成
-3. HotSearch 页面, 正在做
+3. HotSearch 页面
+    3.1 需要添加收藏图标
+    3.2 需要修改 es 数据
 4. Search 页面, 正在做
 
 ## Structure
