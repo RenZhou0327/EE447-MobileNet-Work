@@ -217,6 +217,10 @@ def professor(name="Quanshi Zhang"):
     print("name", name)
     # 这个地方需要传入被点击的实验者的姓名, 然后在数据库中进行搜索展示
     researcher = Researcher.query.filter_by(Name=name).limit(20).first()
+    # print("json.loads(researcher.Mottos)", type(json.loads(researcher.Mottos)["Mottos"]))
+    researcher.Mottos = json.loads(researcher.Mottos)
+    print("json.loads(researcher.Mottos)", type(json.loads(researcher.Mottos)))
+    print("json.loads(researcher.Mottos)", type(json.loads(json.loads(researcher.Mottos))))
     if researcher.DOB == "":
         researcher.DOB = "Unknown"
     Researcher_info = {"ID": researcher.ID, "Name": researcher.Name, "Avatar": researcher.Avatar,
