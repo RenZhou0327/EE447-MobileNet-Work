@@ -36,6 +36,14 @@
         a {
             text-decoration: none;
         }
+		.ref-box-index {
+            position: relative;
+            padding-left: 70px;
+            padding-bottom: 1.875em;
+            margin-bottom: 1.5em;
+            min-height: 58px;
+            box-sizing: content-box;
+        }
     </style>
   </head>
   <body>
@@ -163,12 +171,12 @@
 
                                         {% for item in search_items %}
                                             {% set source = item["_source"] %}
-                                            <div class="ref-box brd-btm hreview">
+                                            <div class="ref-box-index brd-btm hreview">
                                                 <div class="ref-avatar">
                                                     <img alt="" src="../../static/main_style/img/uploads/avatar/avatar-54x54-01.png" class="avatar avatar-54 photo" height="54" width="54">
                                                 </div>
 
-                                                <div class="ref-info">
+                                                <div class="ref-info" style="float: left;">
                                                     <div class="ref-author">
                                                         <strong>{{ source["name"] }}</strong>
 
@@ -178,6 +186,9 @@
                                                         <p>{{ source["paper"] }}</p>
                                                     </blockquote>
                                                 </div>
+												<blockquote style="border-style:none;">
+													<img src="../../static/main_style/img/favor-2.png" style="padding-left: 10px; width:12%; height:12%; padding-bottom: 10px; float: right;" alt="favor" onclick="clickFavor(this.id)"/>
+												</blockquote>
                                             </div><!-- .ref-box -->
                                         {% endfor %}
 {#                                            <div class="ref-box brd-btm hreview">#}
