@@ -9,8 +9,8 @@
     <title>Certy</title>
     <meta name="description" content="">
 
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="shortcut icon" href="favicon.ico">
+{#    <link rel="apple-touch-icon" href="apple-touch-icon.png">#}
+{#    <link rel="shortcut icon" href="favicon.ico">#}
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet">
@@ -45,12 +45,10 @@
                             <div class="ace-nav-container ace-container hidden-sm hidden-xs">
                                 <nav id="ace-main-nav">
                                     <ul class="clear-list">
-                                        <li><a href="index.html">about</a></li>
-                                        <li><a href="portfolio.html">portfolio</a>
-                                        <li><a href="testimonials.html">references</a></li>
-                                        <li><a href={{ "search" }}>search</a></li>
-                                        <li><a href="category.html">category</a></li>
-                                        <li><a href={{ "logout" }}>contact</a></li>
+                                        <li><a href="#">about</a></li>
+                                        <li><a href={{ "../search" }}>search</a></li>
+                                        <li><a href={{ "../favor"}}>favor</a></li>
+                                        <li><a href={{ "../logout" }}>logout</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -70,31 +68,29 @@
         <!-- #ace-header -->
 
 
-        <nav id="ace-nav-sm" class="ace-nav hidden-lg hidden-md">
-            <ul class="clear-list">
-                <li>
-                    <a href="index" data-tooltip="Home"><img class="avatar avatar-42" src={{ Researcher_info.Avatar
-                            }}></a>
-                </li>
-                <li>
-                    <a href="paper" data-tooltip="Experience"><span class="ace-icon ace-icon-experience"></span></a>
-                </li>
-                <li>
-                    <a href="portfolio.html" data-tooltip="Portfolio"><span
-                            class="ace-icon ace-icon-portfolio"></span></a>
-                </li>
-                <li>
-                    <a href="testimonials.html" data-tooltip="References"><span
-                            class="ace-icon ace-icon-references"></span></a>
-                </li>
-                <li>
-                    <a href="contact.html" data-tooltip="Contact"><span class="ace-icon ace-icon-contact"></span></a>
-                </li>
-                <li>
-                    <a href="category.html" data-tooltip="Blog"><span class="ace-icon ace-icon-blog"></span></a>
-                </li>
-            </ul>
-        </nav>
+{#        <nav id="ace-nav-sm" class="ace-nav hidden-lg hidden-md">#}
+{#            {% set url_name = Researcher_info.Name | replace (" ", "%20") %}#}
+{#            <ul class="clear-list">#}
+{#                <li>#}
+{#                    <a href="#" data-tooltip="Home"><img class="avatar avatar-42" src="../../static/my_style/imgs/ha_glass.jpg"></a>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a href={{ "../professor/"  + url_name }} data-tooltip="Professor"><span class="ace-icon ace-icon-experience"></span></a>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a href={{ "../paper/"  + url_name }} data-tooltip="Paper"><span class="ace-icon ace-icon-portfolio"></span></a>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a href={{ "../connection/" + url_name }} data-tooltip="Connections"><span class="ace-icon ace-icon-references"></span></a>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a href="contact.html" data-tooltip="Contact"><span class="ace-icon ace-icon-contact"></span></a>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a href="category.html" data-tooltip="Blog"><span class="ace-icon ace-icon-blog"></span></a>#}
+{#                </li>#}
+{#            </ul>#}
+{#        </nav>#}
         <!-- #ace-tab-nav-sm -->
 
         <article id="ace-card" class="ace-card bg-primary">
@@ -102,11 +98,11 @@
                 <img class="avatar avatar-195" src={{ Researcher_info.Avatar }} width="195" height="195" alt="">
                 <h1>{{ Researcher_info.Name }}</h1>
                 <p class="text-muted">{{ Researcher_info.Title }}</p>
-                <a href={{ Researcher_info.HomePage }} target="_blank" style="font-size: 1em;">Homepage</a>
+{#                <a href={{ Researcher_info.HomePage }} target="_blank" style="font-size: 1em;">Homepage</a>#}
             </div>
 
             <footer class="ace-card-footer">
-                <a class="btn btn-lg btn-block btn-thin btn-upper " href="#">Download Resume</a>
+                <a class="btn btn-lg btn-block btn-thin btn-upper " href= {{ Researcher_info.HomePage }} >Homepage</a>
             </footer>
         </article>
         <!-- #ace-card -->
@@ -119,28 +115,28 @@
                         <div id="ace-nav-scroll">
                             <nav id="ace-nav" class="ace-nav">
                                 <ul class="clear-list">
+                                    {% set url_name = Researcher_info.Name | replace (" ", "%20") %}
                                     <li>
-                                        <a href="index" data-tooltip="Home"><img class="avatar avatar-42" src={{
-                                                Researcher_info.Avatar }} alt=""></a>
+                                        <a href="#" data-tooltip="Here"><img class="avatar avatar-42" src="../../static/my_style/imgs/ha_glass.jpg" alt=""></a>
                                     </li>
                                     <li>
-                                        <a href="paper" data-tooltip="Papers"><span
+                                        <a href={{ "../professor/" + url_name }} data-tooltip="Professor"><span
                                                 class="ace-icon ace-icon-experience"></span></a>
                                     </li>
                                     <li>
-                                        <a href="connection" data-tooltip="connection"><span
+                                        <a href={{ "../connection/"  + url_name }} data-tooltip="Connection"><span
                                                 class="ace-icon ace-icon-portfolio"></span></a>
                                     </li>
                                     <li>
-                                        <a href="testimonials.html" data-tooltip="References"><span
+                                        <a href={{ "../paper/" + url_name }} data-tooltip="Paper"><span
                                                 class="ace-icon ace-icon-references"></span></a>
                                     </li>
                                     <li>
-                                        <a href="contact.html" data-tooltip="Contact"><span
+                                        <a href="#" data-tooltip="Contact"><span
                                                 class="ace-icon ace-icon-contact"></span></a>
                                     </li>
                                     <li>
-                                        <a href="category.html" data-tooltip="Blog"><span
+                                        <a href="#" data-tooltip="Blog"><span
                                                 class="ace-icon ace-icon-blog"></span></a>
                                     </li>
                                 </ul>
@@ -168,7 +164,7 @@
                                 <section class="section brd-btm">
                                     <div class="row">
                                         <div class="col-sm-12 clear-mrg text-box">
-                                            <h2 class="title-lg text-upper">h2o</h2>
+                                            <h2 class="title-lg text-upper">Charts</h2>
                                         </div>
                                     </div>
                                 </section>
@@ -177,9 +173,12 @@
                                 <section class="section brd-btm">
                                     <!-- NOTE Insert -->
                                     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-                                    <div id="echart_citation" style="width: 600px;height:400px;"></div>
+                                    <div id="echart_citation" style="width: 750px;height:500px; text-align: center"></div>
                                     <!-- NOTE: 这些 hidden 是为了从 flask 获取数据, 然后防止在 js 中被转义为 HTML language 的无奈之举 -->
-                                    <div id="echart_coauthor" style="width: 600px;height:400px;"></div>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <div id="echart_coauthor" style="width: 800px;height:600px; text-align: center"></div>
                                     <div id="Name" style="display: none;">{{ Researcher_info.Name }}</div>
                                     <div id="xAxis" style="display: none;">{{ xAxis }}</div>
                                     <div id="series" style="display: none;">{{ data }}</div>
@@ -473,7 +472,7 @@
         <footer id="ace-footer" class="ace-container-shift">
             <div class="ace-container">
                 <div class="ace-footer-cont clear-mrg">
-                    <p class="text-center">Copyright &copy; 2021.Dream Team All rights reserved.</p>
+                    <p class="text-center">@ EE447 Mobile Network Final Project @</p>
                 </div>
             </div>
             <!-- .ace-container -->

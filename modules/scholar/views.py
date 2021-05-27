@@ -260,7 +260,8 @@ def paper(name="Quanshi Zhang"):
 
 @scholar_blue.route("/connection/<string:name>", methods=["GET", "POST"])
 @scholar_log_req
-def connection(name="Quanshi Zhang"):
+def connection(name):
+    print("connection-name", name)
     # 这个地方需要传入被点击的实验者的姓名, 然后在数据库中进行搜索展示
     researcher = Researcher.query.filter_by(Name=name).limit(20).first()
     if researcher.DOB == "":

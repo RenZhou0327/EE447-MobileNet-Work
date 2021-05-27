@@ -9,8 +9,8 @@
     <title>Certy</title>
     <meta name="description" content="">
 
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="shortcut icon" href="favicon.ico">
+{#    <link rel="apple-touch-icon" href="apple-touch-icon.png">#}
+{#    <link rel="shortcut icon" href="favicon.ico">#}
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet">
@@ -35,7 +35,7 @@
                 <div class="ace-head-container ace-container">
                     <div class="ace-head-row">
                         <div id="ace-head-col1" class="ace-head-col text-left">
-                            <a id="ace-logo" class="ace-logo" href="index">
+                            <a id="ace-logo" class="ace-logo" href={{ "index" }}>
                                 <span>Researcher</span>
                             </a>
                         </div>
@@ -44,12 +44,12 @@
                             <div class="ace-nav-container ace-container hidden-sm hidden-xs">
                                 <nav id="ace-main-nav">
                                     <ul class="clear-list">
-                                        <li><a href="index.html">about</a></li>
-                                        <li><a href="portfolio.html">portfolio</a>
-                                            <li><a href="testimonials.html">references</a></li>
+                                        <li><a href="#">about</a></li>
+{#                                        <li><a href="portfolio.html">portfolio</a>#}
+{#                                            <li><a href="testimonials.html">references</a></li>#}
                                             <li><a href={{ "search" }}>search</a></li>
-                                            <li><a href="category.html">category</a></li>
-                                            <li><a href={{ "logout" }}>contact</a></li>
+                                            <li><a href={{ "favor" }}>favor</a></li>
+                                            <li><a href={{ "logout" }}>logout</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -98,11 +98,11 @@
                 <img class="avatar avatar-195" src={{ Researcher_info.Avatar }} width="195" height="195" alt="">
                 <h1>{{ Researcher_info.Name }}</h1>
                 <p class="text-muted">{{ Researcher_info.Title }}</p>
-                <a href={{ Researcher_info.HomePage }} target="_blank" style="font-size: 1em;">Homepage</a>
+{#                <a href={{ Researcher_info.HomePage }} target="_blank" style="font-size: 1em;">Homepage</a>#}
             </div>
 
             <footer class="ace-card-footer">
-                <a class="btn btn-lg btn-block btn-thin btn-upper " href="#">Download Resume</a>
+                <a class="btn btn-lg btn-block btn-thin btn-upper " href= {{ Researcher_info.HomePage }} >Homepage</a>
             </footer>
         </article>
         <!-- #ace-card -->
@@ -115,23 +115,29 @@
                         <div id="ace-nav-scroll">
                             <nav id="ace-nav" class="ace-nav">
                                 <ul class="clear-list">
+                                    {% set url_name = Researcher_info.Name | replace (" ", "%20") %}
                                     <li>
-                                        <a href="index" data-tooltip="Home"><img class="avatar avatar-42" src={{ Researcher_info.Avatar }} alt=""></a>
+                                        <a href="#" data-tooltip="Here"><img class="avatar avatar-42" src="../../static/my_style/imgs/ha_glass.jpg"
                                     </li>
                                     <li>
-                                        <a href="paper" data-tooltip="Papers"><span class="ace-icon ace-icon-experience"></span></a>
+                                        <a href={{ "../professor/" + url_name }} data-tooltip="Professor"><span
+                                                class="ace-icon ace-icon-experience"></span></a>
                                     </li>
                                     <li>
-                                        <a href="connection" data-tooltip="connection"><span class="ace-icon ace-icon-portfolio"></span></a>
+                                        <a href={{ "../connection/"  + url_name }} data-tooltip="Connection"><span
+                                                class="ace-icon ace-icon-portfolio"></span></a>
                                     </li>
                                     <li>
-                                        <a href="testimonials.html" data-tooltip="References"><span class="ace-icon ace-icon-references"></span></a>
+                                        <a href={{ "../paper/" + url_name }} data-tooltip="Paper"><span
+                                                class="ace-icon ace-icon-references"></span></a>
                                     </li>
                                     <li>
-                                        <a href="contact.html" data-tooltip="Contact"><span class="ace-icon ace-icon-contact"></span></a>
+                                        <a href="#" data-tooltip="Contact"><span
+                                                class="ace-icon ace-icon-contact"></span></a>
                                     </li>
                                     <li>
-                                        <a href="category.html" data-tooltip="Blog"><span class="ace-icon ace-icon-blog"></span></a>
+                                        <a href="#" data-tooltip="Blog"><span
+                                                class="ace-icon ace-icon-blog"></span></a>
                                     </li>
                                 </ul>
                             </nav>
@@ -141,8 +147,8 @@
                             <span class="ace-icon ace-icon-dots-three-horizontal"></span>
 
                             <button id="ace-nav-arrow" class="clear-btn">
-                                    <span class="ace-icon ace-icon-chevron-thin-down"></span>
-                                </button>
+                                <span class="ace-icon ace-icon-chevron-thin-down"></span>
+                            </button>
                         </div>
                     </div>
                     <div class="ace-nav-btm"></div>
@@ -367,7 +373,7 @@
         <footer id="ace-footer" class="ace-container-shift">
             <div class="ace-container">
                 <div class="ace-footer-cont clear-mrg">
-                    <p class="text-center">Copyright &copy; 2021.Dream Team All rights reserved.</p>
+                    <p class="text-center">@ EE447 Mobile Network Final Project @</p>
                 </div>
             </div>
             <!-- .ace-container -->
