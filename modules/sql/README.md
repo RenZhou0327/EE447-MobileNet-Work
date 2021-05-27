@@ -1,6 +1,5 @@
 ## Researchers
-
-CREATE TABLE `researchers` (
+CREATE TABLE `Researchers` (
   `ID` int NOT NULL,
   `Name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Avatar` varchar(255) DEFAULT NULL,
@@ -19,6 +18,7 @@ CREATE TABLE `researchers` (
   `Co_authors` json DEFAULT NULL,
   `Papers` json DEFAULT NULL,
   `Cited_graph` json DEFAULT NULL,
+  `Temperature` int DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 

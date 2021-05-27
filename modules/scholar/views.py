@@ -217,11 +217,12 @@ def professor(name="Quanshi Zhang"):
                         "PaperUrl": "/scholar/paper/" + researcher.Name.replace(" ", "%20"),
                         "ConnectionUrl": "/scholar/connection/" + researcher.Name.replace(" ", "%20")
                     }
-    # Sidebar 的 sarch
+    # Sidebar 的 search
+    print("Researcher_info['ConnectionUrl']", Researcher_info['ConnectionUrl'])
     form = EasySearchForm()
     if form.validate_on_submit():
         data = form.data
-        print("EasySearchForm", data)
+        # print("EasySearchForm", data)
         if data['SideSearch'] is not None:
             return redirect(url_for("scholar.entities", keyword=data['SideSearch'], page=1))
     return render_template("search/professor.html", Researcher_info=Researcher_info, form=form)
