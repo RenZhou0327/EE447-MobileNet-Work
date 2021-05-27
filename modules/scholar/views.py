@@ -265,6 +265,7 @@ def connection(name="Quanshi Zhang"):
     AuthorNodes = "",  # co-authors
     )
 
+
 @scholar_blue.route("/operateFavor", methods=["POST"])
 @scholar_log_req
 def operateFavor():
@@ -294,8 +295,9 @@ def test():
 @scholar_blue.route("/recomm", methods=["GET", "POST"])
 @scholar_log_req
 def recomm():
-    professor_id_list = [1, 2]
+    professor_id_list = [1, 2, 0]
     recomm_professor_list = db.session.query(Researcher.Name, Researcher.Avatar, Researcher.University,
                                              Researcher.Title).filter(
         Researcher.ID.in_(professor_id_list)).limit(20).all()
+    random.shuffle(recomm_professor_list)
     return jsonify(recomm_list=recomm_professor_list)
