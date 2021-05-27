@@ -35,6 +35,7 @@ class Researcher(db.Model):
     Co_authors = db.Column(db.String(100), unique=True)  # 论文合作者
     Papers = db.Column(db.String(100), unique=True)  # 论文
     Cited_graph = db.Column(db.String(100), unique=True)  # 每年引用数量
+    Temperature = db.Column(db.String(100), unique=True)  # 作者热度(被收藏的次数)
 
 
 class Favor(db.Model):

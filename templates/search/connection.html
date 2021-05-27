@@ -183,17 +183,15 @@
                                     <div id="Name" style="display: none;">{{ Researcher_info.Name }}</div>
                                     <div id="xAxis" style="display: none;">{{ xAxis }}</div>
                                     <div id="series" style="display: none;">{{ data }}</div>
+                                    <div id="AuthorNodes" style="display: none;">{{ AuthorNodes }}</div>
+                                    <div id="Links" style="display: none;">{{ Links }}</div>
 
                                     <script type="text/javascript">
                                         // 基于准备好的dom，初始化echarts实例
                                         var myChart = echarts.init(document.getElementById('echart_citation'));
-                                        // var Name = JSON.parse('{{ Citation }}');
-                                        // console.log(Name);
-                                        // var year = JSON.parse('{{ Citation }}');
                                         var Name = document.getElementById('Name').innerText;
                                         var x_test = document.getElementById('xAxis').innerText;
                                         var y_test = document.getElementById('series').innerText;
-                                        console.log(x_test);
                                         // 指定图表的配置项和数据
                                         var option = {
                                             color: ['#2f4554'],
@@ -221,13 +219,12 @@
                                     </script>
                                     <script type="text/javascript">
                                         var myChart = echarts.init(document.getElementById('echart_coauthor'));
-                                        var categories = [];
-                                        // for (var i = 0; i < 2; i++) {
-                                        //     categories[i] = {
-                                        //         name: '类目' + i
-                                        //     };
-                                        // }
-                                        categories = [{ name: 'author' }, { name: 'coauthor' }];
+                                        // var AuthorNodes = echarts.init(document.getElementById('AuthorNodes'));
+                                        var AuthorNodes = document.getElementById('AuthorNodes').innerText;
+                                        console.log(AuthorNodes)
+                                        var Links = document.getElementById('Links').innerText;
+                                        console.log(Links)
+                                        var categories = [{ name: 'author' }, { name: 'coauthor' }];
                                         option = {
                                             // 图的标题
                                             title: {
@@ -276,42 +273,8 @@
                                                         textStyle: {}
                                                     }
                                                 },
-
-                                                // 数据
-                                                data: [{
-                                                    name: 'node01',
-                                                    symbolSize: 70,
-                                                    category: 0,
-                                                }, {
-                                                    name: 'node02',
-                                                    symbolSize: 50,
-                                                    category: 1,
-                                                }, {
-                                                    name: 'node03',
-                                                    symbolSize: 50,
-                                                    category: 1,
-                                                }, {
-                                                    name: 'node04',
-                                                    symbolSize: 50,
-                                                    category: 1,
-                                                }, {
-                                                    name: 'node05',
-                                                    symbolSize: 50,
-                                                    category: 1,
-                                                }],
-                                                links: [{
-                                                    source: 'node01',
-                                                    target: 'node02',
-                                                }, {
-                                                    source: 'node01',
-                                                    target: 'node03',
-                                                }, {
-                                                    source: 'node01',
-                                                    target: 'node04',
-                                                }, {
-                                                    source: 'node01',
-                                                    target: 'node05',
-                                                }],
+                                                data: eval(AuthorNodes),
+                                                links: eval(Links),
                                                 categories: categories,
                                             }]
                                         };
@@ -387,12 +350,14 @@
 
                 <aside class="widget-area">
                     <section class="widget widget_search">
-                        <form role="search" method="get" class="search-form" action="http://sc.chinaz.com/jiaoben/">
+                        <form role="search" method="post" class="search-form">
                             <label>
                                 <span class="screen-reader-text">Search for:</span>
-                                <input type="search" class="search-field" placeholder="Search" value="" name="s">
+                                {{ form.SideSearch }}
                             </label>
-                            <button type="submit" class="search-submit">
+                            {{form.csrf_token}}
+                            <!-- {{ form.submit }} -->
+                            <button type="submit" class="search-submit" id="SideSubmit">
                                 <span class="screen-reader-text">Search</span>
                                 <span class="ace-icon ace-icon-search"></span>
                             </button>
