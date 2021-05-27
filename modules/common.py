@@ -1,6 +1,8 @@
 from functools import wraps
 from flask import session, redirect, url_for, request, flash
 from elasticsearch import Elasticsearch
+from app import db
+from modules.scholar.models import Researcher
 
 
 def scholar_log_req(f):
@@ -12,6 +14,14 @@ def scholar_log_req(f):
         return f(*args, **kwargs)
 
     return decorated_function
+
+
+def get_professor_by_id(id_list):
+    # id_list = [0, 1, 2]
+    recomm_professor_list = db.session.query(Researcher.Name, Researcher.Avatar, Researcher.University,
+                                             Researcher.Title).filter(Researcher.ID.in_(id_list)).limit(20).all()
+    print(recomm_professor_list)
+    return recomm_professor_list
 
 
 def random_walk_recomm():
