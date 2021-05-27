@@ -21,12 +21,13 @@
     <!-- Styles -->
     <link href="../../static/main_style/js/plugins/highlight/solarized-light.css" rel="stylesheet">
     <link href="../../static/main_style/style.css" rel="stylesheet">
+    <link href="../../static/search_style/search_bar.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="../../static/login_style/css/font.css">
-	<link rel="stylesheet" href="../../static/login_style/css/xadmin.css">
-    <script type="text/javascript" src="../../static/login_style/js/jquery-3.3.1.min.js"></script>
-    <script src="../../static/login_style/lib/layui/layui.js" charset="utf-8"></script>
-    <script type="../../static/login_style/js/xadmin.js"></script>
+    <!-- <link rel="stylesheet" href="../../static/login_style/css/font.css">
+	<link rel="stylesheet" href="../../static/login_style/css/xadmin.css"> -->
+    <!-- <script type="text/javascript" src="../../static/login_style/js/jquery-3.3.1.min.js"></script> -->
+    <!-- <script src="../../static/login_style/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="../../static/login_style/js/xadmin.js"></script> -->
 
     <!-- Modernizer -->
     <script type="text/javascript" src="../../static/main_style/js/vendor/modernizr-3.3.1.min.js"></script>
@@ -49,10 +50,31 @@
                              </a>
                          </div>
 
-                         <div id="ace-head-col2" class="ace-head-col text-right">
-                             <div class="ace-nav-container ace-container hidden-sm hidden-xs">
-                                 <nav id="ace-main-nav">
-                                    <ul class="clear-list">
+                         <div id="ace-head-col2" class="ace-head-col text-right">		
+                             <div class="navigator">
+								<!-- <form role="search" method="post" class="search-form-top">
+									<label>
+										<span class="screen-reader-text">Search for:</span>
+										{{ form.SideSearch }}
+									</label>
+									{{form.csrf_token}}
+									<button type="submit" class="search-submit" id="SideSubmit">
+										<span class="screen-reader-text">Search</span>
+										<span class="ace-icon ace-icon-search"></span>
+									</button>
+								</form> -->
+								<section class="widget widget_search">
+									<form role="search" method="post" class="search-form-top">
+										<label>
+											<span class="screen-reader-text">Search for:</span>
+											{{ form.searchInput }}
+										</label>
+										{{form.csrf_token}}
+									</form>
+								</section>
+                                 <nav id="ace-main-nav" class="search-submit">
+                                    <!-- <ul class="clear-list"> -->
+									<ul style="display:inline;">
                                         <li><a href={{ "index" }}>hot</a></li>
 										<li><a href={{ "search" }}>search</a></li>
 										<li><a href={{ "favor" }}>favor</a></li>

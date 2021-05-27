@@ -3,7 +3,7 @@ from math import ceil
 from flask import render_template, session, redirect, make_response, request, url_for, flash, jsonify
 from io import BytesIO
 from modules.scholar import scholar_blue
-from modules.scholar.forms import SearchForm, RegisterForm, EasySearchForm
+from modules.scholar.forms import SearchForm, RegisterForm, EasySearchForm, TopSearchForm
 from modules.scholar.forms import LoginForm
 from modules.scholar.utils import get_verify_code
 from modules.common import graph_list, scholar_log_req, es, random_walk_recomm
@@ -35,10 +35,18 @@ def index():
     result = es.search(index='scholar', doc_type='teacherInfo', body=query)
     res_dict = result['hits']['hits']
 
-    form = SearchForm()
+    # form = SearchForm()
+    # if form.validate_on_submit():
+    #     data = form.data
+    #     print("searchData", data)
+    #     if data['searchInput'] is not None:
+    #         return redirect(url_for("scholar.entities", keyword=data['searchInput'], page=1))
+    # Sidebar 的 sarch
+    form = TopSearchForm()
+    print(form.validate_on_submit())
     if form.validate_on_submit():
         data = form.data
-        print("searchData", data)
+        print("searchInput", data)
         if data['searchInput'] is not None:
             return redirect(url_for("scholar.entities", keyword=data['searchInput'], page=1))
     return render_template("search/index.html", search_items=res_dict, form=form)

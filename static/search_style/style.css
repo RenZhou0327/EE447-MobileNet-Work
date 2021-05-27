@@ -5065,24 +5065,6 @@ body,
 }
 
 
-/* Color Lightest: $color-lightest */
-
-.text-dropcup-sq {
-    color: #fff;
-}
-
-#ace-content,
-.ace-paper,
-.ace-head-inner,
-.ace-card-footer,
-blockquote.quote-top:before,
-blockquote.quote-side:before,
-.ace-paper-stock:before,
-.ace-paper-stock:after {
-    background-color: #fff;
-}
-
-
 /**
  * Theme Font Families
  */
@@ -5131,71 +5113,6 @@ h6 {
     padding-top: 40px;
     padding-bottom: 40px;
     position: relative;
-}
-
-@media (min-width: 993px) {
-    /*.ace-wrapper {
-     padding-left: 20px;
-     padding-right: 20px;
-   }*/
-    .ace-container-shift {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-    .ace-container {
-        padding-left: 0;
-        padding-right: 0;
-    }
-    #ace-content {
-        background: none;
-    }
-    .ace-paper {
-        z-index: 3;
-        padding-left: 25px;
-        padding-right: 25px;
-    }
-    .ace-card-on .ace-container-shift {
-        margin-left: 288px;
-    }
-    .ace-card-on .ace-paper-cont {
-        float: left;
-        width: 100%;
-    }
-    .ace-tab-nav-on .ace-paper-stock {
-        margin-right: 56px;
-    }
-    .ace-paper-stock {
-        z-index: 0;
-        position: relative;
-        margin-bottom: 6px;
-    }
-    .ace-paper-stock:before,
-    .ace-paper-stock:after {
-        content: '';
-        width: 100%;
-        height: 100%;
-        position: absolute;
-    }
-    .ace-paper-stock:before {
-        top: 3px;
-        left: 3px;
-        z-index: 1;
-    }
-    .ace-paper-stock:after {
-        top: 6px;
-        left: 6px;
-        z-index: 0;
-    }
-    .ace-paper,
-    .ace-paper-stock:before,
-    .ace-paper-stock:after {
-        border-width: 1px;
-        border-style: solid;
-    }
-    #ace-card {
-        float: left;
-        width: 288px;
-    }
 }
 
 .section {
@@ -5279,13 +5196,6 @@ h6 {
     }
 }
 
-.ace-head-row {
-    position: relative;
-    display: table;
-    border: 1px solid #cfcfcf;
-    width: 100%;
-    background-color: #fff;
-}
 
 .ace-head-col {
     display: table-cell;

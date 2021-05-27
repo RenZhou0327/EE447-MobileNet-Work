@@ -1,0 +1,127 @@
+/* General styles */
+
+.screen-reader-text {
+    display: none;
+}
+
+.search_bar {
+    clear: both;
+    width: 50%;
+    display: block;
+    /* NOTE */
+    /* margin-bottom: 35px; */
+}
+
+.search_bar ul,
+.search_bar ol {
+    list-style: none;
+    padding: 0;
+    margin-left: 0;
+    margin-bottom: 0;
+}
+
+.search_bar ul li,
+.search_bar ol li {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.search_bar-title {
+    position: relative;
+    font-size: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 45px;
+}
+
+.widget_search {
+    position: relative;
+    /* width: 50%; */
+}
+
+/* Navigator */
+.navigator {
+    display: block;
+}
+
+.navigator .search-form-top {
+    float: left;
+    width: 50%;
+    display: inline;
+    margin-left: 10px;
+}
+
+.search-form-top span {
+    position: relative;
+    float: left;
+}
+
+.navigator .navibar {
+    padding: 0%;
+    margin: 0%;
+    float: right;
+    width: 50%;
+    display: inline;
+}
+
+
+/* 顶部搜索框样式 */
+
+select,
+textarea,
+input[type='url'],
+input[type='tel'],
+input[type='time'],
+input[type='text'],
+input[type='email'],
+input[type='number'],
+input[type='search'],
+input[type='password'],
+input[type='week'],
+input[type='date'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='month'],
+.topsearch-form-item {
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding: 10px 15px;
+    line-height: 20px;
+    color: inherit;
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 14px;
+    font-style: normal;
+    background-image: none;
+    border: 1px solid transparent;
+    /* NOTE 搜索框圆角 */
+    border-radius: 18px;
+    transition: border 500ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    /* 让搜索框和搜索按钮并排展示 */
+    display: inline;
+}
+
+.topsearch-form-item:focus {
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.topsearch-form-item.error {
+    border-color: #fa958b;
+}
+
+.form-label {
+    display: block;
+    line-height: 1.1em;
+    font-size: 0.82em;
+    letter-spacing: 0.02em;
+    margin-bottom: 5px;
+}
+
+textarea.topsearch-form-item {
+    height: 150px;
+}
+
+.form-submit {
+    margin-top: 2.1em;
+}
+
