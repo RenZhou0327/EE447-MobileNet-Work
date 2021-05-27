@@ -251,22 +251,23 @@
                                             {% set source = item["_source"] %}
                                             <div class="ref-box-index brd-btm hreview">
                                                 <div class="ref-avatar">
-                                                    <img alt="" src="../../static/main_style/img/uploads/avatar/avatar-54x54-01.png" class="avatar avatar-54 photo" height="54" width="54">
+                                                    <img alt="" src={{ source["avatar"] }} ; class="avatar avatar-54 photo" height="54" width="54">
                                                 </div>
 
                                                 <div class="ref-info" style="float: left;">
                                                     <div class="ref-author">
                                                         <strong>{{ source["name"] }}</strong>
 
-                                                        <span>{{ source["category"] }}</span>
+                                                        <span>{{ source["school"] }}</span>
+                                                         <p>{{ source["title"] }}</p>
                                                     </div>
-                                                    <blockquote class="ref-cont clear-mrg">
-                                                        <p>{{ source["paper"] }}</p>
-                                                    </blockquote>
+{#                                                    <blockquote class="ref-cont clear-mrg">#}
+{#                                                        <p>{{ source["title"] }}</p>#}
+{#                                                    </blockquote>#}
                                                 </div>
-												<blockquote style="border-style:none;">
-													<img src="../../static/main_style/img/favor-2.png" style="padding-left: 10px; width:12%; height:12%; padding-bottom: 10px; float: right;" alt="favor" onclick="clickFavor(this.id)"/>
-												</blockquote>
+{#												<blockquote style="border-style:none;">#}
+{#													<img src="../../static/main_style/img/favor-1.png"; id={{ source["name"] | replace (" ", "%20") }} ; style="padding-left: 10px; width:12%; height:12%; padding-bottom: 10px; float: right;" alt="notFavor" onclick="clickFavor(this.id)"/>#}
+{#												</blockquote>#}
                                             </div><!-- .ref-box -->
                                         {% endfor %}
 {#                                            <div class="ref-box brd-btm hreview">#}

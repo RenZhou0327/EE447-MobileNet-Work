@@ -17,24 +17,34 @@ import json
 @scholar_log_req
 def index():
     seed = random.randint(0, 300)
+    # query = {
+    #     "query": {
+    #         "function_score": {
+    #             "functions": [
+    #                 {
+    #                     "random_score":  {
+    #                         "seed": seed
+    #                     }
+    #                 }
+    #             ],
+    #             "score_mode": "sum",
+    #         }
+    #     },
+    #     "size": 10
+    # }
     query = {
         "query": {
-            "function_score": {
-                "functions": [
-                    {
-                        "random_score":  {
-                            "seed": seed
-                        }
-                    }
-                ],
-                "score_mode": "sum",
-            }
+            "match_all": {}
+        },
+        "sort": {
+            "heat": {"order": "desc"}
         },
         "size": 10
     }
     result = es.search(index='scholar', doc_type='teacherInfo', body=query)
-    print("result", result)
+    # print("result", result)
     res_dict = result['hits']['hits']
+    print("res_dict", res_dict)
 
     professor_id_list = [0, 1, 2]
     recomm_professor_list = get_professor_by_id(professor_id_list)
@@ -157,12 +167,12 @@ def easySearch():
 @scholar_blue.route("/entities/<string:keyword>&<int:page>", methods=["GET", "POST"])
 @scholar_log_req
 def entities(keyword, page=1):
-    page_size = 3
+    page_size = 5
     # print("page", page)
     query = {
         "query": {
             "query_string": {
-                "default_field": "paper",
+                "default_field": "all_field",
                 "query": keyword
             }
         },

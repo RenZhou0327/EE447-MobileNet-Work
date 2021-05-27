@@ -1,4 +1,5 @@
 from elasticsearch import Elasticsearch
+import pickle
 
 es = Elasticsearch()
 
@@ -27,6 +28,9 @@ def create_index():
                 'analyzer': 'ik_max_word',
                 'search_analyzer': 'ik_max_word'
             },
+            'heat': {
+                'type': 'integer',
+            },
             'all_field': {
                 'type': 'text',
                 'analyzer': 'ik_max_word',
@@ -46,6 +50,19 @@ def delete_index():
 
 
 def insert_data():
+    f = open("test.pk", "rb")
+    datas = pickle.load(f)
+    f.close()
+    cnt = 0
+    for i in datas:
+        if i['all_field'] != "":
+            cnt += 1
+    print(len(datas), cnt)
+    exit(0)
+    # for data in datas:
+    #     result = es.index(index='scholar', doc_type='teacherInfo', body=data)
+    #     print(result)
+    # exit(0)
     datas = [
         {
             'tid': 1,
@@ -53,8 +70,79 @@ def insert_data():
             'avatar': 'http://qszhang.com/files/photo.png',
             'title': 'Associate professor',
             'school': 'Shanghai Jiao Tong University',
-            'paper': '',
-            'all_field': ''
+            'heat': 1,
+            'paper': 'Improving PPSZ for 3-SAT using critical variablesT Hertli',
+            'all_field': 'Improving PPSZ for 3-SAT using critical variablesT Hertli'
+        },
+        {
+            'tid': 2,
+            'name': 'Xiaofeng Gao',
+            'avatar': 'http://qszhang.com/files/photo.png',
+            'title': 'Associate professor',
+            'school': 'Shanghai Jiao Tong University',
+            'heat': 2,
+            'paper': 'Improving PPSZ for 3-SAT using critical variablesT Hertli',
+            'all_field': 'Improving PPSZ for 3-SAT using critical variablesT Hertli'
+        },
+        {
+            'tid': 3,
+            'name': 'Cewu Lu',
+            'avatar': 'http://qszhang.com/files/photo.png',
+            'title': 'Associate professor',
+            'school': 'Shanghai Jiao Tong University',
+            'heat': 3,
+            'paper': 'Improving PPSZ for 3-SAT using critical variablesT Hertli',
+            'all_field': 'Improving PPSZ for 3-SAT using critical variablesT Hertli'
+        },
+        {
+            'tid': 4,
+            'name': 'Xinbing Wang',
+            'avatar': 'http://qszhang.com/files/photo.png',
+            'title': 'Associate professor',
+            'school': 'Shanghai Jiao Tong University',
+            'heat': 4,
+            'paper': 'Improving PPSZ for 3-SAT using critical variablesT Hertli',
+            'all_field': 'Improving PPSZ for 3-SAT using critical variablesT Hertli'
+        },
+        {
+            'tid': 5,
+            'name': 'Kai Yu',
+            'avatar': 'http://qszhang.com/files/photo.png',
+            'title': 'Associate professor',
+            'school': 'Shanghai Jiao Tong University',
+            'heat': 5,
+            'paper': 'Improving PPSZ for 3-SAT using critical variablesT Hertli',
+            'all_field': 'Improving PPSZ for 3-SAT using critical variablesT Hertli'
+        },
+        {
+            'tid': 6,
+            'name': 'Yong Yu',
+            'avatar': 'http://qszhang.com/files/photo.png',
+            'title': 'Associate professor',
+            'school': 'Shanghai Jiao Tong University',
+            'heat': 6,
+            'paper': 'Improving PPSZ for 3-SAT using critical variablesT Hertli',
+            'all_field': 'Improving PPSZ for 3-SAT using critical variablesT Hertli'
+        },
+        {
+            'tid': 7,
+            'name': 'Haiming Jin',
+            'avatar': 'http://qszhang.com/files/photo.png',
+            'title': 'Associate professor',
+            'school': 'Shanghai Jiao Tong University',
+            'heat': 7,
+            'paper': 'Improving PPSZ for 3-SAT using critical variablesT Hertli',
+            'all_field': 'Improving PPSZ for 3-SAT using critical variablesT Hertli'
+        },
+        {
+            'tid': 8,
+            'name': 'Liyao Xiang',
+            'avatar': 'http://qszhang.com/files/photo.png',
+            'title': 'Associate professor',
+            'school': 'Shanghai Jiao Tong University',
+            'heat': 8,
+            'paper': "200932Improving PPSZ for 3-SAT using critical variablesT Hertli",
+            'all_field': 'Improving PPSZ for 3-SAT using critical variablesT Hertli'
         },
     ]
     # datas = [
@@ -142,5 +230,5 @@ def query_data():
 
 if __name__ == '__main__':
     # delete_index()
-    create_index()
-    # insert_data()
+    # create_index()
+    insert_data()

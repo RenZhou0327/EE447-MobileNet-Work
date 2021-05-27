@@ -43,7 +43,7 @@
                         contentType: 'application/json; charset=utf-8',
                         data: JSON.stringify(data),
                         success: window.onload=function(callback) {
-                            window.alert(callback.res + callback.id + callback.op);
+                            {#window.alert(callback.res + callback.id + callback.op);#}
                             {#console.log(callback);#}
                             {#window.alert(callback.first_name + " " + callback.last_name);#}
                             // Watch out for Cross Site Scripting security issues when setting dynamic content!
@@ -72,7 +72,7 @@
                         contentType: 'application/json; charset=utf-8',
                         data: JSON.stringify(data),
                         success: window.onload=function(callback) {
-                            window.alert(callback.res + callback.id + callback.op);
+                            {#window.alert(callback.res + callback.id + callback.op);#}
                             {#console.log(callback);#}
                             {#window.alert(callback.first_name + " " + callback.last_name);#}
                             // Watch out for Cross Site Scripting security issues when setting dynamic content!
