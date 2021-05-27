@@ -22,6 +22,7 @@ def get_recomm_professor(t_name_list):
     random.shuffle(recomm_list)
     recomm_list = [prof[0] for prof in recomm_list]
     # print(recomm_list)
+    # recomm_list = ["Haiming Jin", "Quanshi Zhang", "Xinbing Wang"]
     recomm_professors = db.session.query(Researcher.Name, Researcher.Avatar, Researcher.University,
                                          Researcher.Title).filter(Researcher.Name.in_(recomm_list)).all()
     return recomm_professors
