@@ -79,3 +79,5 @@ su ela
 ### Resources
 /root/mobile-net-work-ee447/static
 
+
+### favor.sql
