@@ -58,24 +58,24 @@
                              </a>
                          </div>
 
-                         <div id="ace-head-col2" class="ace-head-col text-right">		
+                         <div id="ace-head-col2" class="ace-head-col text-right">
                              <div class="navigator">
-								<section class="widget widget_search">
-									<form role="search" method="post" class="search-form-top">
-										<label>
-											<span class="screen-reader-text">Search for:</span>
-											{{ form.searchInput }}
-										</label>
-										{{form.csrf_token}}
-									</form>
-								</section>
+{#								<section class="widget widget_search">#}
+{#									<form role="search" method="post" class="search-form-top">#}
+{#										<label>#}
+{#											<span class="screen-reader-text">Search for:</span>#}
+{#											{{ form.searchInput }}#}
+{#										</label>#}
+{#										{{form.csrf_token}}#}
+{#									</form>#}
+{#								</section>#}
                                  <nav id="ace-main-nav" class="search-submit">
                                     <!-- <ul class="clear-list"> -->
 									<ul style="display:inline;">
-                                        <li><a href={{ "../index" }}>hot</a></li>
-										<li><a href={{ "../search" }}>search</a></li>
-										<li><a href={{ "../favor" }}>favor</a></li>
-										<li><a href="{{ "../logout" }}">logout</a></li>
+                                        <li><a href="#">hot</a></li>
+										<li><a href={{ "search" }}>search</a></li>
+										<li><a href={{ "favor" }}>favor</a></li>
+										<li><a href="{{ "logout" }}">logout</a></li>
 									</ul>
                                  </nav>
                              </div>

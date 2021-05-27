@@ -8,6 +8,19 @@
     3.2 需要修改 es 数据
         3.2.1 lwx&zr 制定接口
         3.2.2 zr 处理 ES, lwx 用 toydata 跑通 index, search 页面的老师卡片
+4. ES数据格式: 用 pickle 打包
+    ```
+   datas = [
+        {
+            'tid': 1,
+            'name': 'Quanshi Zhang',
+            'avatar': 'http://qszhang.com/files/photo.png',
+            'title': 'Associate professor',
+            'school': 'Shanghai Jiao Tong University',
+            'paper': '所有paper中的词连成一个字符串 空格隔开',
+            'all_field': '包括名字 paper 这些用户可能搜索的信息 所有的信息连成一个字符串 空格隔开'
+        },
+    ]
 
 es:
 - Researcher.Name
