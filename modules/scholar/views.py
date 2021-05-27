@@ -6,7 +6,7 @@ from modules.scholar import scholar_blue
 from modules.scholar.forms import SearchForm, RegisterForm, EasySearchForm, TopSearchForm
 from modules.scholar.forms import LoginForm
 from modules.scholar.utils import get_verify_code
-from modules.common import graph_list, scholar_log_req, es, random_walk_recomm
+from modules.common import graph_list, scholar_log_req, es, random_walk_recomm, get_professor_by_id
 from modules.scholar.models import User, Researcher, Favor
 from app import db
 import random
@@ -35,6 +35,9 @@ def index():
     result = es.search(index='scholar', doc_type='teacherInfo', body=query)
     print("result", result)
     res_dict = result['hits']['hits']
+
+    professor_id_list = [0, 1, 2]
+    recomm_professor_list = get_professor_by_id(professor_id_list)
     
     # Sidebar 的 sarch
     form = TopSearchForm()
@@ -43,8 +46,8 @@ def index():
         data = form.data
         print("searchInput", data)
         if data['searchInput'] is not None:
-            return redirect(url_for("scholar.entities", keyword=data['searchInput'], page=1))
-    return render_template("search/index.html", search_items=res_dict, form=form)
+            return redirect(url_for("scholar.entities", keyword=data['searchInput'], page=1, recomm_list=recomm_professor_list))
+    return render_template("search/index.html", search_items=res_dict, form=form, recomm_list=recomm_professor_list)
 
 
 @scholar_blue.route("/", methods=["GET", "POST"])
@@ -175,8 +178,10 @@ def entities(keyword, page=1):
     # print("page_num", page_num)
     if page == page_num:
         res_dict = res_dict[-rest:]
+    professor_id_list = [0, 1, 2]
+    recomm_professor_list = get_professor_by_id(professor_id_list)
     # print(res_dict)
-    return render_template("search/entities.html", kw=keyword, search_items=res_dict, page=page, page_num=page_num)
+    return render_template("search/entities.html", kw=keyword, search_items=res_dict, page=page, page_num=page_num, recomm_list=recomm_professor_list)
 
 
 @scholar_blue.route("/favor", methods=["GET", "POST"])
@@ -189,8 +194,7 @@ def favor():
 
     # professor_id_list = random_walk_recomm()
     professor_id_list = [0, 1, 2]
-    recomm_professor_list = db.session.query(Researcher.Name, Researcher.Avatar, Researcher.University,
-                                             Researcher.Title).filter(Researcher.ID.in_(professor_id_list)).limit(20).all()
+    recomm_professor_list = get_professor_by_id(professor_id_list)
     print(recomm_professor_list)
 
     return render_template("search/favor.html", professor_info=professor_info, recomm_list=recomm_professor_list)
@@ -219,13 +223,15 @@ def professor(name="Quanshi Zhang"):
                     }
     # Sidebar 的 search
     print("Researcher_info['ConnectionUrl']", Researcher_info['ConnectionUrl'])
+    professor_id_list = [0, 1, 2]
+    recomm_professor_list = get_professor_by_id(professor_id_list)
     form = EasySearchForm()
     if form.validate_on_submit():
         data = form.data
         # print("EasySearchForm", data)
         if data['SideSearch'] is not None:
             return redirect(url_for("scholar.entities", keyword=data['SideSearch'], page=1))
-    return render_template("search/professor.html", Researcher_info=Researcher_info, form=form)
+    return render_template("search/professor.html", Researcher_info=Researcher_info, form=form, recomm_list=recomm_professor_list)
 
 
 # @scholar_blue.route("/professor/paper/<string:name>", methods=["GET", "POST"])

@@ -28,6 +28,84 @@
 
     <link rel="stylesheet" href="../../static/my_style/css/xadmin.css">
     <script src="../../static/login_style/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+        function clickSearchButton(id) {
+            var searchForm = document.getElementById(id);
+            var kw = searchForm.children[0].children[1].value;
+            {#window.alert(kw);#}
+            if (kw === "") {
+                window.alert("Nothing to Search")
+            }
+            else {
+                var data = {};
+                data["kw"] = kw;
+                $.ajax({
+                        type: 'POST',
+                        url: '/scholar/easySearch',
+                        dataType: 'json',
+                        contentType: 'application/json; charset=utf-8',
+                        data: JSON.stringify(data),
+                        success: window.onload=function(callback) {
+                             if (callback.redirect) {
+                                window.location.href = callback.redirect;
+                             }
+                             else {
+                                 window.alert("Something get error!");
+                             }
+                        },
+                        error: function() {
+                            window.alert("Something get error!")
+                        }
+                    });
+            }
+        }
+
+        function changeRecomm() {
+            var recomm = document.getElementsByClassName("widget widget_posts_entries")[0];
+            {#window.alert(recomm);#}
+            var ul_list = recomm.children[1];
+            var res;
+            $.ajax({
+                        type: 'POST',
+                        url: '/scholar/recomm',
+                        dataType: 'json',
+                        contentType: 'application/json; charset=utf-8',
+                        async:false,
+                        success: window.onload=function(callback) {
+                             res = callback.recomm_list;
+                        },
+                        error: function() {
+                            window.alert("Something get error!");
+                        }
+                    });
+            if (!res) {
+                window.alert("Something get error!");
+            }
+            var i = 0;
+            for (i = 0; i < res.length; ++i) {
+                var li = ul_list.children[i];
+                var a1 = li.children[0];
+                var div1 = li.children[1];
+                var div2 = li.children[2];
+                var img = a1.children[0];
+                var a2 = div1.children[0].children[0];
+                var a3 = div2.children[0];
+                var a4 = div2.children[1];
+                img.setAttribute("src", res[i][1]);
+                a1.setAttribute("href", "professor/" + res[i][0]);
+                a2.setAttribute("href", "professor/" + res[i][0]);
+                a2.innerHTML = res[i][0];
+                a3.innerHTML = (res[i][2]) ? res[i][2] : "None";
+                a4.innerHTML = (res[i][3]) ? res[i][3] : "None";
+            }
+            {#window.alert(i + " " + ul_list.children.length);#}
+            for (; i < ul_list.children.length; ++i) {
+                {#window.alert(i + " " + ul_list[i]);#}
+                ul_list.children[i].remove();
+            }
+        }
+    </script>
 
     <style>
         .now {
@@ -270,167 +348,62 @@
         </div><!-- #ace-content -->
 
     <div id="ace-sidebar">
-		<button id="ace-sidebar-close" class="btn btn-icon btn-light btn-shade">
-			<span class="ace-icon ace-icon-close"></span>
-		</button>
+        <button id="ace-sidebar-close" class="btn btn-icon btn-light btn-shade">
+            <span class="ace-icon ace-icon-close"></span>
+        </button>
 
-		<div id="ace-sidebar-inner">
-			<nav id="ace-main-nav-sm" class="visible-xs visible-sm text-center">
-				<ul class="clear-list">
-					<li><a href="index.html">about</a></li>
-					<li><a href="portfolio.html">portfolio</a>
-					<li><a href="testimonials.html">references</a></li>
-					<li class="has-sub-menu"><a href="#">pages</a>
-						<ul class="sub-menu">
-							<li><a href="typography.html">typography</a></li>
-							<li><a href="components.html">components</a></li>
-							<li><a href="search.html">search</a></li>
-							<li><a href="404.html">404</a></li>
-						</ul>
-					</li>
-					<li class="has-sub-menu"><a href="category.html">blog</a>
-						<ul class="sub-menu">
-							<li><a href="single.html">single</a></li>
-							<li><a href="single-image.html">single image</a></li>
-							<li><a href="single-slider.html">single slider</a></li>
-							<li><a href="single-youtube.html">single youtube</a></li>
-							<li><a href="single-vimeo.html">single vimeo</a></li>
-							<li><a href="single-dailymotion.html">single dailymotion</a></li>
-							<li><a href="single-soundcloud.html">single soundcloud</a></li>
-							<li><a href="single-video.html">single video</a></li>
-							<li><a href="single-audio.html">single audio</a></li>
-						</ul>
-					</li>
-					<li><a href="contact.html">contact</a></li>
-				</ul>
-			</nav><!-- #ace-main-nav-sm -->
+        <div id="ace-sidebar-inner">
 
-{#			<article class="ace-card bg-primary">#}
-{#				<div class="ace-card-inner text-center">#}
-{#					<img class="avatar avatar-195" src="../../static/main_style/img/uploads/avatar/avatar-195x195.png" width="195" height="195" alt="">#}
-{#					<h1>Ola Lowe</h1>#}
-{#					<p class="text-muted">Florist | Decorator</p>#}
-{#					<ul class="ace-social clear-list">#}
-{#						<li><a><span class="ace-icon ace-icon-facebook"></span></a></li>#}
-{#						<li><a><span class="ace-icon ace-icon-twitter"></span></a></li>#}
-{#						<li><a><span class="ace-icon ace-icon-google-plus"></span></a></li>#}
-{#						<li><a><span class="ace-icon ace-icon-instagram"></span></a></li>#}
-{#						<li><a><span class="ace-icon ace-icon-pinterest"></span></a></li>#}
-{#					</ul>#}
-{#				</div>#}
-{#			</article><!-- #ace-card -->#}
+            <aside class="widget-area">
+                <section class="widget widget_search">
+                    <form role="search" method="post" class="search-form" id="easySearch" onSubmit=clickSearchButton(this.id)>
+                        <label>
+                            <span class="screen-reader-text">Search for:</span>
+                            <input type="search" class="search-field" placeholder="Search" value="" name="s">
+                        </label>
+                        <button type="submit" class="search-submit">
+                            <span class="screen-reader-text">Search</span>
+                            <span class="ace-icon ace-icon-search"></span>
+                        </button>
+                    </form>
+                </section>
 
-			<aside class="widget-area">
-				<section class="widget widget_search">
-					<form role="search" method="get" class="search-form" action="http://sc.chinaz.com/jiaoben/">
-						<label>
-							<span class="screen-reader-text">Search for:</span>
-							<input type="search" class="search-field" placeholder="Search" value="" name="s">
-						</label>
-						<button type="submit" class="search-submit">
-							<span class="screen-reader-text">Search</span>
-							<span class="ace-icon ace-icon-search"></span>
-						</button>
-					</form>
-				</section>
+                <section class="widget widget_posts_entries">
+                    <h2 class="widget-title">recommendation</h2>
+                    <ul>
+{#                        {% set st = 0%}#}
+{#                        {% set ed = 2 %}#}
+                        {% for item in recomm_list %}
+                            {% set recomm_url = "professor/" + item[0] | replace (" ", "%20")  %}
+                        <li>
+                            <a class="post-image" href={{ recomm_url }}>
+                                <img src={{ item[1] }} alt="">
+                            </a>
+                            <div class="post-content">
+                                <h3>
+                                    <a href={{ recomm_url }}>{{ item[0] }}</a>
+                                </h3>
+                            </div>
+                            <div class="post-category-comment">
+                                <a href="#" class="post-category">{{ item[2] }}</a>
+                                <a href="#" class="post-comments">{{ item[3] }}</a>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </section>
 
-				<section class="widget widget_posts_entries">
-					<h2 class="widget-title">popular posts</h2>
-					<ul>
-						<li>
-							<a class="post-image" href="">
-								<img src="http://noemi.px-lab.com/wp-content/uploads/2016/05/tttt-70x70.png" alt="">
-							</a>
-							<div class="post-content">
-								<h3>
-									<a href="">contextual advertising</a>
-								</h3>
-							</div>
-							<div class="post-category-comment">
-								<a href="" class="post-category">Work</a>
-								<a href="" class="post-comments">256 comments</a>
-							</div>
-						</li>
+                <div class="tagcloud" style="text-align: center">
+                    <button style="font-size: 1em; width: 70px; height: 40px; border: none; border-radius: 5%" onclick=changeRecomm()>Next</button>
+                </div>
 
-						<li>
-							<a class="post-image" href="">
-								<img src="http://noemi.px-lab.com/wp-content/uploads/2016/05/IMG_8945-1-70x70.jpg" alt="">
-							</a>
-							<div class="post-content">
-								<h3>
-									<a href="">grilling tips for the dog days of summer</a>
-								</h3>
-							</div>
-							<div class="post-category-comment">
-								<a href="" class="post-category">Work</a>
-								<a href="" class="post-comments">256 comments</a>
-							</div>
-						</li>
+                <br>
+                <br>
 
-						<li>
-							<a class="post-image" href="">
-								<img src="http://noemi.px-lab.com/wp-content/uploads/2016/05/15-70x70.png" alt="">
-							</a>
-							<div class="post-content">
-								<h3><a href=""></a>branding do you know who are</h3>
-							</div>
-							<div class="post-category-comment">
-								<a href="" class="post-category">Work</a>
-								<a href="" class="post-comments">256 comments</a>
-							</div>
-						</li>
-					</ul>
-				</section>
+            </aside>
 
-				<section id="tag_cloud-2" class="widget widget_tag_cloud">
-					<h2 class="widget-title">Tags</h2>
-					<div class="tagcloud">
-						<a href="http://sc.chinaz.com/jiaoben/tag/audios/" class="tag-link-5 tag-link-position-1" title="1 topic" style="font-size: 1em;">Audios</a>
-						<a href="" class="tag-link-7 tag-link-position-2" title="1 topic" style="font-size: 1em;">Freelance</a></div>
-				</section>
-
-				<section id="recent-posts-3" class="widget widget_recent_entries">
-					<h4 class="widget-title">Recent Posts</h4>
-					<ul>
-						<li>
-							<a href="">Global Travel And Vacations  Luxury Travel On A Tight  Budget</a>
-							<div class="post-category-comment">
-								<a href="" class="post-category">Photography</a>
-								<a href="" class="post-comments">256 comments</a>
-							</div>
-						</li>
-						<li>
-							<a href="">cooking for one</a>
-							<div class="post-category-comment">
-								<a href="" class="post-category">Work</a>
-								<a href="" class="post-comments">256 comments</a>
-							</div>
-						</li>
-						<li>
-							<a href="">An Ugly Myspace Profile Will  Sure Ruin Your Reputation</a>
-							<div class="post-category-comment">
-								<a href="" class="post-category">Photography</a>
-								<a href="" class="post-comments">256 comments</a>
-							</div>
-						</li>
-					</ul>
-				</section>
-
-				<section class="widget widget_categories">
-					<h4 class="widget-title">post categories</h4>
-					<ul>
-						<li class="cat-item"><a href="">Audios</a>5</li>
-						<li class="cat-item"><a href="">Daili Inspiration</a>2</li>
-						<li class="cat-item"><a href="">Freelance</a>27</li>
-						<li class="cat-item"><a href="">Links</a>5</li>
-						<li class="cat-item"><a href="">Mobile</a>2</li>
-						<li class="cat-item"><a href="">Phography</a>27</li>
-					</ul>
-				</section>
-			</aside>
-
-		</div><!-- #ace-sidebar-inner -->
-	</div><!-- #ace-sidebar -->
+        </div><!-- #ace-sidebar-inner -->
+        </div><!-- #ace-sidebar -->
 
     <footer id="ace-footer" class="ace-container-shift">
         <div class="ace-container">
