@@ -312,14 +312,15 @@ def connection(name):
                         "Title": researcher.Title, "HomePage": researcher.HomePage, "University": researcher.University,
                         "Lab": researcher.Lab, "Bio": researcher.Bio, "Sig": researcher.Signature,
                         "DOB": researcher.DOB, "Email": researcher.Email,
-                        "Mottos": json.loads(researcher.Mottos)["Mottos"],
-                        "ResearchInterest": json.loads(researcher.ResearchInterest)["ResearchInterest"],
-                        "Awards": json.loads(researcher.Awards)["Awards"],
-                        "Co_authors": json.loads(researcher.Co_authors)["Co_authors"],
-                        "Papers": json.loads(researcher.Papers)["Papers"],
-                        # "Cited_graph": json.loads(researcher.Cited_graph)["Cited_graph"],
-    }
-
+                        "Mottos": eval(researcher.Mottos)["Mottos"],
+                        "ResearchInterest": eval(researcher.ResearchInterest)["ResearchInterest"],
+                        "Awards": eval(researcher.Awards)["Awards"],
+                        "Co_authors": eval(researcher.Co_authors)["Co_authors"],
+                        "Papers": eval(researcher.Papers)["Papers"],
+                        "Cited_graph": eval(researcher.Cited_graph)["Cited_graph"],
+                        "PaperUrl": "/scholar/paper/" + researcher.Name.replace(" ", "%20"),
+                        "ConnectionUrl": "/scholar/connection/" + researcher.Name.replace(" ", "%20")
+                    }
     # 引用论文绘图数据
     citation = json.loads(researcher.Cited_graph)["Cited_graph"]
     year_num = len(citation)
