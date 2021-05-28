@@ -1,0 +1,307 @@
+{
+	"features": [
+		{
+			"Email": "gu-dw@cs.sjtu.edu.cn",
+            "HomePage": "http://english.seiee.sjtu.edu.cn/english/detail/841_663.htm",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "Professor",
+            "Avatar": "http://english.seiee.sjtu.edu.cn/images/201605030955256.jpg",
+            "Lab": "Lab of Cryptology and Computer Security",
+            "Location": "SEIEE-3-427",
+            "Name": "谷大武",
+            "ResearchInterest": ["Cryptography", "Data security", "Computer security", "Cyberspace security"]
+		},
+        {
+          "Email": "Information Security Theory Lab",
+          "HomePage": "",
+          "University": "Shanghai Jiao Tong University",
+          "Title": "Professor",
+          "Avatar": "http://www.cs.sjtu.edu.cn/Management/Upload/[User]708337b675ad4acc9e35c86a782a2101/20131225101825626K4vkP.jpg",
+          "Lab": "Lab of Cryptology and Computer Security",
+          "Location": "SEIEE-3-423",
+          "Name": "Xuejia Lai",
+          "ResearchInterest": ["Cryptography", "Information Security"]
+        },
+        {
+          "Email": "liu-sl@cs.sjtu.edu.cn",
+          "HomePage": "http://202.120.38.205/",
+          "University": "Shanghai Jiao Tong University",
+          "Title": "Professor",
+          "Avatar": "http://www.cs.sjtu.edu.cn/Management/Upload/[User]5b5ec1de19974b4180d350b545c3ea92/20131225104040851t5Bl0.jpg",
+          "Location": "SEIEE-3-429",
+          "Lab": "Lab of Cryptology and Computer Security",
+          "Name": "shengli liu",
+          "ResearchInterest": ["Cryptography", "Information Security"]
+        },
+        {
+          "Email": "luoyuan@cs.sjtu.edu.cn",
+          "HomePage": "https://ailab-moe.sjtu.edu.cn/team/luoyuan/",
+          "University": "Shanghai Jiao Tong University",
+          "Title": "Professor",
+          "Avatar": "http://ailab-moe.sjtu.edu.cn/wp-content/uploads/2020/03/%E6%B4%9B%E6%BA%90.jpg",
+          "Location": "SEIEE-3-403",
+          "Lab": "Lab of Cryptology and Computer Security",
+          "Name": "骆源",
+          "ResearchInterest": ["Distributed storage", "Channel Security", "Big Data Application", "5G Communication"]
+        },
+        {
+          "Email": "yuyu@cs.sjtu.edu.cn",
+          "HomePage": "http://yuyu.hk/",
+          "University": "Shanghai Jiao Tong University",
+          "Title": "Professor",
+          "Avatar": "http://www.cs.sjtu.edu.cn/Management/Upload/[User]7f866118dfc24e1b97fb4e42d3a9fcc1/20164715583272vWfUH.jpg",
+          "Location": "SEIEE-3-537",
+          "Lab": "格密码系统安全实验室",
+          "Name": "郁昱",
+          "ResearchInterest": ["Cryptography", "Side-channel attacks", "Multi-Party Computation", "Fully Homomorphic Encryption"]
+        },
+        {
+          "Email": "zhu-hj@cs.sjtu.edu.cn",
+          "HomePage": "https://nsec.sjtu.edu.cn/~hjzhu/",
+          "University": "Shanghai Jiao Tong University",
+          "Title": "Professor",
+          "Avatar": "http://www.cs.sjtu.edu.cn/Management/Upload/[User]737955379f5945688b6fa9da9223a8bd/20131224191623441KnY6.jpg",
+          "Location": "SEIEE-3-509",
+          "Lab": " Network Security and Privacy Protection (NSEC) Lab",
+          "Name": "Haojin Zhu",
+          "ResearchInterest": ["IoT security", "Machine Learning Security&Privacy", "Privacy Enhancing Technology", "5G Security"]
+        },
+        {
+          "Email": "chengfan@cs.sjtu.edu.cn",
+          "HomePage": "http://www.cs.sjtu.edu.cn/~chengfan/",
+          "University": "Shanghai Jiao Tong University",
+          "Title": "Associate Professor",
+          "Avatar": "http://www.cs.sjtu.edu.cn/~chengfan/profile.png",
+          "Location": "SEIEE-3-513",
+          "Lab": "Information and Computing Lab (ICL)",
+          "Name": "Fan Cheng",
+          "ResearchInterest": ["information theory", "machine learning", "Quantum computing and anti-quantum security"]
+        },
+        {
+          "Email": "dingning@cs.sjtu.edu.cn",
+          "HomePage": "https://loccs.sjtu.edu.cn/main/",
+          "University": "Shanghai Jiao Tong University",
+          "Title": "Associate Professor",
+          "Avatar": "http://www.cs.sjtu.edu.cn/Management/Upload/[User]7d935e30ad9f464d8a56904d12224642/201411493954127ee7E7.jpg",
+          "Location": "SEIEE-3-324",
+          "Lab": "Lab of Cryptology and Computer Security",
+          "Name": "丁宁",
+          "ResearchInterest": ["Cryptography", "Computational learning theory", "Complexity theory"]
+        },
+        {
+          "Email": "liuzhen@cs.sjtu.edu.cn",
+          "HomePage": "https://loccs.sjtu.edu.cn/main/",
+          "University": "Shanghai Jiao Tong University",
+          "Title": "Associate Professor",
+          "Avatar": "http://www.cs.sjtu.edu.cn/Management/Upload/[User]bd4319df6820495b9515397592184b5f/2016922143744946Wya3t.jpg",
+          "Location": "SEIEE-3-509",
+          "Lab": "Cryptography and Computer Security Laboratory",
+          "Name": "Zhen Liu",
+          "ResearchInterest": ["Could Computing Security", "Big Data Security", "Blockchain", "Cryptocurrency"]
+        },
+        {
+          "Email": "longyu@sjtu.edu.cn",
+          "HomePage": "https://loccs.sjtu.edu.cn/main/",
+          "University": "Shanghai Jiao Tong University",
+          "Title": "Associate Professor",
+          "Avatar": "http://www.cs.sjtu.edu.cn/Management/Upload/[User]adb77663edf04452adfe8859e1a32484/2014114938104550uNFC.jpg",
+          "Location": "SEIEE-3-527",
+          "Lab": "Lab of Cryptology and Computer Security",
+          "Name": "Yu Long",
+          "ResearchInterest": ["Public key encryption", "Block Chain", "Post-quantum Cryptography"]
+        },
+        {
+          "Email": "wanglei@cs.sjtu.edu.cn",
+          "HomePage": "",
+          "University": "Shanghai Jiao Tong University",
+          "Title": "Associate Professor",
+          "Avatar": "http://www.cs.sjtu.edu.cn/Management/Upload/[User]9980b4f994a34ba6868c486fa9d509fc/2018623105724218Ez756.jpeg",
+          "Location": "SEIEE-3-519",
+          "Lab": "",
+          "Name": "Lei Wang",
+          "ResearchInterest": ["Cryptology"]
+        },
+        {
+          "Email": "yyjess@sjtu.edu.cn",
+          "HomePage": "http://yyjess.com/",
+          "University": "Shanghai Jiao Tong University",
+          "Title": "Associate Professor",
+          "Avatar": "http://yyjess.com/images/person.jpg",
+          "Location": "SEIEE-3-530",
+          "Lab": "密码与信息安全研究所",
+          "Name": "Yuanyuan Zhang",
+          "ResearchInterest": ["firmware vulnerability discovery", "secure compilation", "IoT security", "enclave bianry fuzzing"]
+        },
+
+
+        {
+          "Email": "ma-lz@cs.sjtu.edu.cn",
+          "HomePage": "http://dmcv.sjtu.edu.cn/people/",
+          "University": "Shanghai Jiao Tong University",
+          "Title": "Professor",
+          "Avatar": "http://dmcv.sjtu.edu.cn/people/professor/profile/prof.png",
+          "Location": "SEIEE-3-441",
+          "Lab": "Digital Media & Computer Vision Laboratory",
+          "Name": "Lizhuang Ma",
+          "ResearchInterest": ["Computer Graphics", "Image Processing", "Computer Vision"]
+        },
+        {
+          "Email": "shengbin@cs.sjtu.edu.cn",
+          "HomePage": "http://dmcv.sjtu.edu.cn/people/",
+          "University": "Shanghai Jiao Tong University",
+          "Title": "Professor",
+          "Avatar": "http://dmcv.sjtu.edu.cn/people/facu/shengbin/avatar.png",
+          "Location": "SEIEE-3-511",
+          "Lab": "Digital Media & Computer Vision Laboratory",
+          "Name": "Bin Shen",
+          "ResearchInterest": ["Computer Vision", "Medical Big Data", "Virtual Reality", "Data Visualization", "Biomedical Imaging"]
+        },
+        {
+          "Email": "yyu@cs.sjtu.edu.cn",
+          "HomePage": "http://apex.sjtu.edu.cn/members/yyu",
+          "University": "Shanghai Jiao Tong University",
+          "Title": "Professor",
+          "Avatar": "http://apex.sjtu.edu.cn/public/files/avatar/20160328/yuyong4.jpg",
+          "Location": "SEIEE-3-311",
+          "Lab": "APEX Data & Knowledge Management Lab",
+          "Name": "Yong Yu",
+          "ResearchInterest": ["Web search", "semantic search", "data mining", "machine learning"]
+        },
+        {
+          "Email": "lu-cw@cs.sjtu.edu.cn",
+          "HomePage": "http://mvig.sjtu.edu.cn/",
+          "University": "Shanghai Jiao Tong University",
+          "Title": "Associate Professor",
+          "Avatar": "https://www.cs.sjtu.edu.cn/Management/Upload/[User]6474cad7f8624465878950880aa0f186/2016101014108594RlVb.jpg",
+          "Location": "",
+          "Lab": "",
+          "Name": "cewu lu",
+          "ResearchInterest": []
+        },
+        {
+          "Email": "shen-lp@cs.sjtu.edu.cn",
+          "HomePage": "http://www.cs.sjtu.edu.cn/~shen-lp/",
+          "University": "Shanghai Jiao Tong University",
+          "Title": "Associate Professor",
+          "Avatar": "http://www.cs.sjtu.edu.cn/~shen-lp/index_files/homepage_files/image007.jpg",
+          "Location": "SEIEE-3-531",
+          "Lab": "e-Learning lab",
+          "Name": "申丽萍",
+          "ResearchInterest": ["pervasive and adaptive learning technologies", "e-Learning system"]
+        },
+        {
+          "Email": "yanjunchi@cs.sjtu.edu.cn",
+          "HomePage": "http://thinklab.sjtu.edu.cn/",
+          "University": "Shanghai Jiao Tong University",
+          "Title": "Associate Professor",
+          "Avatar": "http://thinklab.sjtu.edu.cn/src/yanjunchi20.jpg",
+          "Location": "SEIEE-3-519",
+          "Lab": "thinklab",
+          "Name": "Junchi Yan",
+          "ResearchInterest": ["Learning combinatorial solvers", "Dynamic graphs", "multi-agent reinforcement learning"]
+        },
+        {
+          "Email": "wnzhang@sjtu.edu.cn",
+          "HomePage": "http://wnzhang.net/",
+          "University": "Shanghai Jiao Tong University",
+          "Title": "Associate Professor",
+          "Avatar": "http://wnzhang.net/pics/wnzhang-2018.jpg",
+          "Location": "SEIEE-3-518",
+          "Lab": "APEX Data & Knowledge Management Lab",
+          "Name": "Weinan Zhang",
+          "ResearchInterest": ["multi-agent reinforcement learning", "deep learning", "data science",
+            "recommender systems", "search engines", "text mining & generation", "knowledge graphs", "game AI"]
+        },
+        {
+          "Email": "ningz@sjtu.edu.cn",
+          "HomePage": "http://mvig.sjtu.edu.cn/",
+          "University": "Shanghai Jiao Tong University",
+          "Title": "Assistant Professor",
+          "Avatar": "https://ning6688.github.io/images/Ning.jpg",
+          "Location": "",
+          "Lab": "thinklab",
+          "Name": "张宁",
+          "ResearchInterest": ["Machine learning for audio analysis and generation", "multi-media understanding", "time series prediction"]
+        },
+
+
+        {
+          "Email": "xkyang@sjtu.edu.cn",
+          "HomePage": "https://icne.sjtu.edu.cn/info/1064/1078.htm",
+          "University": "Shanghai Jiao Tong University",
+          "Title": "Professor",
+          "Avatar": "https://icne.sjtu.edu.cn/_mediafile/icne/2014/04/25/2czti2elrc.jpg",
+          "Location": "",
+          "Lab": "Institute of Image Communication and Network Engineering",
+          "Name": "Xiaokang Yang",
+          "ResearchInterest": ["Intelligent video analysis and surveillance", "Image coding and communication", "Pattern Recognition & Machine Learning"]
+        },
+        {
+          "Email": "jinyh@sjtu.edu.cn",
+          "HomePage": "https://loct.sjtu.edu.cn/team/detail.aspx?cid=12&id=7",
+          "University": "Shanghai Jiao Tong University",
+          "Title": "Professor",
+          "Avatar": "https://loct.sjtu.edu.cn/ImgUpload/202009/202009280348035875.jpg",
+          "Location": "",
+          "Lab": "Advanced Optical Communication System and Networks",
+          "Name": "Yaohui Jin",
+          "ResearchInterest": ["Data governance and sharing architecture", "Data Mining", "NLP"]
+
+        },
+        {
+          "Email": "yuegao@sjtu.edu.cn",
+          "HomePage": "https://gaoyue.sjtu.edu.cn/about.html",
+          "University": "Shanghai Jiao Tong University",
+          "Title": "Associate Professor",
+          "Avatar": "https://gaoyue.sjtu.edu.cn/images/team/_gaoyue.png",
+          "Location": "5-506 Software Building",
+          "Lab": "RL2-lab",
+          "Name": "Yue Gao",
+          "ResearchInterest": ["Multimodal Fusion", "Simultaneous Localization and Mapping", "Deep Reinforcement Learning", "Knowledge Graph"]
+        },
+        {
+          "Email": "yanyanxu@berkeley.edu",
+          "HomePage": "http://humnetlab.berkeley.edu/~yxu/",
+          "University": "Shanghai Jiao Tong University",
+          "Title": "Associate Professor",
+          "Avatar": "http://humnetlab.berkeley.edu/~yxu/images/headshot_xu_300.jpg",
+          "Location": "",
+          "Lab": "humnetlab",
+          "Name": "Yanyan Xu",
+          "ResearchInterest": ["Urban Computing", "Human Mobility", "Smart Transportation", "Energy & Environment", "Urban Science"]
+        },
+        {
+          "Email": "wei.shen@sjtu.edu.cn",
+          "HomePage": "https://shenwei1231.github.io/",
+          "University": "Shanghai Jiao Tong University",
+          "Title": "Associate Professor",
+          "Avatar": "https://shenwei1231.github.io/images/Wei-Shen.jpg",
+          "Location": "5-507 Software Building",
+          "Lab": "Artificial Intelligence Institute",
+          "Name": "Wei Shen",
+          "ResearchInterest": ["computer vision", "machine learning", "deep learning", "medical image analysis"]
+        },
+        {
+          "Email": "chaoma@sjtu.edu.cn",
+          "HomePage": "https://vision.sjtu.edu.cn/index.html",
+          "University": "Shanghai Jiao Tong University",
+          "Title": "Assistant Professor",
+          "Avatar": "https://vision.sjtu.edu.cn/pics/chao.jpg",
+          "Location": "5-504 Software Building",
+          "Lab": "Artificial Intelligence Institute",
+          "Name": "Chao Ma",
+          "ResearchInterest": ["motion and tracking", "video understanding", "vision and language", "image restoration and enhancement", "virtual digital human"]
+        },
+        {
+          "Email": "yunbo.thu@gmail.com",
+          "HomePage": "http://people.csail.mit.edu/yunbo/",
+          "University": "Shanghai Jiao Tong University",
+          "Title": "Assistant Professor",
+          "Avatar": "http://people.csail.mit.edu/yunbo/yunbo.jpg",
+          "Location": "5-504 Software Building",
+          "Lab": "Artificial Intelligence Institute",
+          "Name": "Yunbo Wang",
+          "ResearchInterest": ["predictive learning", "spatiotemporal modeling", "model-based planning"]
+        }
+    ]
+}

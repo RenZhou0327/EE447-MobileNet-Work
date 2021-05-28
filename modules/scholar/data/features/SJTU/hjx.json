@@ -1,0 +1,279 @@
+{
+	"features": [
+		{
+			"Email": "huang-lp@cs.sjtu.edu.cn",
+            "HomePage": "http://www.cs.sjtu.edu.cn/~HUANG-LP/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "Professor",
+            "Avatar": "http://www.cs.sjtu.edu.cn/~HUANG-LP/index_files/hlp_20_282_29.jpg",
+            "Lab": "可靠分布式实验室",
+            "Location": "SEIEE-3-433",
+            "Name": "Linpeng HUANG",
+            "ResearchInterest": ["distributed system", "big data processing"]
+		},
+		{
+			"Email": "xue-gt@cs.sjtu.edu.cn",
+            "HomePage": "http://www.cs.sjtu.edu.cn/~xue-gt/index.html",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "Professor",
+            "Avatar": "http://www.cs.sjtu.edu.cn/~xue-gt/resource/Guangtao_Xue.PNG",
+            "Lab": "网络及移动计算实验室",
+            "Location": "SEIEE-3-129",
+            "Name": "Guangtao Xue",
+            "ResearchInterest": ["Mobile Computing","Big Data","Social Networks","Distributed Computing"]
+		},
+		{
+			"Email": "yzhu@cs.sjtu.edu.cn",
+            "HomePage": "http://www.cs.sjtu.edu.cn/~yzhu/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "Professor",
+            "Avatar": "http://www.cs.sjtu.edu.cn/~yzhu/images/Yanmin_Zhu.jpg",
+            "Lab": "网络及移动计算实验室",
+            "Location": "SEIEE-3-420",
+            "Name": "Yanmin Zhu",
+            "ResearchInterest": ["Data mining","Big Data","Mobile computing","participatory sensing","mobile crowdsourcing","smartphone sensing","Wireless sensor networks","ad hoc networks","vehicular ad hoc networks","Internet of things"]
+		},
+		{
+			"Email": "shenyy@sjtu.edu.cn",
+            "HomePage": "http://www.cs.sjtu.edu.cn/~shen-yy/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "Tenure-track Associate Professor",
+            "Avatar": "http://www.cs.sjtu.edu.cn/~shen-yy/images/yanyan.jpg",
+            "Lab": "可靠分布式实验室",
+            "Location": "SEIEE-3-528",
+            "Name": "Yanyan Shen",
+            "ResearchInterest": ["Complex data analytics and processing","Data-driven machine learning"]
+		},
+		{
+			"Email": "zhonghao@cs.sjtu.edu.cn",
+            "HomePage": "http://www.cs.sjtu.edu.cn/~zhonghao/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "Associate Professor",
+            "Avatar": "http://www.cs.sjtu.edu.cn/~zhonghao/photo.jpg",
+            "Lab": "可靠分布式实验室",
+            "Location": "",
+            "Name": "Hao Zhong",
+            "ResearchInterest": ["empirical software engineering","software maintenance","mining software engineering data"]
+		},
+		{
+			"Email": "jdyu@cs.sjtu.edu.cn",
+            "HomePage": "http://www.cs.sjtu.edu.cn/~jdyu/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "Associate Professor",
+            "Avatar": "http://www.cs.sjtu.edu.cn/~jdyu/assets/image/photo1.jpg",
+            "Lab": "网络及移动计算实验室",
+            "Location": "SEIEE-3-303",
+            "Name": "Jiadi YU",
+            "ResearchInterest": ["wireless communications and networking","mobile computing","security & privacy"]
+		},
+		{
+			"Email": "cao-jian@cs.sjtu.edu.cn",
+            "HomePage": "",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "Professor",
+            "Avatar": "http://www.cs.sjtu.edu.cn/Management/Upload/[User]c9d4697eb4ef4aa689f50d04a17bc576/20131225113247581rsT96.jpg",
+            "Lab": "服务与云计算实验室",
+            "Location": "SEIEE-3-413",
+            "Name": "Jian Cao",
+            "ResearchInterest": ["Intelligent data analysis and decision support","Services and Network Computing","Collaborative and social computing"]
+		},
+		{
+		"Email": "hongzi@cs.sjtu.edu.cn",
+            "HomePage": "http://lion.sjtu.edu.cn/member/memberDetail?id=12",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "Professor",
+            "Avatar": "http://lion.sjtu.edu.cn/resource/showImage?imagePath=/home/lion/lionweb/data/member/archee/image/20180718160824_705.png&type=0",
+            "Lab": "网络创新实验室",
+            "Location": "SEIEE-3-129",
+            "Name": "Hongyi Zhu",
+            "ResearchInterest": ["wireless communication","mobile computing"]
+		},
+		{
+			"Email": "qshiyou@cs.sjtu.edu.cn",
+            "HomePage": "",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "associate professor",
+            "Avatar": "http://www.cs.sjtu.edu.cn/Management/Upload/[User]43e66fa894ad491d897b2b31cfd3cbe1/20194210958292ueqtW.jpeg",
+            "Lab": "服务与云计算实验室",
+            "Location": "SEIEE-3-239",
+            "Name": "Shiyou Qian",
+            "ResearchInterest": ["cloud computing","Data distribution network","Container technology"]
+		},
+		{
+			"Email": "lijie@cs.sjtu.edu.cn",
+            "HomePage": "http://www.cs.sjtu.edu.cn/~lijie/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "Professor",
+            "Avatar": "http://www.cs.sjtu.edu.cn/~lijie/lijie.jpg",
+            "Lab": "智能大数据系统实验室",
+            "Location": "SEIEE-3-428",
+            "Name": "Jie Li",
+            "ResearchInterest": ["big data","AI","blockchain","Internet of Things","network security"]
+		},
+		{
+			"Email": "wanglei@cs.sjtu.edu.cn",
+            "HomePage": "",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "Tenure-Track Research Professor",
+            "Avatar": "http://www.cs.sjtu.edu.cn/Management/Upload/[User]9980b4f994a34ba6868c486fa9d509fc/2018623105724218Ez756.jpeg",
+            "Lab": "",
+            "Location": "SEIEE-3-519",
+            "Name": "Lei Wang",
+            "ResearchInterest": ["Cryptography"]
+		},
+		{
+			"Email": "gchen@cs.sjtu.edu.cn",
+            "HomePage": "https://cs.nju.edu.cn/gchen/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "Professor",
+            "Avatar": "http://www.cs.sjtu.edu.cn/Management/Upload/[User]8ff1ae045e9d4327a9e30ec218c87902/20131225112519756FDmU6.jpg",
+            "Lab": "先进网络实验室",
+            "Location": "SEIEE-3-422",
+            "Name": "Guihai Chen",
+            "ResearchInterest": ["Interconnection Networks","High-Performance Computer Architecture","Graph Theory","Parallel Computing","Wireless Compuiting"]
+		},
+		{
+			"Email": "gao-xf@cs.sjtu.edu.cn",
+            "HomePage": "http://www.cs.sjtu.edu.cn/~gao-xf/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "Professor",
+            "Avatar": "http://www.cs.sjtu.edu.cn/~gao-xf/images/WebPortrait.jpg",
+            "Lab": ["数据通讯与数据工程实验室","先进网络实验室"],
+            "Location": "SEIEE-3-543",
+            "Name": "Xiaofeng Gao",
+            "ResearchInterest": ["Data Engineering","Database Management","Wireless Network","Optimization Algorithms"]
+		},
+		{
+			"Email": "guo-my@cs.sjtu.edu.cn",
+            "HomePage": "http://www.cs.sjtu.edu.cn/~guo-my/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "Professor",
+            "Avatar": "http://www.cs.sjtu.edu.cn/~guo-my/images/minyiguo.jpeg",
+            "Lab": "新兴并行计算研究中心",
+            "Location": "SEIEE-3-415",
+            "Name": "Minyi Guo",
+            "ResearchInterest": ["Parallel and Distributed Processing"," Parallelizing Compilers","Cloud Computing","Software Engineering","Embedded Systems"]
+		},
+		{
+			"Email": "jia-wj@cs.sjtu.edu.cn",
+            "HomePage": "https://scholar.google.com/citations?hl=en&user=jtvFB20AAAAJ",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "Professor",
+            "Avatar": "http://www.cs.sjtu.edu.cn/Management/Upload/[User]7285d5fbba2a4ccf943eab7683ad3022/20206161635326t1WgW.jpg",
+            "Lab": "",
+            "Location": "SEIEE-3-404",
+            "Name": "Weijia Jia",
+            "ResearchInterest": ["AI","NLP","wireless communication","information extraction"]
+		},
+		{
+			"Email": "wuct@cs.sjtu.edu.cn",
+            "HomePage": "http://www.cs.sjtu.edu.cn/~wuct/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "Professor",
+            "Avatar": "http://www.cs.sjtu.edu.cn/Management/Upload/[User]73623af38bb04025b0f3215fbe7d9781/201753155155228PIini.png",
+            "Lab": "大数据网络与存储实验室",
+            "Location": "SEIEE-3-513",
+            "Name": "Chentao Wu",
+            "ResearchInterest": ["Data Storage Systems","Unstructured Data Management","Reliable Storage Devices","Non-Volatile Memory Technologies","Intelligent Storage"]
+		},
+		{
+			"Email": "fwu@cs.sjtu.edu.cn",
+            "HomePage": "http://www.cs.sjtu.edu.cn/~fwu/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "Professor",
+            "Avatar": "http://www.cs.sjtu.edu.cn/Management/Upload/[User]60a169fe025f4ea8808308dd2acecd38/202092423634610xNjKB.jpg",
+            "Lab": "先进网络实验室",
+            "Location": "SEIEE-3-528",
+            "Name": "Fan Wu",
+            "ResearchInterest": ["Mobile Computing and Intelligence","Data Management","Distributed Computing","Wireless Networking","Security"]
+		},
+		{
+			"Email": "yaobin@cs.sjtu.edu.cn",
+            "HomePage": "http://www.cs.sjtu.edu.cn/~yaobin/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "Professor",
+            "Avatar": "http://www.cs.sjtu.edu.cn/Management/Upload/[User]b6a37031fe8e4bf8aa8b591774a167a4/20131224193740603JJrr2.jpg",
+            "Lab": "",
+            "Location": "SEIEE-3-505",
+            "Name": "Bin Yao",
+            "ResearchInterest": ["database","machine learning","deep learning","knowledge graph"]
+		},
+		{
+			"Email": "wang-xb@cs.sjtu.edu.cn",
+            "HomePage": "http://www.cs.sjtu.edu.cn/~wang-xb/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "Professor",
+            "Avatar": "http://www.cs.sjtu.edu.cn/Management/Upload/[User]9f2d943dc58c493fbe6d4c553abfdc16/201912293845931Csn4Z.jpg",
+            "Lab": "智能物联网中心",
+            "Location": "SEIEE-1-439",
+            "Name": "Xinbing Wang",
+            "ResearchInterest": ["mobile internet","Big Data Analysis","Intelligent Internet of Things","wireless network"]
+		},
+		{
+			"Email": "chen-quan@cs.sjtu.edu.cn",
+            "HomePage": "http://www.cs.sjtu.edu.cn/~chen-quan/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "associate professor",
+            "Avatar": "http://www.cs.sjtu.edu.cn/Management/Upload/[User]8a7b4ccca22b44c7a529b003ac801165/2016630105315721yzJ2I.jpg",
+            "Lab": "新兴并行计算研究中心",
+            "Location": "SEIEE-3-522",
+            "Name": "Quan Chen",
+            "ResearchInterest": ["Parallel processing","Distributed System","Operating System","High performance computing","Resource management"]
+		},
+		{
+			"Email": "fu-ly@cs.sjtu.edu.cn",
+            "HomePage": "http://www.cs.sjtu.edu.cn/~fu-ly/index.html",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "associate professor",
+            "Avatar": "http://www.cs.sjtu.edu.cn/Management/Upload/[User]962520e13df142e1ad0c299f238ddf86/2019102317360913HHW0x.png",
+            "Lab": ["智能物联网中心","网络计算实验室"],
+            "Location": "SEIEE-1-428",
+            "Name": "Fu Luoyi",
+            "ResearchInterest": ["Social networking and big data","Knowledge discovery and knowledge measurement in academic space"]
+		},
+		{
+			"Email": "leng-jw@cs.sjtu.edu.cn",
+            "HomePage": "http://www.cs.sjtu.edu.cn/~leng-jw/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "associate professor",
+            "Avatar": "http://www.cs.sjtu.edu.cn/Management/Upload/[User]2610fd9cebc041a88058f92642e64c70/2017471461533X5PBg.jpg",
+            "Lab": "新兴并行计算研究中心",
+            "Location": "软件学院1422",
+            "Name": "Jingwen Leng",
+            "ResearchInterest": ["AI system","computer architecture"]
+		},
+		{
+			"Email": "naruan@sjtu.edu.cn",
+            "HomePage": "http://www.cs.sjtu.edu.cn/~naruan/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "associate professor",
+            "Avatar": "http://www.cs.sjtu.edu.cn/Management/Upload/[User]794478d1ad6a436ebd0cf0292b4faf3b/202042016616343U26Lc.jpg",
+            "Lab": "",
+            "Location": "SEIEE-3-527",
+            "Name": "Na RUAN",
+            "ResearchInterest": ["Security and Privacy","Network and Big Data"]
+		},
+		{
+			"Email": "zhao-jieru@cs.sjtu.edu.cn",
+            "HomePage": "https://zjru.github.io/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "Assistant Professor",
+            "Avatar": "http://www.cs.sjtu.edu.cn/Management/Upload/[User]fc3e438aa2644f66b2a80960f1fed7a5/202012248503681777PWe.jpg",
+            "Lab": "新兴并行计算研究中心",
+            "Location": "SEIEE-3-501",
+            "Name": "Jieru Zhao",
+            "ResearchInterest": ["embedded system","Reconfigurable computing","Electronic Design Automation","deep learning"]
+		},
+		{
+			"Email": "songt333@cs.sjtu.edu.cn",
+            "HomePage": "",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "research assistant",
+            "Avatar": "http://www.cs.sjtu.edu.cn/Management/Upload/[User]1abda145e38f4629b06f2094779b9d70/2020102095215234bcIUK.jpg",
+            "Lab": "上海市可扩展计算与系统重点实验室",
+            "Location": "SEIEE-3-309",
+            "Name": "Tao Song",
+            "ResearchInterest": ["cloud computing","distributed computation","machine learning","AI"]
+		}
+	]
+}

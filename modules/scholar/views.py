@@ -44,9 +44,9 @@ def index():
     result = es.search(index='scholar', doc_type='teacherInfo', body=query)
     # print("result", result)
     res_dict = result['hits']['hits']
-    print("res_dict", res_dict)
+    # print("res_dict", res_dict)
     t_name_list = [name['_source']['name'] for name in res_dict]
-    print("t_name", t_name_list)
+    # print("t_name", t_name_list)
 
     recomm_professor_list = get_recomm_professor(t_name_list)
 
@@ -202,6 +202,7 @@ def entities(keyword, page=1):
 @scholar_log_req
 def favor():
     username = session["admin"]
+    print("username", username)
     professor_info = db.session.query(Favor.username, Favor.professor_name, Researcher.Name, Researcher.Avatar,
         Researcher.University, Researcher.Title).filter(Favor.username == username)\
         .join(Researcher, Favor.professor_name == Researcher.Name).all()
@@ -213,6 +214,7 @@ def favor():
     print("t_name", t_name_list)
     # t_name_list = ["Haiming Jin", "Quanshi Zhang", "Xinbing Wang"]
     recomm_professor_list = get_recomm_professor(t_name_list)
+    print("recomm_list", recomm_professor_list)
 
     return render_template("search/favor.html", professor_info=professor_info, recomm_list=recomm_professor_list)
 
@@ -247,7 +249,7 @@ def professor(name="Quanshi Zhang"):
     # Sidebar 的 search
     print("Researcher_info['ConnectionUrl']", Researcher_info['ConnectionUrl'])
 
-    # recomm_professor_list = get_recomm_professor([Researcher.Name])
+    recomm_professor_list = get_recomm_professor([Researcher.Name])
     # form = EasySearchForm()
     # if form.validate_on_submit():
     #     data = form.data
@@ -263,7 +265,7 @@ def professor(name="Quanshi Zhang"):
         if data['SideSearch'] is not None:
             return redirect(url_for("scholar.entities", keyword=data['SideSearch'], page=1))
     return render_template("search/professor.html", Researcher_info=Researcher_info, form=form,
-                           isFavor=isFavor)
+                           isFavor=isFavor, recomm_list=recomm_professor_list)
 
 
 # @scholar_blue.route("/professor/paper/<string:name>", methods=["GET", "POST"])

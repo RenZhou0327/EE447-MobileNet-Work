@@ -1,0 +1,297 @@
+{
+    "features": [
+        {
+            "Citation": {
+                "2014": 70,
+                "2015": 98,
+                "2016": 208,
+                "2017": 413,
+                "2018": 1067,
+                "2019": 1934,
+                "2020": 2601,
+                "2021": 489
+            },
+            "Email": "wnzhang [AT] sjtu.edu.cn",
+            "HomePage": "http://wnzhang.net/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "Associate Professor",
+            "Avatar": "http://wnzhang.net/pics/wnzhang-2018.jpg",
+            "Lab": "John Hopcroft Center for Computer Science",
+            "Location": "307 Yifu Building, 800 Dongchuan Road",
+            "Name": "Weinan Zhang",
+            "ResearchInterest": ["Reinforcement Learning", "Machine Learning", "Computational Advertising", "Recommender Systems"]
+        },
+        {
+            "Citation": {
+                "2014": 17,
+                "2015": 14,
+                "2016": 20,
+                "2017": 29,
+                "2018": 37,
+                "2019": 23,
+                "2020": 36,
+                "2021": 13
+            },
+            "Email": "shizhenzhao at sjtu.edu.cn",
+            "HomePage": "http://jhc.sjtu.edu.cn/~shizhenzhao/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "Tenure-track associate professor",
+            "Avatar": "http://jhc.sjtu.edu.cn/~shizhenzhao/photo.png",
+            "Lab": "",
+            "Location": "",
+            "Name": "Shizhen Zhao",
+            "ResearchInterest": ["networking", "optimization"]
+        },
+        {
+            "Citation": {
+                "2014": 31,
+                "2015": 37,
+                "2016": 44,
+                "2017": 59,
+                "2018": 45,
+                "2019": 64,
+                "2020": 44,
+                "2021": 6
+            },
+            "Email": "<first name>.<last name> at sjtu.edu.cn",
+            "HomePage": "http://jhc.sjtu.edu.cn/~yutingwang/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "Tenure-Tracked Associate Professor ",
+            "Avatar": "http://jhc.sjtu.edu.cn/~yutingwang/images/yuting.png",
+            "Lab": "John Hopcroft Center for Computer Science",
+            "Location": "",
+            "Name": "Yuting Wang",
+            "ResearchInterest": ["Proof Theory", "Type Theory", "Compiler Verification", "Programming Languages", "Verified OS Kernels"]
+        },
+        {
+            "Citation": {
+                "2014": 0,
+                "2015": 0,
+                "2016": 2,
+                "2017": 4,
+                "2018": 23,
+                "2019": 21,
+                "2020": 29,
+                "2021": 7
+            },
+            "Email": "jiaxinding_at_sjtu.edu.cn",
+            "HomePage": "http://jhc.sjtu.edu.cn/~jiaxinding/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "tenure-track assistant professor",
+            "Avatar": "http://jhc.sjtu.edu.cn/~jiaxinding/author/jiaxin-ding/avatar_huc9b2626634a08fafabd14808c2b8c695_1796593_270x270_fill_q90_lanczos_center.jpg",
+            "Lab": "John Hopcroft Computer Science Center",
+            "Location": "1-203 SEIEE Building, 800 Dongchuan Road, Shanghai, 200240",
+            "Name": "Jiaxin Ding",
+            "ResearchInterest": ["spatio-temporal data mining", "differential privacy", "reinforcement learning", "Internet of Things"]
+        },
+        {
+            "Citation": {
+                "2014": 0,
+                "2015": 6,
+                "2016": 20,
+                "2017": 27,
+                "2018": 42,
+                "2019": 43,
+                "2020": 60,
+                "2021": 9
+            },
+            "Email": "chendy@sjtu.edu.cn",
+            "HomePage": "https://chendy.tech/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "tenure-track assistant professor",
+            "Avatar": "https://chendy.tech/static/assets/img/selfie_1.JPG",
+            "Lab": "John Hopcroft Computer Science Center",
+            "Location": "SEIEE Bldg, 1-203",
+            "Name": "Dongyao Chen",
+            "ResearchInterest": ["Cyber-physical Systems", "IoT Security & Privacy"]
+        },
+        {
+            "Citation": {
+                "2014": 0,
+                "2015": 0,
+                "2016": 0,
+                "2017": 8,
+                "2018": 16,
+                "2019": 38,
+                "2020": 92,
+                "2021": 33
+            },
+            "Email": "shuaili8@sjtu.edu.cn",
+            "HomePage": "https://shuaili8.github.io/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "tenure-track assistant professor",
+            "Avatar": "https://shuaili8.github.io/photo.jpg",
+            "Lab": "John Hopcroft Computer Science Center",
+            "Location": "",
+            "Name": "Shuai Li",
+            "ResearchInterest": ["Machine Learning", "Online Learning"]
+        },
+        {
+            "Citation": {
+                "2014": 0,
+                "2015": 62,
+                "2016": 264,
+                "2017": 587,
+                "2018": 948,
+                "2019": 1332,
+                "2020": 1288,
+                "2021": 271
+            },
+            "Email": "lastname[dot]firstname[at]gmail.com",
+            "HomePage": "https://hantek.github.io/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "tenure-track assistant professor",
+            "Avatar": "https://hantek.github.io/static/img/coverphoto.jpg",
+            "Lab": "John Hopcroft Computer Science Center",
+            "Location": "Roomm. 3248, Pav. Andre-Aisenstadt,Universite de Montreal Montreal, Quebec, Canada. H3T 1J4",
+            "Name": "Zhouhan Lin",
+            "ResearchInterest": ["Machine Learning", "Deep Learning", "Natural Language Processing"]
+        },
+        {
+            "Citation": {
+                "2014": 11,
+                "2015": 9,
+                "2016": 2,
+                "2017": 7,
+                "2018": 23,
+                "2019": 29,
+                "2020": 26,
+                "2021": 9
+            },
+            "Email": "yuye dot ling at sjtu",
+            "HomePage": "http://www.yuyeling.com/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "tenure-track assistant professor",
+            "Avatar": "http://www.yuyeling.com/wp-content/uploads/2018/10/YANG1081-1.jpg",
+            "Lab": "John Hopcroft Computer Science Center",
+            "Location": "软件大楼1号楼1106-2",
+            "Name": "Yuye Ling",
+            "ResearchInterest": ["Optics", "Biomedical Imaging", "optical_coherence_tomography"]
+        },
+        {
+            "Citation": {
+                "2014": 6,
+                "2015": 7,
+                "2016": 14,
+                "2017": 11,
+                "2018": 17,
+                "2019": 34,
+                "2020": 42,
+                "2021": 14
+            },
+            "Email": "bstao[at]sjtu[dot]edu[dot]cn",
+            "HomePage": "http://jhc.sjtu.edu.cn/~bstao/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "tenure-track assistant professor",
+            "Avatar": "http://jhc.sjtu.edu.cn/~bstao/pic.jpg",
+            "Lab": "John Hopcroft Computer Science Center",
+            "Location": "",
+            "Name": "Biaoshuai Tao",
+            "ResearchInterest": ["Computational Economics"]
+        },
+        {
+            "Citation": {
+                "2014": 0,
+                "2015": 1,
+                "2016": 6,
+                "2017": 4,
+                "2018": 23,
+                "2019": 45,
+                "2020": 52,
+                "2021": 13
+            },
+            "Email": "yehanma at sjtu dot edu dot cn",
+            "HomePage": "https://yehancpsl.github.io/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "tenure-track assistant professor",
+            "Avatar": "https://yehancpsl.github.io/img/profile.jpg",
+            "Lab": "John Hopcroft Computer Science Center",
+            "Location": "SEIEE Building, Room 2-430",
+            "Name": "Yehan Ma",
+            "ResearchInterest": ["Cyber-physical systems", "industrial internet of things", "edge computing", "wireless sensor network", "networked control systems"]
+        },
+        {
+            "Citation": {
+                "2014": 0,
+                "2015": 0,
+                "2016": 0,
+                "2017": 0,
+                "2018": 43,
+                "2019": 236,
+                "2020": 474,
+                "2021": 128
+            },
+            "Email": "gjzheng@sjtu.edu.cn",
+            "HomePage": "http://jhc.sjtu.edu.cn/~gjzheng/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "tenure-track assistant professor",
+            "Avatar": "http://jhc.sjtu.edu.cn/~gjzheng/images/square.jpg",
+            "Lab": "John Hopcroft Computer Science Center",
+            "Location": "SEIEE Building",
+            "Name": "Guanjie Zheng",
+            "ResearchInterest": ["Data mining", "machine learning"]
+        },{
+            "Citation": {
+                "2014": 0,
+                "2015": 0,
+                "2016": 0,
+                "2017": 1,
+                "2018": 7,
+                "2019": 41,
+                "2020": 74,
+                "2021": 21
+            },
+            "Email": "zhang_yuhao@sjtu.edu.cn",
+            "HomePage": "http://www.zyhwtc.com/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "tenure-track assistant professor",
+            "Avatar": "http://www.zyhwtc.com/img/yuhao.jpg",
+            "Lab": "John Hopcroft Computer Science Center",
+            "Location": "",
+            "Name": "Yuhao Zhang",
+            "ResearchInterest": ["Theoritical Computer Science"]
+        },
+        {
+            "Citation": {
+                "2014": 18,
+                "2015": 20,
+                "2016": 10,
+                "2017": 12,
+                "2018": 18,
+                "2019": 35,
+                "2020": 32,
+                "2021": 10
+            },
+            "Email": "firstname AT sjtu.edu.cn",
+            "HomePage": "http://chihaozhang.com/",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "tenure-track assistant professor",
+            "Avatar": "",
+            "Lab": "John Hopcroft Computer Science Center",
+            "Location": "软件学院1402-2",
+            "Name": "Chihao Zhang",
+            "ResearchInterest": ["theoretical_computer_science"]
+        },
+        {
+            "Citation": {
+                "2014": 1,
+                "2015": 3,
+                "2016": 2,
+                "2017": 3,
+                "2018": 7,
+                "2019": 12,
+                "2020": 11,
+                "2021": 0
+            },
+            "Email": "kuan.yang AT sjtu DOT edu DOT cn",
+            "HomePage": "http://jhc.sjtu.edu.cn/people/members/faculty/kuan-yang.html",
+            "University": "Shanghai Jiao Tong University",
+            "Title": "tenure-track assistant professor",
+            "Avatar": "http://jhc.sjtu.edu.cn/uploadfile/2021/0325/20210325040314436.jpg",
+            "Lab": "John Hopcroft Computer Science Center",
+            "Location": "",
+            "Name": "Kuan Yang",
+            "ResearchInterest": ["Algorithms", "Probability", "Graph theory"]
+        }
+    ]
+}

@@ -1,0 +1,100 @@
+{
+      "features": [
+            {
+                  "Email": "dejungle@tsinghua.edu.cn",
+                  "HomePage": "https://cg.cs.tsinghua.edu.cn/people/~mtj/",
+                  "University": "Tsinghua University",
+                  "Title": "Assistant Professor",
+                  "Avatar": "https://cg.cs.tsinghua.edu.cn/people/~mtj/imgs/Mu-color.jpg",
+                  "Name": "TaiJiang Mu"
+            },
+            {
+                  "Email": "xin_wang@tsinghua.edu.cn",
+                  "HomePage": "http://mn.cs.tsinghua.edu.cn/xinwang/",
+                  "University": "Tsinghua University",
+                  "Title": "Assistant Professor",
+                  "Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20210305151504236308582/20210305164558496351842.jpg",
+                  "Name": "Wang Xin"
+            },
+            {
+                  "Email": "tingchen@tsinghua.edu.cn",
+                  "HomePage": "http://timlab.cn",
+                  "University": "Tsinghua University",
+                  "Title": "Professor",
+                  "Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20200731175005227972416/20200731175109485804326.jpg",
+                  "Name": "Ting Chen"
+            },
+            {
+                  "Email": "michael@tsinghua.edu.cn",
+                  "HomePage": "",
+                  "University": "Tsinghua University",
+                  "Title": "Professor",
+                  "Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20130424101304192449827/dzd.jpg",
+                  "Name": "Zhidong Deng"
+            },
+            {
+                  "Email": "fcsun@tsinghua.edu.cn",
+                  "HomePage": "",
+                  "University": "Tsinghua University",
+                  "Title": "Professor",
+                  "Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20130424102559852515182/sfc.jpg",
+                  "Name": "Fuchun Sun"
+            },
+            {
+                  "Email": "sms@tsinghua.edu.cn",
+                  "HomePage": "",
+                  "University": "Tsinghua University",
+                  "Title": "Professor",
+                  "Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20130424103737386785027/sms.jpg",
+                  "Name": "Maosong Sun"
+            },
+            {
+                  "Email": "yingmsh@tsinghua.edu.cn",
+                  "HomePage": "",
+                  "University": "Tsinghua University",
+                  "Title": "Professor",
+                  "Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20130424104126408756304/yms.jpg",
+                  "Name": "Mingsheng Ying"
+            },
+            {
+                  "Email": "xlhu@tsinghua.edu.cn",
+                  "HomePage": "www.xlhu.cn",
+                  "University": "Tsinghua University",
+                  "Title": "Associate Professor",
+                  "Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20131122155151569299232/20131122161820517172921.jpg",
+                  "Name": "Xiaolin Hu"
+            },
+            {
+                  "Email": "lijianmin@mail.tsinghua.edu.cn",
+                  "HomePage": "http://csai.tsinghua.edu.cn/researchers/ch_researchers_lab/lijianmin.shtm",
+                  "University": "Tsinghua University",
+                  "Title": "Associate Professor",
+                  "Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20131122151839382945371/20131122161055892595373.jpg",
+                  "Name": "Jianmin Li"
+            },
+            {
+                  "Email": "hpliu@tsinghua.edu.cn",
+                  "HomePage": "",
+                  "University": "Tsinghua University",
+                  "Title": "Associate Professor",
+                  "Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20131122152618871262231/20131122161323319801273.jpg",
+                  "Name": "Huaping Liu"
+            },
+            {
+                  "Email": "liuzy@tsinghua.edu.cn",
+                  "HomePage": "http://nlp.csai.tsinghua.edu.cn/~lzy/index_cn.html",
+                  "University": "Tsinghua University",
+                  "Title": "Assistant Professor",
+                  "Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20140321155236367361792/20170309152429944754877.jpg",
+                  "Name": "Zhiyuan Liu"
+            },
+            {
+                  "Email": "suhangss@mail.tsinghua.edu.cn",
+                  "HomePage": "http://www.suhangss.me",
+                  "University": "Tsinghua University",
+                  "Title": "Associate Professor",
+                  "Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20190324180736230351567/20190324183008133477156.jpg",
+                  "Name": "Hang Su"
+            }
+      ]
+}

@@ -1,0 +1,212 @@
+{
+	"features": [
+		{
+			"Email": "caiyc@mail.tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2010/20101224144625833818684/20101224144625833818684_.html",
+			"University": "Tsinghua University",
+			"Title": "Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20101224144625833818684/20110111094830327374353.bmp",
+			"Name": "蔡懿慈"
+		},
+		{
+			"Email": "fengjh@tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2010/20101224151607905825086/20101224151607905825086_.html",
+			"University": "Tsinghua University",
+			"Title": "Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20101224151607905825086/20110111094853546933833.bmp",
+			"Name": "Jianhua Feng"
+		},
+		{
+			"Email": "fengling@tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2011/20110111084740896370871/20110111084740896370871_.html",
+			"University": "Tsinghua University",
+			"Title": "Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20110111084740896370871/20110111095146423190788.bmp",
+			"Name": "冯铃"
+		},
+		{
+			"Email": "liguoliang@tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2011/20110617075407604699990/20110617075407604699990_.html",
+			"University": "Tsinghua University",
+			"Title": "Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20110411093849621148067/20110617075500714125832.jpg",
+			"Name": "Guoliang Li"
+		},
+		{
+			"Email": "lijuanzi@tsinghua.edu.cn",
+			"HomePage": "http://keg.cs.tsinghua.edu.cn/persons/ljz",
+			"University": "Tsinghua University",
+			"Title": "Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20110111085236668394758/20110111095236281727140.bmp",
+			"Name": "Juanzi Li"
+		},
+		{
+			"Email": "jietang@tsinghua.edu.cn",
+			"HomePage": "http://keg.cs.tsinghua.edu.cn/jietang/",
+			"University": "Tsinghua University",
+			"Title": "Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20110330101939787483549/20190321114128398502759.jpg",
+			"Name": "Tang Jie"
+		},
+		{
+			"Email": "jianyong@tsinghua.edu.cn",
+			"HomePage": "http://dbgroup.cs.tsinghua.edu.cn/wangjy/",
+			"University": "Tsinghua University",
+			"Title": "Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20110411090733095664740/20130531100341048254936.jpg",
+			"Name": "Jianyong Wang"
+		},
+		{
+			"Email": "zhouqiang@tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2011/20110411093849621148067/20110411093849621148067_.html",
+			"University": "Tsinghua University",
+			"Title": "Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20110411093849621148067/20110411094214722900633.jpg",
+			"Name": "Qiang Zhou"
+		},
+		{
+			"Email": "yuchen@tsinghua.edu.cn",
+			"HomePage": "http://soft.cs.tsinghua.edu.cn/~chen/",
+			"University": "Tsinghua University",
+			"Title": "Associate Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20110111091313147185452/20110111095430749717599.bmp",
+			"Name": "陈渝"
+		},
+		{
+			"Email": "dongsq@tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2011/20110111091614334176755/20110111091614334176755_.html",
+			"University": "Tsinghua University",
+			"Title": "Associate Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20110111091614334176755/20110111095459727130859.bmp",
+			"Name": "Sheqin Dong"
+		},
+		{
+			"Email": "myc@tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2011/20110617080020744707836/20110617080020744707836_.html",
+			"University": "Tsinghua University",
+			"Title": "Associate Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20110617080020744707836/20110617080041507273755.jpg",
+			"Name": "马昱春"
+		},
+		{
+			"Email": "syk@tsinghua.edu.cn",
+			"HomePage": "http://vis.cs.tsinghua.edu.cn/",
+			"University": "Tsinghua University",
+			"Title": "Associate Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20110330101053303463951/20110330101338984356848.jpg",
+			"Name": "孙延奎"
+		},
+		{
+			"Email": "wwssyy@tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2011/20110411091150192829002/20110411091150192829002_.html",
+			"University": "Tsinghua University",
+			"Title": "Associate Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20110411091150192829002/20110411091257314775535.jpg",
+			"Name": "王生原"
+		},
+		{
+			"Email": "xubin@tsinghua.edu.cn",
+			"HomePage": "http://keg.cs.tsinghua.edu.cn/persons/xubin/",
+			"University": "Tsinghua University",
+			"Title": "Associate Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20110411091647497924047/20110411092524306434385.jpg",
+			"Name": "Bin Xu"
+		},
+		{
+			"Email": "hailongyao@tsinghua.edu.cn",
+			"HomePage": "http://learn.tsinghua.edu.cn:8080/2009990119/hailongyao.html",
+			"University": "Tsinghua University",
+			"Title": "Associate Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20110617080435342433082/20110617080506631388346.jpg",
+			"Name": "姚海龙"
+		},
+		{
+			"Email": "yu-wj@tsinghua.edu.cn",
+			"HomePage": "http://numbda.cs.tsinghua.edu.cn/",
+			"University": "Tsinghua University",
+			"Title": "Associate Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20110411093214962971091/20110411093438305363338.jpg",
+			"Name": "Wenjian Yu"
+		},
+		{
+			"Email": "houlei@tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2021/20210318140324525770261/20210318140324525770261_.html",
+			"University": "Tsinghua University",
+			"Title": "Assistant Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20210318140324525770261/20210318144438865374540.png",
+			"Name": "Lei Hou"
+		},
+		{
+			"Email": "cwg@tsinghua.edu.cn",
+			"HomePage": "http://hpc.cs.tsinghua.edu.cn/research/cluster/cwg.html",
+			"University": "Tsinghua University",
+			"Title": "Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20110617081709229794799/20170426133004888374008.jpg",
+			"Name": "陈文光"
+		},
+		{
+			"Email": "lsl-dcs@tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2011/20110617081709229794799/20110617081709229794799_.html",
+			"University": "Tsinghua University",
+			"Title": "Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4799/4799/lsl(1).jpg",
+			"Name": "李三立"
+		},
+		{
+			"Email": "lzl73@mail.tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2019/20190612141600097249187/20190612141600097249187_.html",
+			"University": "Tsinghua University",
+			"Title": "Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20190612141600097249187/20190612142622739262979.jpg",
+			"Name": "Zhaolin Li"
+		},
+		{
+			"Email": "shujw@tsinghua.edu.cn",
+			"HomePage": "http://storage.cs.tsinghua.edu.cn/~jiwu-shu/",
+			"University": "Tsinghua University",
+			"Title": "Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20110330101053303463951/20110907091420628561714.bmp",
+			"Name": "Jiwu Shu"
+		},
+		{
+			"Email": "wds@tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2019/20190624143913863630791/20190624143913863630791_.html",
+			"University": "Tsinghua University",
+			"Title": "Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20190624143913863630791/20190624144304581235570.jpg",
+			"Name": "汪东升"
+		},
+		{
+			"Email": "wuyw@tsinghua.edu.cn",
+			"HomePage": "http://madsys.cs.tsinghua.edu.cn/~yongweiwu/",
+			"University": "Tsinghua University",
+			"Title": "Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20101224144625833818684/20120713163306258289987.bmp",
+			"Name": "Yongwei WU"
+		},
+		{
+			"Email": "gw@tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2011/20110907110253238308321/20110907110253238308321_.html",
+			"University": "Tsinghua University",
+			"Title": "Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20110907110253238308321/20110907111447605763045.bmp",
+			"Name": "杨广文"
+		},
+		{
+			"Email": "zyh02@tsinghua.edu.cn",
+			"HomePage": "http://cs.tsinghua.edu.cn/",
+			"University": "Tsinghua University",
+			"Title": "Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20130423141521672579326/zyh.jpg",
+			"Name": "张悠慧"
+		},
+		{
+			"Email": "chenkang@tsinghua.edu.cn",
+			"HomePage": "http://madsys.cs.tsinghua.edu.cn/~kangchen/",
+			"University": "Tsinghua University",
+			"Title": "Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20120216085520526778213/20120216085546781623759.bmp",
+			"Name": "陈康"
+		}
+	]
+}

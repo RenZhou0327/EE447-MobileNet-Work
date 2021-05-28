@@ -1,0 +1,140 @@
+{
+	"features": [
+		{
+			"Email": "jjlei@tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2013/20130423131818008472775/20130423131818008472775_.html",
+			"University": "Tsinghua University",
+			"Title": "Associate Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20130423131818008472775/jjl.jpg",
+			"Name": "Jinlei Jiang"
+		},
+		{
+			"Email": "xuewei@tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2013/20130423132815466533763/20130423132815466533763_.html",
+			"University": "Tsinghua University",
+			"Title": "Associate Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20130423132815466533763/xw.jpg",
+			"Name": "Wei Xue"
+		},
+		{
+			"Email": "zhaijidong@tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2015/20150505144007185740216/20150505144007185740216_.html",
+			"University": "Tsinghua University",
+			"Title": "Associate Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20150505144007185740216/20150505144119471392012.jpg",
+			"Name": "Jidong Zhai"
+		},
+		{
+			"Email": "lingan@tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2019/20190329110051874598951/20190329110051874598951_.html",
+			"University": "Tsinghua University",
+			"Title": "Assistant Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20190329110051874598951/20190329111229419498997.jpg",
+			"Name": "Lin Gan"
+		},
+		{
+			"Email": "luyouyou@tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2018/20180606122228629386409/20180606122228629386409_.html",
+			"University": "Tsinghua University",
+			"Title": "Assistant Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20180606122228629386409/20180606125154193460806.jpg",
+			"Name": "Youyou Lu"
+		},
+		{
+			"Email": "ahz@tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2013/20130423151005908101789/20130423151005908101789_.html",
+			"University": "Tsinghua University",
+			"Title": "Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20130423151005908101789/ahz.jpg",
+			"Name": "Haizhou Ai"
+		},
+		{
+			"Email": "shimin@tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2013/20130423151352423555638/20130423151352423555638_.html",
+			"University": "Tsinghua University",
+			"Title": "Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20130423151352423555638/hsm.jpg",
+			"Name": "Shimin Hu"
+		},
+		{
+			"Email": "liuyongjin@tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2013/20130424081105014784074/20130424081105014784074_.html",
+			"University": "Tsinghua University",
+			"Title": "Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20130424081105014784074/20140327153205291396531.jpg",
+			"Name": "Yongjin Liu"
+		},
+		{
+			"Email": "shiyc@tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2013/20130423152456394512933/20130423152456394512933_.html",
+			"University": "Tsinghua University",
+			"Title": "Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20130423152456394512933/20191123110703613390065.jpg",
+			"Name": "Yuanchun Shi"
+		},
+		{
+			"Email": "jtwen@tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2013/20130423152934434624235/20130423152934434624235_.html",
+			"University": "Tsinghua University",
+			"Title": "Professor",
+			"Avatar": "https://bkimg.cdn.bcebos.com/pic/11385343fbf2b211219000d8c88065380dd78eee?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg",
+			"Name": "Jiangtao Wen"
+		},
+		{
+			"Email": "",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2013/20130423155048347214535/20130423155048347214535_.html",
+			"University": "Tsinghua University",
+			"Title": "Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20130423155048347214535/zww.jpg",
+			"Name": "Wenwu Zhu"
+		},
+		{
+			"Email": "cuip@tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2013/20130424090102252993406/20130424090102252993406_.html",
+			"University": "Tsinghua University",
+			"Title": "Associate Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20130424090102252993406/cp.jpg",
+			"Name": "Peng Cui"
+		},
+		{
+			"Email": "wyp@tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2013/20130424090343626686045/20130424090343626686045_.html",
+			"University": "Tsinghua University",
+			"Title": "Associate Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20130424090343626686045/20190327081947841341182.jpg",
+			"Name": "Yuping Wang"
+		},
+		{
+			"Email": "xukun@tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2013/20130424090554159640727/20130424090554159640727_.html",
+			"University": "Tsinghua University",
+			"Title": "Associate Professor",
+			"Avatar": "http://cg.cs.tsinghua.edu.cn/people/~kun/figs/icon_small2.jpg",
+			"Name": "Kun Xu"
+		},
+		{
+			"Email": "shz@tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2013/20130424084609737896705/20130424084609737896705_.html",
+			"University": "Tsinghua University",
+			"Title": "Associate Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20130424084609737896705/zsh.jpg",
+			"Name": "Song-Hai Zhang"
+		},
+		{
+			"Email": "dejungle@tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2019/20190325131630366932265/20190325131630366932265_.html",
+			"University": "Tsinghua University",
+			"Title": "Assistant Professor",
+			"Avatar": "https://cg.cs.tsinghua.edu.cn/people/~mtj/imgs/Mu-color.jpg",
+			"Name": "Tai-Jiang Mu"
+		},
+		{
+			"Email": "xin_wang@tsinghua.edu.cn",
+			"HomePage": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/2021/20210305151504236308582/20210305151504236308582_.html",
+			"University": "Tsinghua University",
+			"Title": "Assistant Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20210305151504236308582/20210305164558496351842.jpg",
+			"Name": "Xin Wang"
+		}
+	]
+}

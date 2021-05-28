@@ -1,0 +1,68 @@
+{
+	"features": [
+		{
+			"Email": "cuiyong@tsinghua.edu.cn",
+			"HomePage": "http://ww1.yongcui.org/",
+			"University": "Tsinghua University",
+			"Title": "Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20120713165943921595041/20170317163309300589333.jpg",
+			"Name": "Yong Cui"
+		},
+		{
+			"Email": "duanhx@tsinghua.edu.cn",
+			"HomePage": "http://netsec.ccert.edu.cn/chs/people/duanhx/",
+			"University": "Tsinghua University",
+			"Title": "Professor",
+			"Avatar": "http://netsec.ccert.edu.cn/images/duanhx.jpg",
+			"Name": "Haixin Duan"
+		},
+		{
+			"Email": "jianping@cernet.edu.cn",
+			"HomePage": "http://www.netlab.edu.cn:8080/netlab/teacher/wujp/wujp.jsp",
+			"University": "Tsinghua University",
+			"Title": "Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20120713160735405781974/20120713161918146401907.bmp",
+			"Name": "Jianping Wu"
+		},
+		{
+			"Email": "xumw@tsinghua.edu.cn",
+			"HomePage": "http://routing.netlab.edu.cn/tiki-index.php?page=Mingwei+Xu",
+			"University": "Tsinghua University",
+			"Title": "Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20120713163647162999741/20120713163704280977769.jpg",
+			"Name": "Mingwei Xu"
+		},
+		{
+			"Email": "tolidan@tsinghua.edu.cn",
+			"HomePage": "http://nasp.cs.tsinghua.edu.cn/lidan.html",
+			"University": "Tsinghua University",
+			"Title": "Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20120713155319626219363/20200922105551716452054.jpg",
+			"Name": "Dan Li"
+		},
+		{
+			"Email": "peidan@tsinghua.edu.cn",
+			"HomePage": "https://netman.aiops.org/~peidan/",
+			"University": "Tsinghua University",
+			"Title": "Associate Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20121224102724179907974/20191213164755413772181.jpg",
+			"Name": "Dan Pei"
+		},
+		{
+			"Email": "jessiewang@tsinghua.edu.cn",
+			"HomePage": "https://jessiehuiwang.github.io",
+			"University": "Tsinghua University",
+			"Title": "Associate Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20200105195947191446205/20200105200124538174180.jpg",
+			"Name": "Hui Wang"
+		},
+		{
+			"Email": "chaoz@tsinghua.edu.cn",
+			"HomePage": "http://netsec.ccert.edu.cn/people/chaoz",
+			"University": "Tsinghua University",
+			"Title": "Associate Professor",
+			"Avatar": "http://www.cs.tsinghua.edu.cn/publish/cs/4616/20200105191943025213105/20200105192342930566024.jpg",
+			"Name": "Chao Zhang"
+		}
+	]
+}

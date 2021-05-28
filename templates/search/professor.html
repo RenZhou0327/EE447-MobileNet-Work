@@ -461,7 +461,7 @@
 {#                        {% set st = 0%}#}
 {#                        {% set ed = 2 %}#}
                         {% for item in recomm_list %}
-                            {% set recomm_url = "professor/" + item[0] | replace (" ", "%20")  %}
+                            {% set recomm_url = "../professor/" + item[0] | replace (" ", "%20")  %}
                         <li>
                             <a class="post-image" href={{ recomm_url }}>
                                 <img src={{ item[1] }} alt="">
