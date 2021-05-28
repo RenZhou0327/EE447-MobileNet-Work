@@ -78,7 +78,7 @@ for id, people in enumerate(data):
     # else:
     #     people["Co_authors"] = []
     print(type(people["Co_authors"]), people["Co_authors"])
-    people_data["all_type"] = all_type
+    people_data["all_field"] = all_type
     es_data.append(people_data)
     # print(people["Co_authors"])
     print()
