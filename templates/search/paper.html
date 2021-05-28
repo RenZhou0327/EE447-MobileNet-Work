@@ -172,13 +172,14 @@
                                 <!-- .section -->
                                 {% for paper in Researcher_info["Papers"] %}
                                 <article class="publication__item" itemscope="" itemtype="http://schema.org/CreativeWork">
-                                    <div class="publication__item-teaser" style="margin-top: 1em;">
-                                        <img itemprop="image" src={{ paper[ "Paper_fig"] }} alt="" style="width: 100px;">
+                                    <div class="publication__item-teaser" style="margin-top: 0em; text-align: center; ">
+                                        <img itemprop="image" src={{ paper[ "Paper_fig"] }} alt="" style="width: 100px; margin-top: 7px;">
                                     </div>
                                     <div class="publication__item-text">
                                         <h2 class="publication__item-title" itemprop="headline">
                                             <p>{{ paper["Paper_name"] }}</p>
                                         </h2>
+                                        <br>
                                         <p style="margin-top: -2em;">{{ paper["Paper_authors"] }}</p>
                                         <p style="margin-top: -1em;">{{ paper["Paper_conference_and_year"] }}</p>
                                         <p style="margin-top: -1em;"> <a href="https://arxiv.org/pdf/2105.08756.pdf" class="btn btn--info">PDF</a> <a href="https://youtu.be/HNAmsdk7lJ4" class="btn">Code</a></p>

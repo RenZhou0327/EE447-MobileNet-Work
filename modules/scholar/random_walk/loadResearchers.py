@@ -4,7 +4,7 @@ import sys
 import random
 import json
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf8')
-f = open("researchers", "rb")
+f = open("researchers_new.new", "rb")
 data = pickle.load(f)
 f.close()
 print(len(data))
@@ -87,6 +87,6 @@ print(cnt)
 for i in es_data:
     print(i)
 
-f = open("es_data", "wb")
+f = open("es_data2", "wb")
 pickle.dump(es_data, f)
 f.close()

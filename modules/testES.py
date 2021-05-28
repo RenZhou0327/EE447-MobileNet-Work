@@ -45,7 +45,7 @@ def delete_index():
 
 
 def insert_data():
-    f = open("scholar/random_walk/es_data", "rb")
+    f = open("scholar/random_walk/es_data2", "rb")
     datas = pickle.load(f)
     f.close()
     # cnt = 0

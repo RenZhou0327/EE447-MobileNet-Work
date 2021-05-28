@@ -53,5 +53,5 @@ def page_not_found(error):
 
 
 if __name__ == '__main__':
-    print("http://localhost:8080/")
+    print("http://localhost:8080/scholar")
     app.run(host='127.0.0.1', debug=True, port=8080)

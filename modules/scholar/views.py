@@ -55,7 +55,7 @@ def index():
     # print(form.validate_on_submit())
     if form.validate_on_submit():
         data = form.data
-        print("searchInput", data)
+        # print("searchInput", data)
         if data['searchInput'] is not None:
             return redirect(url_for("scholar.entities", keyword=data['searchInput'], page=1, recomm_list=recomm_professor_list))
     return render_template("search/index.html", search_items=res_dict, form=form, recomm_list=recomm_professor_list)
@@ -168,7 +168,7 @@ def easySearch():
 @scholar_blue.route("/entities/<string:keyword>&<int:page>", methods=["GET", "POST"])
 @scholar_log_req
 def entities(keyword, page=1):
-    page_size = 5
+    page_size = 10
     # print("page", page)
     query = {
         "query": {
@@ -177,7 +177,7 @@ def entities(keyword, page=1):
                 "query": keyword
             }
         },
-        "from": page - 1,
+        "from": (page - 1) * page_size,
         "size": page_size
     }
     result = es.search(index='scholar', doc_type='teacherInfo', body=query)

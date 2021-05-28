@@ -21,16 +21,16 @@ def scholar_log_req(f):
 def get_recomm_professor(t_name_list):
     recomm_list = db.session.query(SimTable.dst).filter(SimTable.src.in_(t_name_list)).limit(30).all()
     recomm_list = [prof[0] for prof in recomm_list]
-    print("recomm", recomm_list)
+    # print("recomm", recomm_list)
     if len(recomm_list) == 0:
         recomm_professors = db.session.query(Researcher.Name, Researcher.Avatar, Researcher.University,
                                              Researcher.Title).order_by(func.rand()).limit(20).all()
-        print("here")
+        # print("here")
     else:
         recomm_professors = db.session.query(Researcher.Name, Researcher.Avatar, Researcher.University,
                                          Researcher.Title).filter(Researcher.Name.in_(recomm_list)).all()
     random.shuffle(recomm_professors)
-    print(recomm_professors)
+    # print(recomm_professors)
     if len(recomm_professors) <= 10:
         return recomm_professors
     return recomm_professors[:10]
