@@ -224,30 +224,21 @@ def professor(name="Quanshi Zhang"):
     print("name", name)
     # 这个地方需要传入被点击的实验者的姓名, 然后在数据库中进行搜索展示
     researcher = Researcher.query.filter_by(Name=name).first()
-    researcher.Mottos = json.loads(researcher.Mottos)
-    researcher.ResearchInterest = json.loads(researcher.ResearchInterest)
-    researcher.Awards = json.loads(researcher.Awards)
-    researcher.Co_authors = json.loads(researcher.Co_authors)
-    researcher.Papers = json.loads(researcher.Papers)
-    print(type(researcher.Cited_graph))
-    print(researcher.Cited_graph)
-    researcher.Cited_graph = json.loads(researcher.Cited_graph)
-    # researcher.Awards = json.loads(researcher.Awards)
-    # researcher.Co_authors = json.loads(researcher.Co_authors)
-    # researcher.Papers = json.loads(researcher.Papers)
-    # researcher.Cited_graph = json.loads(researcher.Cited_graph)
+    print(type(researcher.Co_authors))
+    print(researcher.Co_authors)
+    print(type(eval(researcher.Co_authors)))
     if researcher.DOB == "":
         researcher.DOB = "Unknown"
     Researcher_info = {"ID": researcher.ID, "Name": researcher.Name, "Avatar": researcher.Avatar,
                         "Title": researcher.Title, "HomePage": researcher.HomePage, "University": researcher.University,
                         "Lab": researcher.Lab, "Bio": researcher.Bio, "Sig": researcher.Signature,
                         "DOB": researcher.DOB, "Email": researcher.Email,
-                        "Mottos": json.loads(researcher.Mottos)["Mottos"],
-                        "ResearchInterest": json.loads(researcher.ResearchInterest)["ResearchInterest"],
-                        "Awards": json.loads(researcher.Awards)["Awards"],
-                        "Co_authors": json.loads(researcher.Co_authors)["Co_authors"],
-                        "Papers": json.loads(researcher.Papers)["Papers"],
-                        "Cited_graph": json.loads(researcher.Cited_graph)["Cited_graph"],
+                        "Mottos": eval(researcher.Mottos)["Mottos"],
+                        "ResearchInterest": eval(researcher.ResearchInterest)["ResearchInterest"],
+                        "Awards": eval(researcher.Awards)["Awards"],
+                        "Co_authors": eval(researcher.Co_authors)["Co_authors"],
+                        "Papers": eval(researcher.Papers)["Papers"],
+                        "Cited_graph": eval(researcher.Cited_graph)["Cited_graph"],
                         "PaperUrl": "/scholar/paper/" + researcher.Name.replace(" ", "%20"),
                         "ConnectionUrl": "/scholar/connection/" + researcher.Name.replace(" ", "%20")
                     }
@@ -256,8 +247,15 @@ def professor(name="Quanshi Zhang"):
     # Sidebar 的 search
     print("Researcher_info['ConnectionUrl']", Researcher_info['ConnectionUrl'])
 
-    recomm_professor_list = get_recomm_professor([Researcher.Name])
-
+    # recomm_professor_list = get_recomm_professor([Researcher.Name])
+    # form = EasySearchForm()
+    # if form.validate_on_submit():
+    #     data = form.data
+    #     # print("EasySearchForm", data)
+    #     if data['SideSearch'] is not None:
+    #         return redirect(url_for("scholar.entities", keyword=data['SideSearch'], page=1))
+    # return render_template("search/professor.html", Researcher_info=Researcher_info, form=form,
+    #                        recomm_list=recomm_professor_list, isFavor=isFavor)
     form = EasySearchForm()
     if form.validate_on_submit():
         data = form.data
@@ -265,7 +263,7 @@ def professor(name="Quanshi Zhang"):
         if data['SideSearch'] is not None:
             return redirect(url_for("scholar.entities", keyword=data['SideSearch'], page=1))
     return render_template("search/professor.html", Researcher_info=Researcher_info, form=form,
-                           recomm_list=recomm_professor_list, isFavor=isFavor)
+                           isFavor=isFavor)
 
 
 # @scholar_blue.route("/professor/paper/<string:name>", methods=["GET", "POST"])
